@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Europe Map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        
+        .controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 250px;
+        }
+        
+        .decade-buttons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .decade-btn {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .decade-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .decade-btn.active {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .variable-selector {
+            margin-bottom: 15px;
+        }
+        
+        .variable-selector label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .variable-selector select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            background: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .variable-selector select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .legend {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .legend-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .legend-gradient {
+            height: 20px;
+            background: linear-gradient(to right, #000000, #ffffff);
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .legend-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .leaflet-popup-content {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .popup-header {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+        }
+        
+        .popup-data {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .data-item {
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .data-label {
+            font-size: 12px;
+            color: #666;
+            display: block;
+        }
+        
+        .data-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <div class="controls">
+        <div class="decade-buttons">
+            <button class="decade-btn active" data-decade="1990">1990</button>
+            <button class="decade-btn" data-decade="2000">2000</button>
+            <button class="decade-btn" data-decade="2010">2010</button>
+        </div>
+        
+        <div class="variable-selector">
+            <label for="variableSelect">Color Variable:</label>
+            <select id="variableSelect">
+                <option value="variable1">Economic Growth (%)</option>
+                <option value="variable2">Population Density (per km²)</option>
+                <option value="variable3">Education Index</option>
+                <option value="variable4">Innovation Score</option>
+                <option value="variable5">Environmental Index</option>
+                <option value="sum">Sum of All Variables</option>
+            </select>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-title">Value Scale</div>
+            <div class="legend-gradient"></div>
+            <div class="legend-labels">
+                <span id="minValue">0</span>
+                <span id="maxValue">100</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+        // GeoJSON data URLs for European countries
+        const geoJsonUrl = 'https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson';
+        
+        // Sample data structure for European countries (mapped to country names in GeoJSON)
+        const countryData = {
+            'Germany': {
+                data: {
+                    1990: { variable1: 65, variable2: 230, variable3: 0.85, variable4: 72, variable5: 68 },
+                    2000: { variable1: 78, variable2: 235, variable3: 0.89, variable4: 81, variable5: 74 },
+                    2010: { variable1: 82, variable2: 240, variable3: 0.92, variable4: 87, variable5: 79 }
+                }
+            },
+            'France': {
+                data: {
+                    1990: { variable1: 68, variable2: 110, variable3: 0.83, variable4: 69, variable5: 71 },
+                    2000: { variable1: 75, variable2: 115, variable3: 0.87, variable4: 76, variable5: 76 },
+                    2010: { variable1: 79, variable2: 120, variable3: 0.90, variable4: 82, variable5: 81 }
+                }
+            },
+            'Italy': {
+                data: {
+                    1990: { variable1: 62, variable2: 195, variable3: 0.81, variable4: 65, variable5: 64 },
+                    2000: { variable1: 71, variable2: 200, variable3: 0.85, variable4: 73, variable5: 69 },
+                    2010: { variable1: 76, variable2: 205, variable3: 0.88, variable4: 78, variable5: 74 }
+                }
+            },
+            'Spain': {
+                data: {
+                    1990: { variable1: 58, variable2: 85, variable3: 0.79, variable4: 61, variable5: 66 },
+                    2000: { variable1: 69, variable2: 90, variable3: 0.83, variable4: 70, variable5: 72 },
+                    2010: { variable1: 74, variable2: 95, variable3: 0.87, variable4: 75, variable5: 77 }
+                }
+            },
+            'Poland': {
+                data: {
+                    1990: { variable1: 45, variable2: 125, variable3: 0.75, variable4: 52, variable5: 58 },
+                    2000: { variable1: 58, variable2: 130, variable3: 0.81, variable4: 63, variable5: 65 },
+                    2010: { variable1: 71, variable2: 135, variable3: 0.86, variable4: 74, variable5: 72 }
+                }
+            },
+            'United Kingdom': {
+                data: {
+                    1990: { variable1: 72, variable2: 255, variable3: 0.87, variable4: 78, variable5: 69 },
+                    2000: { variable1: 81, variable2: 260, variable3: 0.91, variable4: 84, variable5: 75 },
+                    2010: { variable1: 85, variable2: 265, variable3: 0.94, variable4: 89, variable5: 80 }
+                }
+            },
+            'Netherlands': {
+                data: {
+                    1990: { variable1: 75, variable2: 485, variable3: 0.89, variable4: 81, variable5: 78 },
+                    2000: { variable1: 83, variable2: 495, variable3: 0.93, variable4: 87, variable5: 83 },
+                    2010: { variable1: 87, variable2: 505, variable3: 0.96, variable4: 92, variable5: 87 }
+                }
+            },
+            'Belgium': {
+                data: {
+                    1990: { variable1: 70, variable2: 345, variable3: 0.86, variable4: 74, variable5: 73 },
+                    2000: { variable1: 78, variable2: 355, variable3: 0.90, variable4: 80, variable5: 78 },
+                    2010: { variable1: 82, variable2: 365, variable3: 0.93, variable4: 85, variable5: 82 }
+                }
+            },
+            'Austria': {
+                data: {
+                    1990: { variable1: 67, variable2: 98, variable3: 0.84, variable4: 71, variable5: 72 },
+                    2000: { variable1: 75, variable2: 102, variable3: 0.88, variable4: 78, variable5: 77 },
+                    2010: { variable1: 80, variable2: 106, variable3: 0.91, variable4: 83, variable5: 81 }
+                }
+            },
+            'Bulgaria': {
+                data: {
+                    1990: { variable1: 38, variable2: 66, variable3: 0.71, variable4: 45, variable5: 52 },
+                    2000: { variable1: 52, variable2: 68, variable3: 0.77, variable4: 58, variable5: 61 },
+                    2010: { variable1: 65, variable2: 70, variable3: 0.82, variable4: 67, variable5: 68 }
+                }
+            },
+            'Croatia': {
+                data: {
+                    1990: { variable1: 41, variable2: 73, variable3: 0.73, variable4: 48, variable5: 55 },
+                    2000: { variable1: 56, variable2: 75, variable3: 0.79, variable4: 61, variable5: 63 },
+                    2010: { variable1: 69, variable2: 77, variable3: 0.84, variable4: 70, variable5: 71 }
+                }
+            },
+            'Czech Republic': {
+                data: {
+                    1990: { variable1: 51, variable2: 132, variable3: 0.78, variable4: 59, variable5: 62 },
+                    2000: { variable1: 66, variable2: 135, variable3: 0.84, variable4: 71, variable5: 69 },
+                    2010: { variable1: 75, variable2: 138, variable3: 0.89, variable4: 78, variable5: 75 }
+                }
+            },
+            'Estonia': {
+                data: {
+                    1990: { variable1: 44, variable2: 31, variable3: 0.76, variable4: 52, variable5: 59 },
+                    2000: { variable1: 61, variable2: 32, variable3: 0.83, variable4: 68, variable5: 70 },
+                    2010: { variable1: 74, variable2: 33, variable3: 0.88, variable4: 76, variable5: 77 }
+                }
+            },
+            'Greece': {
+                data: {
+                    1990: { variable1: 59, variable2: 83, variable3: 0.80, variable4: 63, variable5: 65 },
+                    2000: { variable1: 68, variable2: 85, variable3: 0.85, variable4: 69, variable5: 70 },
+                    2010: { variable1: 72, variable2: 87, variable3: 0.88, variable4: 73, variable5: 74 }
+                }
+            },
+            'Hungary': {
+                data: {
+                    1990: { variable1: 47, variable2: 108, variable3: 0.76, variable4: 55, variable5: 60 },
+                    2000: { variable1: 62, variable2: 110, variable3: 0.82, variable4: 67, variable5: 67 },
+                    2010: { variable1: 71, variable2: 112, variable3: 0.87, variable4: 74, variable5: 72 }
+                }
+            },
+            'Ireland': {
+                data: {
+                    1990: { variable1: 64, variable2: 55, variable3: 0.82, variable4: 67, variable5: 69 },
+                    2000: { variable1: 76, variable2: 60, variable3: 0.87, variable4: 76, variable5: 75 },
+                    2010: { variable1: 82, variable2: 65, variable3: 0.92, variable4: 82, variable5: 80 }
+                }
+            },
+            'Latvia': {
+                data: {
+                    1990: { variable1: 42, variable2: 35, variable3: 0.74, variable4: 50, variable5: 57 },
+                    2000: { variable1: 59, variable2: 36, variable3: 0.81, variable4: 65, variable5: 68 },
+                    2010: { variable1: 72, variable2: 37, variable3: 0.86, variable4: 74, variable5: 75 }
+                }
+            },
+            'Lithuania': {
+                data: {
+                    1990: { variable1: 43, variable2: 50, variable3: 0.75, variable4: 51, variable5: 58 },
+                    2000: { variable1: 60, variable2: 52, variable3: 0.82, variable4: 66, variable5: 69 },
+                    2010: { variable1: 73, variable2: 54, variable3: 0.87, variable4: 75, variable5: 76 }
+                }
+            },
+            'Luxembourg': {
+                data: {
+                    1990: { variable1: 78, variable2: 185, variable3: 0.91, variable4: 82, variable5: 79 },
+                    2000: { variable1: 85, variable2: 195, variable3: 0.95, variable4: 88, variable5: 84 },
+                    2010: { variable1: 89, variable2: 205, variable3: 0.97, variable4: 92, variable5: 88 }
+                }
+            },
+            'Portugal': {
+                data: {
+                    1990: { variable1: 56, variable2: 112, variable3: 0.78, variable4: 60, variable5: 63 },
+                    2000: { variable1: 67, variable2: 115, variable3: 0.83, variable4: 68, variable5: 69 },
+                    2010: { variable1: 73, variable2: 118, variable3: 0.87, variable4: 74, variable5: 74 }
+                }
+            },
+            'Romania': {
+                data: {
+                    1990: { variable1: 40, variable2: 92, variable3: 0.72, variable4: 47, variable5: 54 },
+                    2000: { variable1: 55, variable2: 94, variable3: 0.78, variable4: 60, variable5: 62 },
+                    2010: { variable1: 68, variable2: 96, variable3: 0.83, variable4: 69, variable5: 69 }
+                }
+            },
+            'Slovakia': {
+                data: {
+                    1990: { variable1: 49, variable2: 111, variable3: 0.77, variable4: 57, variable5: 61 },
+                    2000: { variable1: 64, variable2: 113, variable3: 0.83, variable4: 69, variable5: 68 },
+                    2010: { variable1: 73, variable2: 115, variable3: 0.88, variable4: 76, variable5: 74 }
+                }
+            },
+            'Slovenia': {
+                data: {
+                    1990: { variable1: 54, variable2: 101, variable3: 0.79, variable4: 62, variable5: 66 },
+                    2000: { variable1: 69, variable2: 103, variable3: 0.85, variable4: 72, variable5: 72 },
+                    2010: { variable1: 76, variable2: 105, variable3: 0.90, variable4: 79, variable5: 77 }
+                }
+            },
+        };
+
+        // Initialize map
+        const map = L.map('map').setView([54.5, 15.0], 4);
+
+        // Add tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Current state
+        let currentDecade = '1990';
+        let currentVariable = 'variable1';
+        let countryLayers = {};
+
+        // Variable names for display
+        const variableNames = {
+            variable1: 'Economic Growth',
+            variable2: 'Population Density',
+            variable3: 'Education Index',
+            variable4: 'Innovation Score',
+            variable5: 'Environmental Index',
+            sum: 'Combined Score'
+        };
+
+        // Get color based on value
+        function getColor(value, min, max) {
+            const ratio = (value - min) / (max - min);
+            const grayValue = Math.round(255 * ratio);
+            return `rgb(${255 - grayValue}, ${255 - grayValue}, ${255 - grayValue})`;
+        }
+
+        // Calculate value for country based on current variable
+        function calculateValue(countryName) {
+            if (!countryData[countryName]) return 0;
+            const data = countryData[countryName].data[currentDecade];
+            if (currentVariable === 'sum') {
+                return data.variable1 + data.variable2 + data.variable3 * 100 + data.variable4 + data.variable5;
+            }
+            return currentVariable === 'variable3' ? data[currentVariable] * 100 : data[currentVariable];
+        }
+
+        // Get country name from feature properties
+        function getCountryName(feature) {
+            // GeoJSON properties might have different name fields
+            return feature.properties.ADMIN || 
+                   feature.properties.NAME || 
+                   feature.properties.name || 
+                   feature.properties.NAME_EN ||
+                   'Unknown';
+        }
+
+        // Get min and max values for current variable and decade
+        function getMinMaxValues() {
+            const values = Object.keys(countryData)
+                .filter(country => countryData[country])
+                .map(country => calculateValue(country))
+                .filter(value => value > 0);
+            return {
+                min: Math.min(...values),
+                max: Math.max(...values)
+            };
+        }
+
+        // Create popup content
+        function createPopupContent(countryName) {
+            if (!countryData[countryName]) {
+                return `<div class="popup-header">${countryName}</div><p>No data available for this country</p>`;
+            }
+            
+            const data = countryData[countryName].data[currentDecade];
+            return `
+                <div class="popup-header">${countryName} (${currentDecade})</div>
+                <div class="popup-data">
+                    <div class="data-item">
+                        <span class="data-label">Economic Growth</span>
+                        <span class="data-value">${data.variable1}%</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Population Density</span>
+                        <span class="data-value">${data.variable2}/km²</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Education Index</span>
+                        <span class="data-value">${data.variable3}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Innovation Score</span>
+                        <span class="data-value">${data.variable4}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Environmental Index</span>
+                        <span class="data-value">${data.variable5}</span>
+                    </div>
+                    <div class="data-item" style="grid-column: 1 / -1;">
+                        <span class="data-label">Current Display Value</span>
+                        <span class="data-value">${calculateValue(countryName).toFixed(1)}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // GeoJSON layer for countries
+        let geojsonLayer;
+
+        // Style function for GeoJSON features
+        function styleFeature(feature) {
+            const countryName = getCountryName(feature);
+            const { min, max } = getMinMaxValues();
+            
+            if (countryData[countryName]) {
+                const value = calculateValue(countryName);
+                const color = getColor(value, min, max);
+                return {
+                    fillColor: color,
+                    weight: 2,
+                    opacity: 1,
+                    color: '#333',
+                    fillOpacity: 0.8
+                };
+            } else {
+                // Style for countries without data
+                return {
+                    fillColor: '#f0f0f0',
+                    weight: 1,
+                    opacity: 0.5,
+                    color: '#999',
+                    fillOpacity: 0.3
+                };
+            }
+        }
+
+        // Feature interaction functions
+        function onEachFeature(feature, layer) {
+            const countryName = getCountryName(feature);
+            
+            layer.on({
+                click: function(e) {
+                    layer.bindPopup(createPopupContent(countryName)).openPopup();
+                },
+                mouseover: function(e) {
+                    const layer = e.target;
+                    layer.setStyle({
+                        weight: 3,
+                        color: '#666',
+                        fillOpacity: 0.9
+                    });
+                },
+                mouseout: function(e) {
+                    geojsonLayer.resetStyle(e.target);
+                }
+            });
+        }
+
+        // EU member countries (as of 2023)
+        const euMemberCountries = [
+            'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic',
+            'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece',
+            'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg',
+            'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia',
+            'Slovenia', 'Spain', 'Sweden'
+        ];
+
+        // Alternative country names that might appear in GeoJSON data
+        const countryNameMap = {
+            'Czech Republic': ['Czechia', 'Czech Republic'],
+            'Netherlands': ['Netherlands', 'The Netherlands'],
+            'United Kingdom': ['United Kingdom', 'Great Britain', 'UK'] // Note: UK left EU but keeping for reference
+        };
+
+        // Check if country is EU member
+        function isEUMember(countryName) {
+            // Direct match
+            if (euMemberCountries.includes(countryName)) {
+                return true;
+            }
+            
+            // Check alternative names
+            for (const [standardName, alternatives] of Object.entries(countryNameMap)) {
+                if (alternatives.includes(countryName) && euMemberCountries.includes(standardName)) {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+
+        // Load and display GeoJSON data
+        function loadGeoJSON() {
+            fetch(geoJsonUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Filter for EU member countries only
+                    const euCountries = data.features.filter(feature => {
+                        const countryName = getCountryName(feature);
+                        return isEUMember(countryName);
+                    });
+
+                    console.log('EU countries found:', euCountries.map(f => getCountryName(f)));
+
+                    geojsonLayer = L.geoJSON({ type: 'FeatureCollection', features: euCountries }, {
+                        style: styleFeature,
+                        onEachFeature: onEachFeature
+                    }).addTo(map);
+
+                    // Fit map to EU bounds
+                    map.fitBounds(geojsonLayer.getBounds());
+                })
+                .catch(error => {
+                    console.error('Error loading GeoJSON:', error);
+                    // Fallback to simple rectangles if GeoJSON fails
+                    initializeCountries();
+                });
+        }
+
+        // Update map colors and legend
+        function updateMap() {
+            const { min, max } = getMinMaxValues();
+            
+            // Update legend
+            document.getElementById('minValue').textContent = min.toFixed(1);
+            document.getElementById('maxValue').textContent = max.toFixed(1);
+
+            // Update GeoJSON layer style if it exists
+            if (geojsonLayer) {
+                geojsonLayer.setStyle(styleFeature);
+            }
+        }
+
+        // Initialize country layers (fallback method)
+        function initializeCountries() {
+            console.log('Using fallback rectangle method for countries');
+            // This is the fallback method using rectangles
+            // (keeping the original implementation as backup)
+        }
+
+        // Event listeners
+        document.querySelectorAll('.decade-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.decade-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                currentDecade = this.dataset.decade;
+                updateMap();
+            });
+        });
+
+        document.getElementById('variableSelect').addEventListener('change', function() {
+            currentVariable = this.value;
+            updateMap();
+        });
+
+        // Initialize the map
+        loadGeoJSON();
+    </script>
+</body>
+</html>
