@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Europe Map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        
+        .controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 250px;
+        }
+        
+        .decade-buttons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .decade-btn {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .decade-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .decade-btn.active {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .variable-selector {
+            margin-bottom: 15px;
+        }
+        
+        .variable-selector label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .variable-selector select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            background: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .variable-selector select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .legend {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .legend-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .legend-gradient {
+            height: 20px;
+            background: linear-gradient(to right, #ff0000, #ffffff);
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .legend-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .leaflet-popup-content {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .popup-header {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+        }
+        
+        .popup-data {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .data-item {
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .data-label {
+            font-size: 12px;
+            color: #666;
+            display: block;
+        }
+        
+        .data-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <div class="controls">
+        <div class="decade-buttons" style="flex-direction: column; gap: 12px;">
+            <label for="decadeSelect" style="font-weight:600; color:#333; margin-bottom:6px;">Select Decade:</label>
+            <select id="decadeSelect" style="width:100%; padding:10px; border:2px solid #e1e8ed; border-radius:8px; background:white; font-size:14px; cursor:pointer;">
+                <option value="1940">1940s</option>
+                <option value="1950">1950s</option>
+                <option value="1960">1960s</option>
+                <option value="1970">1970s</option>
+                <option value="1980">1980s</option>
+                <option value="1990" selected>1990s</option>
+                <option value="2000">2000s</option>
+                <option value="2010">2010s</option>
+            </select>
+        </div>
+        <script>
+                    </script>
+        
+        <div class="variable-selector">
+            <label for="variableSelect">Color Variable:</label>
+            <select id="variableSelect">
+                <option value="Liberal Democracy Index">Mean Liberal Democracy Index</option>
+                <option value="Polyarchy Index">Mean Polyarchy Index</option>
+                <option value="Participatory Democracy Index">Mean Participatory Democracy Index</option>
+                <option value="Deliberatory Democracy Index">Mean Deliberatory Democracy Index</option>
+                <option value="Egalitarian Democracy Index">Mean Egalitarian Democracy Index</option>
+                <option value="HHI">Mean HHI</option>
+                <option value="ENPP">Mean ENPP</option>
+                <option value="Vote turnout (parliamentary)">Mean Vote turnout (parliamentary)</option>
+            </select>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-title">Value Scale</div>
+            <div class="legend-gradient"></div>
+            <div class="legend-labels">
+                <span id="minValue">0</span>
+                <span id="maxValue">100</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+
+        let countryData;
+        // GeoJSON layer for countries
+        let geojsonLayer;
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            countryData = await fetch('./data/values_by_country.json').then(response => response.json());
+            console.log(countryData)
+            // Initialize the map
+            loadGeoJSON();
+        });
+
+        // GeoJSON data URLs for European countries
+        const geoJsonUrl = 'https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson';
+        
+        // Initialize map
+        const map = L.map('map', {
+              maxBounds: [
+                [-90, -180],
+                [90, 180]
+              ],
+              maxBoundsViscosity: 1.0
+        }).setView([54.5, 15.0], 4);
+
+        
+        
+    // Add tile layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+      noWrap: true,
+      bounds: [[-90, -180], [90, 180]]
+    }).addTo(map);
+
+        // Current state
+        let currentDecade = '1990';
+        let currentVariable = 'Liberal Democracy Index';
+        let countryLayers = {};
+
+        // Variable names for display
+        
+
+        // Get color based on value
+        function getColor(value, min, max) {
+            const ratio = (value - min) / (max - min);
+            
+            // Red component stays at 255 (full red)
+            const red = 255;
+            
+            // Green and blue components increase from 0 to 255 as ratio goes from 0 to 1
+            // This creates the transition from red (255,0,0) to white (255,255,255)
+            const greenBlue = Math.round(255 * (1 - ratio));
+            
+            return `rgb(${red}, ${greenBlue}, ${greenBlue})`;
+        }
+
+        // Calculate value for country based on current variable
+        function calculateValue(countryName) {
+            if (!countryData[countryName]) return 0;
+            if (!countryData[countryName][currentDecade]) return 0;
+
+            const data = countryData[countryName][currentDecade];
+            
+            return data[currentVariable];
+        }
+
+        // Get country name from feature properties
+        function getCountryName(feature) {
+            // GeoJSON properties might have different name fields
+            return feature.properties.ADMIN || 
+                   feature.properties.NAME || 
+                   feature.properties.name || 
+                   feature.properties.NAME_EN ||
+                   'Unknown';
+        }
+
+        // Get min and max values for current variable and decade
+        function getMinMaxValues() {
+            const values = Object.keys(countryData)
+                .filter(country => countryData[country])
+                .map(country => calculateValue(country))
+                .filter(value => value > 0);
+            return {
+                min: Math.min(...values),
+                max: Math.max(...values)
+            };
+        }
+        
+        function getValues(obj) {
+            console.log(obj)
+            let arr = []
+            Object.keys(obj).forEach(key =>{
+                const val = obj[key];
+                let newVal;
+                if ( (val === null) || (val === 0.00) ){
+                    newVal = "Missing";
+                } else {
+                    newVal = val.toFixed(2)
+                }
+                arr.push(newVal)
+            });
+            return arr
+        }
+
+        // Create popup content
+        function createPopupContent(countryName) {
+            if (!countryData[countryName] || 
+                (!countryData[countryName][currentDecade])) {
+                return `<div class="popup-header">${countryName}</div><p>No data available for this country</p>`;
+            }
+            
+            let data = countryData[countryName][currentDecade]
+            const values = getValues(data)
+
+            return `
+                <div class="popup-header">${countryName} (${currentDecade})</div>
+                <div class="popup-data">
+                    <div class="data-item">
+                        <span class="data-label">Liberal Democracy Index</span>
+                        <span class="data-value">${values[0]}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Polyarchy Index</span>
+                        <span class="data-value">${values[1]}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Participatory Democracy Index</span>
+                        <span class="data-value">${values[2]}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Deliberatory Democracy Index</span>
+                        <span class="data-value">${values[3]}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Egalitarian Democracy Index</span>
+                        <span class="data-value">${values[4]}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">HHI</span>
+                        <span class="data-value">${values[5]}${values[5] === "Missing" ? "" : "%"}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">ENPP</span>
+                        <span class="data-value">${values[6]}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Voter Turnout (parliamentary)</span>
+                        <span class="data-value">${values[7]}${values[7] === "Missing" ? "" : "%"}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Style function for GeoJSON features
+        function styleFeature(feature) {
+            const countryName = getCountryName(feature);
+            const { min, max } = getMinMaxValues();
+            
+            if ( (countryData[countryName]) &&
+                (countryData[countryName][currentDecade]) ) {
+                const value = calculateValue(countryName);
+                const color = getColor(value, min, max);
+                return {
+                    fillColor: color,
+                    weight: 2,
+                    opacity: 1,
+                    color: '#333',
+                    fillOpacity: 0.8
+                };
+            } else {
+                // Style for countries without data
+                return {
+                    fillColor: '#f0f0f0',
+                    weight: 1,
+                    opacity: 0.5,
+                    color: '#999',
+                    fillOpacity: 0.3
+                };
+            }
+        }
+
+        // Feature interaction functions
+        function onEachFeature(feature, layer) {
+            const countryName = getCountryName(feature);
+            
+            layer.on({
+                click: function(e) {
+                    layer.bindPopup(createPopupContent(countryName)).openPopup();
+                },
+                mouseover: function(e) {
+                    const layer = e.target;
+                    layer.setStyle({
+                        fillOpacity: 0.9
+                    });
+                },
+                mouseout: function(e) {
+                    geojsonLayer.resetStyle(e.target);
+                }
+            });
+        }
+
+        // Load and display GeoJSON data
+        function loadGeoJSON() {
+            fetch(geoJsonUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Filter for EU member countries only
+                    const validCountries = data.features.filter(feature => {
+                        const countryName = getCountryName(feature);
+                        return Object.keys(countryData).includes(countryName)
+                    });
+
+                    geojsonLayer = L.geoJSON(
+                        { 
+                            type: 'FeatureCollection', 
+                            features: validCountries
+                        }, 
+                        {
+                            style: styleFeature,
+                            onEachFeature: onEachFeature
+                        })
+                    .addTo(map);
+                })
+                .catch(error => {
+                    console.error('Error loading GeoJSON:', error);
+                    // Fallback to simple rectangles if GeoJSON fails
+                    initializeCountries();
+                });
+        }
+
+        // Update map colors and legend
+        function updateMap() {
+            const { min, max } = getMinMaxValues();
+            
+            // Update legend
+            document.getElementById('minValue').textContent = min.toFixed(1);
+            document.getElementById('maxValue').textContent = max.toFixed(1);
+
+            // Update GeoJSON layer style if it exists
+            if (geojsonLayer) {
+                geojsonLayer.setStyle(styleFeature);
+            }
+        }
+
+        // Initialize country layers (fallback method)
+        function initializeCountries() {
+            console.log('Using fallback rectangle method for countries');
+            // This is the fallback method using rectangles
+            // (keeping the original implementation as backup)
+        }
+
+        // Event listeners
+
+        // Dropdown decade selection
+        document.getElementById('decadeSelect').addEventListener('change', function() {
+            const decade = this.value;
+            currentDecade = decade;
+            // Update button highlight
+            document.querySelectorAll('.decade-btn').forEach(b => {
+                b.classList.toggle('active', b.dataset.decade === decade);
+            });
+            updateMap();
+        });
+        // Button decade selection
+        document.querySelectorAll('.decade-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.getElementById('decadeSelect').value = this.dataset.decade;
+                currentDecade = this.dataset.decade;
+                document.querySelectorAll('.decade-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                updateMap();
+            });
+        });
+
+
+        document.getElementById('variableSelect').addEventListener('change', function() {
+            currentVariable = this.value;
+            updateMap();
+        });
+        
+        
+    </script>
+</body>
+</html>
