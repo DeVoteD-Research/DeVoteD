@@ -1,0 +1,13 @@
+#bubble {
+  margin-bottom: 100px;
+}
+
+#bubble-description {
+  margin-top: 100px;
+  margin-left: 25px;
+}
+
+.node:hover{
+  stroke-width: 4px !important;
+  opacity: 0.8 !important;
+}

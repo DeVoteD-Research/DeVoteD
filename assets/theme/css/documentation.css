@@ -1,0 +1,32 @@
+.anchor {
+  padding-top: 230px;
+  margin-top: -230px;
+}
+#side-menu-div {
+  border-left: 1px solid #000;
+}
+#side-menu, #side-menu-sub {
+  line-height: 1.5;
+  font-size: 1rem;
+  margin: 0;
+  list-style: none;
+  padding-left: 30px;
+}
+#side-menu-sub {
+  padding-left: 20px;
+}
+#side-menu a, #side-menu-sub a {
+  color: #232323;
+  padding-left: 10px;
+}
+#side-menu a:hover, #side-menu-sub a:hover {
+  color: #53A1D6;
+}
+#side-menu-wrapper {
+  position:fixed;
+  overflow: scroll;
+  transition: bottom 1s;
+}
+.cid-rvhLFeJf7A {
+  padding-top: 25px;
+}
