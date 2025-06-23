@@ -38,14 +38,13 @@ datasets = [
         "theme": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
         "issued": "2014",
         "modified": "2025",
-        "license": "n/a",
+        "license": "",
         "language": "English",
         "keywords": "democracy, indeces, indicators, politics",
         "version": "15",
         "publisher": "http://viaf.org/viaf/140125343",
         "spatial coverage": "global",
         "temporal coverage": "1900-2024"
-
     },
     {
         "id": "IDEA_Voter_Turnout",
@@ -53,16 +52,15 @@ datasets = [
         "distribution": "XLS, API",
         "description": "The most comprehensive global collection of voter turnout statistics from presidential and parliamentary elections since 1945.",
         "theme": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
-        "issued": "n/a",
-        "modified": "n/a",
-        "license": "n/a",
+        "issued": "",
+        "modified": "",
+        "license": "",
         "language": "English",
         "keywords": "democracy, vote, turnout, politics, election",
-        "version": "n/a",
+        "version": "",
         "publisher": "http://viaf.org/viaf/129505852",
         "spatial coverage": "global",
         "temporal coverage": "1945-2024"
-
     },
     {
         "id": "Party_Facts",
@@ -90,12 +88,11 @@ datasets = [
         "modified": "2025",
         "license": "https://creativecommons.org/licenses/by/4.0/",
         "language": "English",
-        "keywords": "democracy, party, vote, turnout, politics, indeces, ",
+        "keywords": "democracy, party, vote, turnout, politics, indeces",
         "version": "1.0",
-        "publisher": "n/a",
+        "publisher": "",
         "spatial coverage": "global",
         "temporal coverage": "1945-2024"
-
     },
 ]
 
@@ -107,35 +104,34 @@ for dataset in datasets:
     g.add((dataset_uri, DCAT.title, Literal(dataset["title"], lang="en")))
     g.add((dataset_uri, RDF.type, DCAT.Dataset))
     g.add((dataset_uri, RDF.type, PROV.Entity))
-    g.add((dataset_uri, DCTERMS.description, Literal(dataset["description"], lang="en")))
-    g.add((dataset_uri, DCAT.theme, URIRef(dataset["theme"])))
-    g.add((dataset_uri, DCAT.releaseDate, Literal(dataset["issued"], datatype=XSD.year)))
-    g.add((dataset_uri, DCAT.releaseDate, Literal(dataset["modified"], datatype=XSD.year)))
-    g.add((dataset_uri, DCAT.license, URIRef(dataset["license"])))
     for el in dataset["distribution"].split(", "):
         g.add((dataset_uri, DCAT.distribution, Literal(el)))
+    g.add((dataset_uri, DCTERMS.description, Literal(dataset["description"], lang="en")))
+    g.add((dataset_uri, DCAT.theme, URIRef(dataset["theme"])))
+    g.add((dataset_uri, DCTERMS.issued, Literal(dataset["issued"], datatype=XSD.year)))
+    g.add((dataset_uri, DCTERMS.modified, Literal(dataset["modified"], datatype=XSD.year)))
+    g.add((dataset_uri, DCAT.license, URIRef(dataset["license"])))
     g.add((dataset_uri, DCAT.language,  Literal("en", datatype=XSD.language)))
-
-    if isinstance(dataset["publisher"], list):
-        for publisher in dataset["publisher"]:
-            g.add((dataset_uri, PROV.wasAttributedTo, URIRef(publisher)))
-    else:
-        # For a single publisher
-        g.add((dataset_uri, PROV.wasAttributedTo, URIRef(dataset["publisher"])))
+    for el in dataset["keywords"].split(", "):
+        g.add((dataset_uri, DCAT.keyword, Literal(el, lang="en")))
+    g.add((dataset_uri, DCTERMS.hasVersion, Literal(dataset["version"])))
+    g.add((dataset_uri, PROV.wasAttributedTo, URIRef(dataset["publisher"])))
+    g.add((dataset_uri, DCTERMS.spatial, Literal(dataset["spatial coverage"])))
+    g.add((dataset_uri, DCTERMS.temporal, Literal(dataset["temporal coverage"])))
 
 
 # Aggiungi informazioni al catalogo
-catalog_uri = URIRef("https://github.com/Asemica-me/OADE_OpenVoices/tree/main/data")
+catalog_uri = URIRef("https://github.com/DeVoteD-Research/DeVoteD/tree/main/data")
 catalog_g.add((catalog_uri, RDF.type, DCAT.Catalog))
-catalog_g.add((catalog_uri, DCTERMS.title, Literal("Open Voices OADE Project - Datasets Catalog", lang="en")))
+catalog_g.add((catalog_uri, DCTERMS.title, Literal("DeVoteD - Datasets Catalog", lang="en")))
 catalog_g.add((catalog_uri, DCTERMS.description,
-               Literal("Catalog containing the datasets for the Open Voices project", lang="en")))
-catalog_g.add((catalog_uri, PROV.wasAttributedTo, URIRef("https://github.com/Asemica-me/OADE_OpenVoices")))
-catalog_g.add((catalog_uri, DCTERMS.issued, Literal("2025-01-01", datatype=XSD.date)))
-catalog_g.add((catalog_uri, DCTERMS.modified, Literal("2025-01-01", datatype=XSD.date)))
+               Literal("Catalog containing the datasets for the DeVoted project", lang="en")))
+catalog_g.add((catalog_uri, PROV.wasAttributedTo, URIRef("https://github.com/DeVoteD-Research/DeVoteD")))
+catalog_g.add((catalog_uri, DCTERMS.issued, Literal("2025", datatype=XSD.date)))
+catalog_g.add((catalog_uri, DCTERMS.modified, Literal("2025", datatype=XSD.date)))
 catalog_g.add((catalog_uri, DCTERMS.license, URIRef("https://creativecommons.org/licenses/by/4.0/")))
 catalog_g.add((catalog_uri, DCAT.language,  Literal("en", datatype=XSD.language)))
-catalog_g.add((catalog_uri, ADMS.identifier,  Literal("OV-Catalog", datatype=XSD.string)))
+catalog_g.add((catalog_uri, ADMS.identifier,  Literal("DeVoteD-Catalog", datatype=XSD.string)))
 
 # License
 license_uri = URIRef("https://creativecommons.org/licenses/by/4.0/")
@@ -151,9 +147,8 @@ catalog_g.add((license_uri, CC.requires, CC.Attribution))
 catalog_g.add((license_uri, RDFS.label, Literal("Creative Commons CC-BY 4.0", lang="en")))
 
 
-
 # Creazione della directory serialisations se non esiste
-output_dir = "serialization"
+output_dir = "serialization/"
 
 # Salvataggio del file nella directory
 datasets_file = os.path.join(output_dir, "serial_datasets.ttl")
