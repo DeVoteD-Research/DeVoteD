@@ -55,8 +55,7 @@ dvd:Party_Facts a prov:Entity,
     dct:spatial "global" ;
     dct:temporal "1945-2024" ;
     prov:wasAttributedTo <http://viaf.org/viaf/261806653> ;
-    dcat3:distribution "CSV",
-        "TAB" ;
+    dcat3:distribution "TAB" ;
     dcat3:keyword "democracy"@en,
         "parties"@en,
         "politics"@en,

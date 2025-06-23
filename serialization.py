@@ -65,7 +65,7 @@ datasets = [
     {
         "id": "Party_Facts",
         "title": "Party Facts - Version 2023",
-        "distribution": "CSV, TAB",
+        "distribution": "TAB",
         "description": "Party Facts links datasets on political parties.",
         "theme": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
         "issued": "2019",
