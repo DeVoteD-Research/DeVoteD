@@ -1,17 +1,19 @@
 import os
-from rdflib import Graph, Namespace, Literal, URIRef
-from rdflib.namespace import DCTERMS, PROV, XSD, RDF, RDFS
+from rdflib import Graph, Namespace, Literal, URIRef, BNode
+from rdflib.namespace import DCTERMS, PROV, XSD, RDF, RDFS, FOAF, SKOS, ORG
 
 # Definizione dei namespace
 DCATAPIT = Namespace("http://dati.gov.it/onto/dcatapit/")
 DCAT = Namespace("https://www.w3.org/ns/dcat#")
 ADMS = Namespace("http://www.w3.org/ns/adms#")
-DVD = Namespace("https://github.com/DeVoteD-Research/DeVoteD")
+DVD = Namespace("https://github.com/DeVoteD-Research/DeVoteD/")
 CC = Namespace("http://creativecommons.org/ns#")
+VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
+
 
 # Creazione del grafo
 g = Graph()
-catalog_g = Graph()
+metadata_g = Graph()
 g.bind("dcat3", DCAT)
 g.bind("dct", DCTERMS)
 g.bind("prov", PROV)
@@ -21,143 +23,239 @@ g.bind("dcatapit", DCATAPIT)
 g.bind("dvd", DVD)
 g.bind("cc", CC)
 
-catalog_g.bind("dcat3", DCAT)
-catalog_g.bind("dct", DCTERMS)
-catalog_g.bind("adms", ADMS)
-catalog_g.bind("xsd", XSD)
-catalog_g.bind("dcatapit", DCATAPIT)
-catalog_g.bind("cc", CC)
+metadata_g.bind("dcat3", DCAT)
+metadata_g.bind("dct", DCTERMS)
+metadata_g.bind("adms", ADMS)
+metadata_g.bind("xsd", XSD)
+metadata_g.bind("dcatapit", DCATAPIT)
+metadata_g.bind("cc", CC)
+metadata_g.bind("vcard", VCARD)
+metadata_g.bind("foaf", FOAF)
+metadata_g.bind("org", ORG)
+metadata_g.bind("skos", SKOS)
 
 # Lista dei dataset
 datasets = [
     {
-        "id": "V-Dem_Core",
+        "catalog": {
+            "url": "https://v-dem.net/about/v-dem-project/",
+            "description": "Varieties of Democracy (V-Dem) is a unique approach to conceptualizing and measuring democracy. We provide a multidimensional and disaggregated dataset that reflects the complexity of the concept of democracy as a system of rule that goes beyond the simple presence of elections. The V-Dem project distinguishes between five high-level principles of democracy: electoral, liberal, participatory, deliberative, and egalitarian, and collects data to measure these principles."
+        },
+        "id": "https://v-dem.net/data/the-v-dem-dataset/country-year-v-dem-core-v15/",
         "title": "Country-Year: V-Dem Core",
-        "distribution": "STATA, CSV, R, SPSS",
+        "distribution": "https://v-dem.net/data/the-v-dem-dataset/country-year-v-dem-core-v15/",
         "description": "The five high-level V-Dem democracy indices, 92 sub-indices, and the 167 indicators constituting them.",
         "theme": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
         "issued": "2014",
         "modified": "2025",
         "license": "",
-        "language": "English",
-        "keywords": "democracy, indeces, indicators, politics",
+        "language": "http://lexvo.org/id/iso639-1/en",
+        "keywords": "democracy, indeces, indicators, politics, global, international",
         "version": "15",
-        "publisher": "http://viaf.org/viaf/140125343",
-        "spatial coverage": "global",
-        "temporal coverage": "1900-2024"
+        "publisher": {"url": "http://viaf.org/viaf/140125343", "label": "Göteborgs Universitet"},
+        "temporal coverage": {"label": "19002024", "start": "1900", "end": "2024"},
+        "contact": "mailto:contact@v-dem.net"
     },
     {
-        "id": "IDEA_Voter_Turnout",
+        "catalog": {
+            "url": "https://www.idea.int/data-tools",
+            "description": "The International Institute for Democracy and Electoral Assistance (International IDEA) is an intergovernmental organization that supports democracy worldwide."
+        },
+        "id": "https://www.idea.int/data-tools/data/voter-turnout-database",
         "title": "IDEA Voter Turnout Database",
-        "distribution": "XLS, API",
+        "distribution": "https://www.idea.int/data-tools/data/voter-turnout-database",
         "description": "The most comprehensive global collection of voter turnout statistics from presidential and parliamentary elections since 1945.",
         "theme": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
         "issued": "",
         "modified": "",
         "license": "",
-        "language": "English",
-        "keywords": "democracy, vote, turnout, politics, election",
+        "language": "http://lexvo.org/id/iso639-1/en",
+        "keywords": "democracy, vote, turnout, politics, election, global, international",
         "version": "",
-        "publisher": "http://viaf.org/viaf/129505852",
-        "spatial coverage": "global",
-        "temporal coverage": "1945-2024"
+        "publisher": {"url": "http://viaf.org/viaf/129505852", "label": "International Institute for Democracy and Electoral Assistance"},
+        "temporal coverage": {"label": "19452024", "start": "1945", "end": "2024"},
+        "contact": "tel:+4686983700"
     },
     {
-        "id": "Party_Facts",
+        "catalog": {
+            "url": "https://dataverse.harvard.edu/dataverse/partyfacts", 
+            "description": "Party Facts links datasets on political parties and provides an online platform about parties and their history as recorded in social science datasets."
+        },
+        "id": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ",
         "title": "Party Facts - Version 2023",
-        "distribution": "TAB",
+        "distribution": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ",
         "description": "Party Facts links datasets on political parties.",
         "theme": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
         "issued": "2019",
         "modified": "2023",
         "license": "https://creativecommons.org/licenses/by/1.0/",
-        "language": "English",
-        "keywords": "democracy, parties, social sciences, politics",
+        "language": "http://lexvo.org/id/iso639-1/en",
+        "keywords": "democracy, parties, social sciences, politics, global, international",
         "version": "1.1",
-        "publisher": "http://viaf.org/viaf/261806653",
-        "spatial coverage": "global",
-        "temporal coverage": "1945-2024"
+        "publisher": {"url": "http://viaf.org/viaf/261806653", "label": "Sage Publicatins, Inc."},
+        "temporal coverage": {"label": "19452024", "start": "1945", "end": "2024"},
+        "contact": ""
     },
     {
-        "id": "DeVoteD",
-        "title": "DeVoteD",
-        "distribution": "",
-        "description": "",
+        "catalog": {
+            "url": "https://manifesto-project.wzb.eu/information/documents/information",
+            "description": "The Manifesto Corpus is a free, digital, multilingual, and annotated collection of electoral programmes. It is based on the collection of the Manifesto Project, comprising the currently largest collection of annotated electoral programmes."
+        },
+        "id": "https://manifesto-project.wzb.eu/datasets/MPDS2024a",
+        "title": "Manifesto Project Corpus",
+        "distribution": "https://manifesto-project.wzb.eu/datasets/MPDS2024a",
+        "description": "The Manifesto Corpus is a free, digital, multilingual, and annotated collection of electoral programmes. It is based on the collection of the Manifesto Project, comprising the currently largest collection of annotated electoral programmes.",
         "theme": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
-        "issued": "2025",
-        "modified": "2025",
-        "license": "https://creativecommons.org/licenses/by/4.0/",
-        "language": "English",
-        "keywords": "democracy, party, vote, turnout, politics, indeces",
-        "version": "1.0",
-        "publisher": "",
-        "spatial coverage": "global",
-        "temporal coverage": "1945-2024"
-    },
+        "issued": "2015",
+        "modified": "2024",
+        "license": "",
+        "language": "http://lexvo.org/id/iso639-1/en",
+        "keywords": "democracy, party, manifesto, politics, global, international",
+        "version": "",
+        "publisher": {"url": "http://viaf.org/viaf/146283948", "label": "Manifesto Project"},
+        "temporal coverage": {"label": "19452024", "start": "1945", "end": "2024"},
+        "contact": "mailto:manifesto-communication@wzb.eu"
+    }
 ]
 
-# Creazione dei dataset
-for dataset in datasets: 
-    dataset_uri = DVD[dataset["id"]]
-    catalog_g.add((URIRef("https://github.com/DeVoteD-Research/DeVoteD/tree/main/data"),
-                   DCAT.dataset, Literal(dataset["id"])))
-    g.add((dataset_uri, DCAT.title, Literal(dataset["title"], lang="en")))
-    g.add((dataset_uri, RDF.type, DCAT.Dataset))
-    g.add((dataset_uri, RDF.type, PROV.Entity))
-    for el in dataset["distribution"].split(", "):
-        g.add((dataset_uri, DCAT.distribution, Literal(el)))
-    g.add((dataset_uri, DCTERMS.description, Literal(dataset["description"], lang="en")))
-    g.add((dataset_uri, DCAT.theme, URIRef(dataset["theme"])))
-    g.add((dataset_uri, DCTERMS.issued, Literal(dataset["issued"], datatype=XSD.year)))
-    g.add((dataset_uri, DCTERMS.modified, Literal(dataset["modified"], datatype=XSD.year)))
-    g.add((dataset_uri, DCAT.license, URIRef(dataset["license"])))
-    g.add((dataset_uri, DCAT.language,  Literal("en", datatype=XSD.language)))
-    for el in dataset["keywords"].split(", "):
-        g.add((dataset_uri, DCAT.keyword, Literal(el, lang="en")))
-    g.add((dataset_uri, DCTERMS.hasVersion, Literal(dataset["version"])))
-    g.add((dataset_uri, PROV.wasAttributedTo, URIRef(dataset["publisher"])))
-    g.add((dataset_uri, DCTERMS.spatial, Literal(dataset["spatial coverage"])))
-    g.add((dataset_uri, DCTERMS.temporal, Literal(dataset["temporal coverage"])))
+# Informazioni del catalogo secondo DCAT-3
+names = ["Valentino_Castagna", "Romolo_David_d&#39;Alessandro"]
+for name in names:
+    agent = DVD[name]
+    metadata_g.add((agent, RDF.type, FOAF.Agent))
+    # Mandatory
+    metadata_g.add((agent, FOAF.name, Literal(name.replace("_", " ").replace("&#39;", "'"))))
+    # Recommended
+    metadata_g.add((agent, RDF.type, FOAF.Person))
+
+catalogs_list = []
+for dataset in datasets:
+    # Definizione URI
+    catalog_uri = URIRef(dataset["catalog"]["url"])
+    catalogs_list.append(catalog_uri)
+    dataset_uri = URIRef(dataset["id"])
+    publisher_uri = URIRef(dataset["publisher"]["url"]) # Il publisher viene usato anche come riferimento per i contatti
+    contact_uri = URIRef(dataset["contact"])
+    distribution_uri = URIRef(dataset["distribution"])
+    period_uri = DVD[dataset["temporal coverage"]["label"]]
+    theme_uri = URIRef(dataset["theme"])
+    language_uri = URIRef(dataset["language"])
+    license_uri = URIRef(dataset["license"]) if dataset["license"] else False
+
+    # Proprietà per theme_uri
+    metadata_g.add((theme_uri, RDF.type, SKOS.Concept))
+    metadata_g.add((theme_uri, SKOS.prefLabel, Literal(dataset["theme"])))
+
+    # Proprietà per period_uri
+    metadata_g.add((period_uri, RDF.type, DCTERMS.PeriodOfTime))
+    metadata_g.add((period_uri, DCAT.startDate, Literal(dataset["temporal coverage"]["start"], datatype=XSD.gYear)))
+    metadata_g.add((period_uri, DCAT.endDate, Literal(dataset["temporal coverage"]["end"], datatype=XSD.gYear)))
+
+    # Proprietà per resource_uri
+    metadata_g.add((distribution_uri, RDF.type, DCAT.Distribution))
+    metadata_g.add((distribution_uri, DCAT.accessURL, Literal(dataset["distribution"])))  
+
+    # Proprietà per publisher_uri
+    metadata_g.add((publisher_uri, RDF.type, VCARD.Group))
+    metadata_g.add((publisher_uri, RDF.type, FOAF.Organization))
+    metadata_g.add((publisher_uri, SKOS.prefLabel, Literal(dataset["publisher"]["label"])))
+    if dataset["contact"].startswith("tel"):
+        metadata_g.add((publisher_uri, VCARD.hasTelephone, contact_uri))
+    else:
+        metadata_g.add((publisher_uri, VCARD.hasEmail, contact_uri))
+    
+    # Proprietà per dataset_uri
+    metadata_g.add((dataset_uri, RDF.type, DCAT.Dataset))
+    ## Mandatory properties
+    metadata_g.add((dataset_uri, DCTERMS.description, Literal(dataset["description"])))
+    metadata_g.add((dataset_uri, DCTERMS.title, Literal(dataset["title"])))    
+    ## Recommended properties
+    metadata_g.add((dataset_uri, DCAT.contactPoint, publisher_uri))
+    metadata_g.add((dataset_uri, DCAT.distribution, distribution_uri))
+    for keyword in dataset["keywords"].split(', '):
+        metadata_g.add((dataset_uri, DCAT.keyword, Literal(keyword)))
+    metadata_g.add((dataset_uri, DCTERMS.temporal, period_uri))
+    metadata_g.add((dataset_uri, DCAT.theme, theme_uri))
+    # Optional properties
+    if dataset["version"]:
+        metadata_g.add((dataset_uri, DCAT.version, Literal(dataset["version"])))
 
 
-# Aggiungi informazioni al catalogo
-catalog_uri = URIRef("https://github.com/DeVoteD-Research/DeVoteD/tree/main/data")
-catalog_g.add((catalog_uri, RDF.type, DCAT.Catalog))
-catalog_g.add((catalog_uri, DCTERMS.title, Literal("DeVoteD - Datasets Catalog", lang="en")))
-catalog_g.add((catalog_uri, DCTERMS.description,
+    # Proprietà per catalog_uri
+    metadata_g.add((catalog_uri, RDF.type, DCAT.Catalog))
+    ## Mandatory properties
+    metadata_g.add((catalog_uri, DCTERMS.description, Literal(dataset["catalog"]["description"])))
+    metadata_g.add((catalog_uri, DCTERMS.publisher, publisher_uri))
+    metadata_g.add((catalog_uri, DCTERMS.title, Literal(dataset["publisher"]["label"])))
+    ## Recommended properties
+    metadata_g.add((catalog_uri, DCAT.dataset, dataset_uri))
+    metadata_g.add((catalog_uri, DCTERMS.language, language_uri))
+    if license_uri:
+        metadata_g.add((catalog_uri, DCTERMS.license, license_uri))
+    if dataset["modified"]:
+        metadata_g.add((catalog_uri, DCTERMS.modified, Literal(dataset["modified"], datatype=XSD.gYear)))
+    if dataset["issued"]:
+        metadata_g.add((catalog_uri, DCTERMS.issued, Literal(dataset["issued"], datatype=XSD.gYear)))
+
+# Metadati relativi al catalogo del progetto DeVoteD
+temporal_coverage = {"label": "19452019", "start": "1945", "end": "2019"}
+# Definizione URI
+devoted_uri = URIRef("https://github.com/DeVoteD-Research/DeVoteD")
+devoted_catalog_uri = URIRef("https://github.com/DeVoteD-Research/DeVoteD/tree/main/data")
+language_uri = URIRef("http://lexvo.org/id/iso639-1/en")
+license_uri = URIRef("https://creativecommons.org/licenses/by/4.0/")
+legalcode_uri = URIRef("https://creativecommons.org/licenses/by/4.0/legalcode")
+theme_uri = URIRef("http://publications.europa.eu/resource/authority/data-theme/GOVE")
+period_uri = URIRef(temporal_coverage["label"])
+
+# Proprietà per period_uri
+metadata_g.add((period_uri, RDF.type, DCTERMS.PeriodOfTime))
+metadata_g.add((period_uri, DCAT.startDate, Literal(temporal_coverage["start"], datatype=XSD.gYear)))
+metadata_g.add((period_uri, DCAT.endDate, Literal(temporal_coverage["end"], datatype=XSD.gYear)))
+
+metadata_g.add((devoted_catalog_uri, RDF.type, DCAT.Catalog))
+# Mandatory
+metadata_g.add((devoted_catalog_uri, DCTERMS.title, Literal("DeVoteD - Datasets Catalog", lang="en")))
+metadata_g.add((devoted_catalog_uri, DCTERMS.description,
                Literal("Catalog containing the datasets for the DeVoted project", lang="en")))
-catalog_g.add((catalog_uri, PROV.wasAttributedTo, URIRef("https://github.com/DeVoteD-Research/DeVoteD")))
-catalog_g.add((catalog_uri, DCTERMS.issued, Literal("2025", datatype=XSD.date)))
-catalog_g.add((catalog_uri, DCTERMS.modified, Literal("2025", datatype=XSD.date)))
-catalog_g.add((catalog_uri, DCTERMS.license, URIRef("https://creativecommons.org/licenses/by/4.0/")))
-catalog_g.add((catalog_uri, DCAT.language,  Literal("en", datatype=XSD.language)))
-catalog_g.add((catalog_uri, ADMS.identifier,  Literal("DeVoteD-Catalog", datatype=XSD.string)))
+metadata_g.add((devoted_catalog_uri, DCTERMS.publisher, devoted_uri))
+# Recommended
+metadata_g.add((devoted_catalog_uri, DCTERMS.issued, Literal("2025", datatype=XSD.date)))
+metadata_g.add((devoted_catalog_uri, DCTERMS.modified, Literal("2025", datatype=XSD.date)))
+metadata_g.add((devoted_catalog_uri, DCTERMS.license, license_uri))
+metadata_g.add((devoted_catalog_uri, DCTERMS.language,  language_uri))
+metadata_g.add((devoted_catalog_uri, DCTERMS.modified, Literal("2025", datatype=XSD.gYear)))
+metadata_g.add((devoted_catalog_uri, DCTERMS.issued, Literal("2025", datatype=XSD.gYear)))
+metadata_g.add((devoted_catalog_uri, DCAT.theme, theme_uri))
+for keyword in ["democracy", "party", "vote", "turnout", "politics", "indeces", "global"]:
+    metadata_g.add((devoted_catalog_uri, DCAT.keyword, Literal(keyword)))
+metadata_g.add((devoted_catalog_uri, DCTERMS.temporal, period_uri))
+metadata_g.add((devoted_catalog_uri, DCAT.distribution, devoted_catalog_uri))
+# Optional
+metadata_g.add((devoted_catalog_uri, PROV.wasAttributedTo, devoted_uri))
+metadata_g.add((devoted_catalog_uri, ADMS.identifier,  Literal("DeVoteD-Catalog", datatype=XSD.string)))
+for catalog in catalogs_list:
+    metadata_g.add((devoted_catalog_uri, DCAT.catalog, catalog))
+metadata_g.add((dataset_uri, DCAT.version, Literal("1.0")))
 
 # License
-license_uri = URIRef("https://creativecommons.org/licenses/by/4.0/")
-catalog_g.add((catalog_uri, DCTERMS.license, license_uri))
-
-catalog_g.add((license_uri, RDF.type, CC.License))
-catalog_g.add((license_uri, CC.legalcode, URIRef("http://creativecommons.org/licenses/by/4.0/")))
-catalog_g.add((license_uri, CC.permits, CC.Reproduction))
-catalog_g.add((license_uri, CC.permits, CC.Distribution))
-catalog_g.add((license_uri, CC.permits, CC.DerivativeWorks))
-catalog_g.add((license_uri, CC.requires, CC.Notice))
-catalog_g.add((license_uri, CC.requires, CC.Attribution))
-catalog_g.add((license_uri, RDFS.label, Literal("Creative Commons CC-BY 4.0", lang="en")))
+metadata_g.add((license_uri, RDF.type, CC.License))
+metadata_g.add((license_uri, CC.legalcode, legalcode_uri))
+metadata_g.add((license_uri, CC.permits, CC.Reproduction))
+metadata_g.add((license_uri, CC.permits, CC.Distribution))
+metadata_g.add((license_uri, CC.permits, CC.DerivativeWorks))
+metadata_g.add((license_uri, CC.requires, CC.Notice))
+metadata_g.add((license_uri, CC.requires, CC.Attribution))
+metadata_g.add((license_uri, RDFS.label, Literal("Creative Commons CC-BY 4.0", lang="en")))
 
 
 # Creazione della directory serialisations se non esiste
 output_dir = "serialization/"
 
 # Salvataggio del file nella directory
-datasets_file = os.path.join(output_dir, "serial_datasets.ttl")
-catalog_file = os.path.join(output_dir, "serial_catalog.ttl")
+metadata_file = os.path.join(output_dir, "metadata.ttl")
 
-with open(datasets_file, "w", encoding="utf-8") as f:
-    f.write(g.serialize(format="turtle"))
+with open(metadata_file, "w", encoding="utf-8") as f:
+    f.write(metadata_g.serialize(format="turtle"))
 
-with open(catalog_file, "w", encoding="utf-8") as f:
-    f.write(catalog_g.serialize(format="turtle"))
-
-print(f"Serializzazione completata! File salvati come {datasets_file} e {catalog_file}.")
+print(f"Serializzazione completata! File salvati come {metadata_file}.")

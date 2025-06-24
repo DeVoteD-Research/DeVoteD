@@ -1,0 +1,193 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcat3: <https://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://github.com/DeVoteD-Research/DeVoteD/Romolo_David_d&#39;Alessandro> a foaf:Agent,
+        foaf:Person ;
+    foaf:name "Romolo David d'Alessandro" .
+
+<https://github.com/DeVoteD-Research/DeVoteD/Valentino_Castagna> a foaf:Agent,
+        foaf:Person ;
+    foaf:name "Valentino Castagna" .
+
+<19452019> a dct:PeriodOfTime ;
+    dcat3:endDate "2019"^^xsd:gYear ;
+    dcat3:startDate "1945"^^xsd:gYear .
+
+<https://creativecommons.org/licenses/by/4.0/> a cc:License ;
+    rdfs:label "Creative Commons CC-BY 4.0"@en ;
+    cc:legalcode <https://creativecommons.org/licenses/by/4.0/legalcode> ;
+    cc:permits cc:DerivativeWorks,
+        cc:Distribution,
+        cc:Reproduction ;
+    cc:requires cc:Attribution,
+        cc:Notice .
+
+<https://dataverse.harvard.edu/dataverse/partyfacts> a dcat3:Catalog ;
+    dct:description "Party Facts links datasets on political parties and provides an online platform about parties and their history as recorded in social science datasets." ;
+    dct:issued "2019"^^xsd:gYear ;
+    dct:language <http://lexvo.org/id/iso639-1/en> ;
+    dct:license <https://creativecommons.org/licenses/by/1.0/> ;
+    dct:modified "2023"^^xsd:gYear ;
+    dct:publisher <http://viaf.org/viaf/261806653> ;
+    dct:title "Sage Publicatins, Inc." ;
+    dcat3:dataset <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ> .
+
+<https://github.com/DeVoteD-Research/DeVoteD/19002024> a dct:PeriodOfTime ;
+    dcat3:endDate "2024"^^xsd:gYear ;
+    dcat3:startDate "1900"^^xsd:gYear .
+
+<https://github.com/DeVoteD-Research/DeVoteD/tree/main/data> a dcat3:Catalog ;
+    dct:description "Catalog containing the datasets for the DeVoted project"@en ;
+    dct:issued "2025-01-01"^^xsd:date,
+        "2025"^^xsd:gYear ;
+    dct:language <http://lexvo.org/id/iso639-1/en> ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dct:modified "2025-01-01"^^xsd:date,
+        "2025"^^xsd:gYear ;
+    dct:publisher <https://github.com/DeVoteD-Research/DeVoteD> ;
+    dct:temporal <19452019> ;
+    dct:title "DeVoteD - Datasets Catalog"@en ;
+    adms:identifier "DeVoteD-Catalog"^^xsd:string ;
+    prov:wasAttributedTo <https://github.com/DeVoteD-Research/DeVoteD> ;
+    dcat3:catalog <https://dataverse.harvard.edu/dataverse/partyfacts>,
+        <https://manifesto-project.wzb.eu/information/documents/information>,
+        <https://v-dem.net/about/v-dem-project/>,
+        <https://www.idea.int/data-tools> ;
+    dcat3:distribution <https://github.com/DeVoteD-Research/DeVoteD/tree/main/data> ;
+    dcat3:keyword "democracy",
+        "global",
+        "indeces",
+        "party",
+        "politics",
+        "turnout",
+        "vote" ;
+    dcat3:theme <http://publications.europa.eu/resource/authority/data-theme/GOVE> .
+
+<https://manifesto-project.wzb.eu/information/documents/information> a dcat3:Catalog ;
+    dct:description "The Manifesto Corpus is a free, digital, multilingual, and annotated collection of electoral programmes. It is based on the collection of the Manifesto Project, comprising the currently largest collection of annotated electoral programmes." ;
+    dct:issued "2015"^^xsd:gYear ;
+    dct:language <http://lexvo.org/id/iso639-1/en> ;
+    dct:modified "2024"^^xsd:gYear ;
+    dct:publisher <http://viaf.org/viaf/146283948> ;
+    dct:title "Manifesto Project" ;
+    dcat3:dataset <https://manifesto-project.wzb.eu/datasets/MPDS2024a> .
+
+<https://v-dem.net/about/v-dem-project/> a dcat3:Catalog ;
+    dct:description "Varieties of Democracy (V-Dem) is a unique approach to conceptualizing and measuring democracy. We provide a multidimensional and disaggregated dataset that reflects the complexity of the concept of democracy as a system of rule that goes beyond the simple presence of elections. The V-Dem project distinguishes between five high-level principles of democracy: electoral, liberal, participatory, deliberative, and egalitarian, and collects data to measure these principles." ;
+    dct:issued "2014"^^xsd:gYear ;
+    dct:language <http://lexvo.org/id/iso639-1/en> ;
+    dct:modified "2025"^^xsd:gYear ;
+    dct:publisher <http://viaf.org/viaf/140125343> ;
+    dct:title "Göteborgs Universitet" ;
+    dcat3:dataset <https://v-dem.net/data/the-v-dem-dataset/country-year-v-dem-core-v15/> .
+
+<https://www.idea.int/data-tools> a dcat3:Catalog ;
+    dct:description "The International Institute for Democracy and Electoral Assistance (International IDEA) is an intergovernmental organization that supports democracy worldwide." ;
+    dct:language <http://lexvo.org/id/iso639-1/en> ;
+    dct:publisher <http://viaf.org/viaf/129505852> ;
+    dct:title "International Institute for Democracy and Electoral Assistance" ;
+    dcat3:dataset <https://www.idea.int/data-tools/data/voter-turnout-database> .
+
+<http://viaf.org/viaf/129505852> a vcard:Group,
+        foaf:Organization ;
+    skos:prefLabel "International Institute for Democracy and Electoral Assistance" ;
+    vcard:hasTelephone <tel:+4686983700> .
+
+<http://viaf.org/viaf/140125343> a vcard:Group,
+        foaf:Organization ;
+    skos:prefLabel "Göteborgs Universitet" ;
+    vcard:hasEmail <mailto:contact@v-dem.net> .
+
+<http://viaf.org/viaf/146283948> a vcard:Group,
+        foaf:Organization ;
+    skos:prefLabel "Manifesto Project" ;
+    vcard:hasEmail <mailto:manifesto-communication@wzb.eu> .
+
+<http://viaf.org/viaf/261806653> a vcard:Group,
+        foaf:Organization ;
+    skos:prefLabel "Sage Publicatins, Inc." ;
+    vcard:hasEmail <> .
+
+<https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ> a dcat3:Dataset,
+        dcat3:Distribution ;
+    dct:description "Party Facts links datasets on political parties." ;
+    dct:temporal <https://github.com/DeVoteD-Research/DeVoteD/19452024> ;
+    dct:title "Party Facts - Version 2023" ;
+    dcat3:accessURL "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ" ;
+    dcat3:contactPoint <http://viaf.org/viaf/261806653> ;
+    dcat3:distribution <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ> ;
+    dcat3:keyword "democracy",
+        "global",
+        "international",
+        "parties",
+        "politics",
+        "social sciences" ;
+    dcat3:theme <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
+    dcat3:version "1.1" .
+
+<https://manifesto-project.wzb.eu/datasets/MPDS2024a> a dcat3:Dataset,
+        dcat3:Distribution ;
+    dct:description "The Manifesto Corpus is a free, digital, multilingual, and annotated collection of electoral programmes. It is based on the collection of the Manifesto Project, comprising the currently largest collection of annotated electoral programmes." ;
+    dct:temporal <https://github.com/DeVoteD-Research/DeVoteD/19452024> ;
+    dct:title "Manifesto Project Corpus" ;
+    dcat3:accessURL "https://manifesto-project.wzb.eu/datasets/MPDS2024a" ;
+    dcat3:contactPoint <http://viaf.org/viaf/146283948> ;
+    dcat3:distribution <https://manifesto-project.wzb.eu/datasets/MPDS2024a> ;
+    dcat3:keyword "democracy",
+        "global",
+        "international",
+        "manifesto",
+        "party",
+        "politics" ;
+    dcat3:theme <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
+    dcat3:version "1.0" .
+
+<https://v-dem.net/data/the-v-dem-dataset/country-year-v-dem-core-v15/> a dcat3:Dataset,
+        dcat3:Distribution ;
+    dct:description "The five high-level V-Dem democracy indices, 92 sub-indices, and the 167 indicators constituting them." ;
+    dct:temporal <https://github.com/DeVoteD-Research/DeVoteD/19002024> ;
+    dct:title "Country-Year: V-Dem Core" ;
+    dcat3:accessURL "https://v-dem.net/data/the-v-dem-dataset/country-year-v-dem-core-v15/" ;
+    dcat3:contactPoint <http://viaf.org/viaf/140125343> ;
+    dcat3:distribution <https://v-dem.net/data/the-v-dem-dataset/country-year-v-dem-core-v15/> ;
+    dcat3:keyword "democracy",
+        "global",
+        "indeces",
+        "indicators",
+        "international",
+        "politics" ;
+    dcat3:theme <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
+    dcat3:version "15" .
+
+<https://www.idea.int/data-tools/data/voter-turnout-database> a dcat3:Dataset,
+        dcat3:Distribution ;
+    dct:description "The most comprehensive global collection of voter turnout statistics from presidential and parliamentary elections since 1945." ;
+    dct:temporal <https://github.com/DeVoteD-Research/DeVoteD/19452024> ;
+    dct:title "IDEA Voter Turnout Database" ;
+    dcat3:accessURL "https://www.idea.int/data-tools/data/voter-turnout-database" ;
+    dcat3:contactPoint <http://viaf.org/viaf/129505852> ;
+    dcat3:distribution <https://www.idea.int/data-tools/data/voter-turnout-database> ;
+    dcat3:keyword "democracy",
+        "election",
+        "global",
+        "international",
+        "politics",
+        "turnout",
+        "vote" ;
+    dcat3:theme <http://publications.europa.eu/resource/authority/data-theme/GOVE> .
+
+<https://github.com/DeVoteD-Research/DeVoteD/19452024> a dct:PeriodOfTime ;
+    dcat3:endDate "2024"^^xsd:gYear ;
+    dcat3:startDate "1945"^^xsd:gYear .
+
+<http://publications.europa.eu/resource/authority/data-theme/GOVE> a skos:Concept ;
+    skos:prefLabel "http://publications.europa.eu/resource/authority/data-theme/GOVE" .
+
