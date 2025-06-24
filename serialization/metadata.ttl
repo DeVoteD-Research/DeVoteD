@@ -34,7 +34,7 @@
     dct:description "Party Facts links datasets on political parties and provides an online platform about parties and their history as recorded in social science datasets." ;
     dct:issued "2019"^^xsd:gYear ;
     dct:language <http://lexvo.org/id/iso639-1/en> ;
-    dct:license <https://creativecommons.org/licenses/by/1.0/> ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
     dct:modified "2023"^^xsd:gYear ;
     dct:publisher <http://viaf.org/viaf/261806653> ;
     dct:title "Sage Publicatins, Inc." ;
@@ -45,7 +45,7 @@
     dcat3:startDate "1900"^^xsd:gYear .
 
 <https://github.com/DeVoteD-Research/DeVoteD/tree/main/data> a dcat3:Catalog ;
-    dct:description "Catalog containing the datasets for the DeVoted project"@en ;
+    dct:description "Catalog containing the datasets for the DeVoteD project"@en ;
     dct:issued "2025-01-01"^^xsd:date,
         "2025"^^xsd:gYear ;
     dct:language <http://lexvo.org/id/iso639-1/en> ;
@@ -77,7 +77,7 @@
     dct:language <http://lexvo.org/id/iso639-1/en> ;
     dct:modified "2024"^^xsd:gYear ;
     dct:publisher <http://viaf.org/viaf/146283948> ;
-    dct:title "Manifesto Project" ;
+    dct:title "Wissenschaftszentrum Berlin für Sozialforschung" ;
     dcat3:dataset <https://manifesto-project.wzb.eu/datasets/MPDS2024a> .
 
 <https://v-dem.net/about/v-dem-project/> a dcat3:Catalog ;
@@ -108,13 +108,13 @@
 
 <http://viaf.org/viaf/146283948> a vcard:Group,
         foaf:Organization ;
-    skos:prefLabel "Manifesto Project" ;
+    skos:prefLabel "Wissenschaftszentrum Berlin für Sozialforschung" ;
     vcard:hasEmail <mailto:manifesto-communication@wzb.eu> .
 
 <http://viaf.org/viaf/261806653> a vcard:Group,
         foaf:Organization ;
     skos:prefLabel "Sage Publicatins, Inc." ;
-    vcard:hasEmail <> .
+    vcard:hasEmail <mailto:doering@uni-bremen.de> .
 
 <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ> a dcat3:Dataset,
         dcat3:Distribution ;

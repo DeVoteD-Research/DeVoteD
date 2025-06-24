@@ -88,13 +88,13 @@ datasets = [
         "theme": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
         "issued": "2019",
         "modified": "2023",
-        "license": "https://creativecommons.org/licenses/by/1.0/",
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/",
         "language": "http://lexvo.org/id/iso639-1/en",
         "keywords": "democracy, parties, social sciences, politics, global, international",
         "version": "1.1",
         "publisher": {"url": "http://viaf.org/viaf/261806653", "label": "Sage Publicatins, Inc."},
         "temporal coverage": {"label": "19452024", "start": "1945", "end": "2024"},
-        "contact": ""
+        "contact": "mailto:doering@uni-bremen.de"
     },
     {
         "catalog": {
@@ -112,7 +112,7 @@ datasets = [
         "language": "http://lexvo.org/id/iso639-1/en",
         "keywords": "democracy, party, manifesto, politics, global, international",
         "version": "",
-        "publisher": {"url": "http://viaf.org/viaf/146283948", "label": "Manifesto Project"},
+        "publisher": {"url": "http://viaf.org/viaf/146283948", "label": "Wissenschaftszentrum Berlin für Sozialforschung"},
         "temporal coverage": {"label": "19452024", "start": "1945", "end": "2024"},
         "contact": "mailto:manifesto-communication@wzb.eu"
     }
@@ -135,7 +135,7 @@ for dataset in datasets:
     catalogs_list.append(catalog_uri)
     dataset_uri = URIRef(dataset["id"])
     publisher_uri = URIRef(dataset["publisher"]["url"]) # Il publisher viene usato anche come riferimento per i contatti
-    contact_uri = URIRef(dataset["contact"])
+    contact_uri = URIRef(dataset["contact"]) if dataset["contact"] else False
     distribution_uri = URIRef(dataset["distribution"])
     period_uri = DVD[dataset["temporal coverage"]["label"]]
     theme_uri = URIRef(dataset["theme"])
@@ -159,10 +159,12 @@ for dataset in datasets:
     metadata_g.add((publisher_uri, RDF.type, VCARD.Group))
     metadata_g.add((publisher_uri, RDF.type, FOAF.Organization))
     metadata_g.add((publisher_uri, SKOS.prefLabel, Literal(dataset["publisher"]["label"])))
-    if dataset["contact"].startswith("tel"):
-        metadata_g.add((publisher_uri, VCARD.hasTelephone, contact_uri))
-    else:
-        metadata_g.add((publisher_uri, VCARD.hasEmail, contact_uri))
+    if contact_uri:
+        if dataset["contact"].startswith("tel"):
+            metadata_g.add((publisher_uri, VCARD.hasTelephone, contact_uri))
+        else:
+            metadata_g.add((publisher_uri, VCARD.hasEmail, contact_uri))
+        metadata_g.add((dataset_uri, DCAT.contactPoint, publisher_uri))
     
     # Proprietà per dataset_uri
     metadata_g.add((dataset_uri, RDF.type, DCAT.Dataset))
@@ -170,7 +172,6 @@ for dataset in datasets:
     metadata_g.add((dataset_uri, DCTERMS.description, Literal(dataset["description"])))
     metadata_g.add((dataset_uri, DCTERMS.title, Literal(dataset["title"])))    
     ## Recommended properties
-    metadata_g.add((dataset_uri, DCAT.contactPoint, publisher_uri))
     metadata_g.add((dataset_uri, DCAT.distribution, distribution_uri))
     for keyword in dataset["keywords"].split(', '):
         metadata_g.add((dataset_uri, DCAT.keyword, Literal(keyword)))
@@ -217,7 +218,7 @@ metadata_g.add((devoted_catalog_uri, RDF.type, DCAT.Catalog))
 # Mandatory
 metadata_g.add((devoted_catalog_uri, DCTERMS.title, Literal("DeVoteD - Datasets Catalog", lang="en")))
 metadata_g.add((devoted_catalog_uri, DCTERMS.description,
-               Literal("Catalog containing the datasets for the DeVoted project", lang="en")))
+               Literal("Catalog containing the datasets for the DeVoteD project", lang="en")))
 metadata_g.add((devoted_catalog_uri, DCTERMS.publisher, devoted_uri))
 # Recommended
 metadata_g.add((devoted_catalog_uri, DCTERMS.issued, Literal("2025", datatype=XSD.date)))
