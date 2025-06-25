@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html >
+<html>
+
 <head>
   <!-- Site made with Mobirise Website Builder v4.10.4, https://mobirise.com -->
   <meta charset="UTF-8">
@@ -19,12 +20,15 @@
   <link rel="stylesheet" href="assets/dropdown/css/style.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  <link rel="stylesheet" href="assets/sparql/style.css" type="text/css">
 
   <!-- Leaflet.js -->
   <link rel="stylesheet" href="assets/visualisations/leaflet.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
@@ -34,18 +38,169 @@
   <!-- d3.js -->
   <script src="https://d3js.org/d3.v4.js"></script>
   <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-  <link rel="stylesheet" href="assets/visualisations/bubble.css">
 
   <!-- Highlight.js -->
   <link rel="stylesheet" href="assets/highlightjs/highlight.css">
   <script src="assets/highlightjs/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    #map {
+      height: 80vh;
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .controls {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      min-width: 250px;
+    }
+
+    .decade-buttons {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .decade-btn {
+      flex: 1;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .decade-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .decade-btn.active {
+      background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    }
+
+    .variable-selector {
+      margin-bottom: 15px;
+    }
+
+    .variable-selector label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .variable-selector select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #e1e8ed;
+      border-radius: 8px;
+      background: white;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .variable-selector select:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .legend {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .legend-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .legend-gradient {
+      height: 20px;
+      background: linear-gradient(to left, #ff0000, #ffffff);
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .legend-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .leaflet-popup-content {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .popup-header {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 5px;
+    }
+
+    .popup-data {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .data-item {
+      background: #f8f9fa;
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .data-label {
+      font-size: 12px;
+      color: #666;
+      display: block;
+    }
+
+    .data-value {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      display: block;
+      margin-top: 2px;
+    }
+  </style>
 
 </head>
+
 <body>
   <section class="menu cid-rvgZMVDNg8" once="menu" id="menu1-k">
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav
+      class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
         <div class="hamburger">
           <span></span>
           <span></span>
@@ -56,86 +211,112 @@
         <div class="navbar-brand">
           <span class="navbar-logo">
             <a href="index.html">
-              <img src="assets/images/logo.png" href="https://www.flaticon.com/free-icons/ballot" creator="juicy_fish - Flaticon" alt="Illustration of vote ballot" title="ballot icon" style="height: 3rem;">
+              <img src="assets/images/logo.png" href="https://www.flaticon.com/free-icons/ballot"
+                creator="juicy_fish - Flaticon" alt="Illustration of vote ballot" title="ballot icon"
+                style="height: 3rem;">
             </a>
           </span>
-          <span class="navbar-caption-wrap"><a class="navbar-caption text-primary display-4" href="index.html">DeVoteD</a></span>
+          <span class="navbar-caption-wrap"><a class="navbar-caption text-primary display-4"
+              href="index.html">DeVoteD</a></span>
         </div>
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
-          <a class="nav-link link text-white display-4" href="index.html">Home</a>
-        </li><li class="nav-item"><a class="nav-link link text-white display-4" href="visualisations.html">Visualisations</a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="documentation.html">Documentation</a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="metadata.html">Metadata</a></li></ul>
+        <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+          <li class="nav-item">
+            <a class="nav-link link text-white display-4" href="index.html">Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link link text-white display-4"
+              href="visualisations.html">Visualisations</a></li>
+          <li class="nav-item"><a class="nav-link link text-white display-4" href="documentation.html">Documentation</a>
+          </li>
+          <li class="nav-item"><a class="nav-link link text-white display-4" href="metadata.html">Metadata</a></li>
+        </ul>
 
       </div>
     </nav>
   </section>
 
-  <section class="engine"></section><section class="mbr-section content4 cid-rvrS31EJIP" id="content4-18">
+  <section class="engine"></section>
+  <section class="mbr-section content4 cid-rvrS31EJIP" id="content4-18">
     <div class="container">
       <div class="media-container-row">
         <div class="title col-12 col-l-8">
-          <h2 class="align-center mb-0 pb-3 mbr-fonts-style display-2 bg-transparent"><strong>Visualisations</strong></h2>
+          <h2 class="align-center mb-0 pb-3 mbr-fonts-style display-2 bg-transparent"><strong>Visualisations</strong>
+          </h2>
         </div>
       </div>
     </div>
   </section>
 
   <section class="tabs2 cid-rvsO0Sfnun" id="tabs2-1t">
-      <div class="container">
-        <div class="media-container-row">
-          <div class="col-12 col-l-8">
-            <ul class="nav pt-3 nav-tabs" role="tablist">
-              <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#tabs2-1t_tab0" aria-selected="true" onclick="window.dispatchEvent(new Event('resize'))">Maps</a></li>
-              <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#tabs2-1t_tab1" aria-selected="true">Graphs</a></li>
-            </ul>
-          </div>
+    <div class="container">
+      <div class="media-container-row">
+        <div class="col-12 col-l-8">
+          <ul class="nav pt-3 nav-tabs" role="tablist">
+            <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab"
+                href="#tabs2-1t_tab0" aria-selected="true" onclick="window.dispatchEvent(new Event('resize'))">Map</a>
+            </li>
+            <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab"
+                href="#tabs2-1t_tab1" aria-selected="true">Graphs</a></li>
+          </ul>
         </div>
       </div>
+    </div>
 
     <div class="tab-content">
       <div id="tab1" class="tab-pane in active" role="tabpanel">
         <div class="container">
           <div class="row card-row">
-            <div class="col-sm-6 d-flex each-card">
-              <div class="container">
-                <div id="media-container-row">
-                  <div class="map" id="map"></div>
-                </div>
-                <div>
-                  <br/>
-                  <p><b>Legend:</b> Each country is coloured based on their average annual value in the period 2008–2018. The average is the sum of all years divided by the number of years with recorded data.</p>
-                  <p><small><i><b>Note:</b> Syria is not represented by some datasets due to ongoing research.</i></small></p>
-                </div>
-              </div>
-            </div>
+            <div class="container">
+              <div class="row">
+                <div id="map" class="col-8"></div>
+                <div class="col-4">
+                  <div class="controls">
+                    <div class="decade-buttons" style="flex-direction: column; gap: 12px;">
+                      <label for="decadeSelect" style="font-weight:600; color:#333; margin-bottom:6px;">Select
+                        Decade:</label>
+                      <select id="decadeSelect"
+                        style="width:100%; padding:10px; border:2px solid #e1e8ed; border-radius:8px; background:white; font-size:14px; cursor:pointer;">
+                        <option value="1940">1940s</option>
+                        <option value="1950">1950s</option>
+                        <option value="1960">1960s</option>
+                        <option value="1970">1970s</option>
+                        <option value="1980">1980s</option>
+                        <option value="1990" selected>1990s</option>
+                        <option value="2000">2000s</option>
+                        <option value="2010">2010s</option>
+                      </select>
+                    </div>
 
-            <div class="col-sm-6 d-flex each-card">
-              <div class="container">
-                <h3>Map Visualisation</h3>
-                <p>
-                  <label for="data"><b>Select dataset:</b></label>
-                  <select name="data" onchange="updateMap(value)">
-                    <option value="hasTotal">Total Displaced Population</option>
-                    <option value="hasDemocracy">EIU Democracy Index</option>
-                    <option value="hasGDPCapConstant">Constant GDP per Capita</option>
-                    <option value="hasGDPCapGrowth">Growth of GDP per Capita</option>
-                    <option value="hasIncomeCapConstant">Constant Income per Capita</option>
-                    <option value="hasIncomeCapGrowth">Growth of Income per Capita</option>
-                    <option value="hasUnemploymentILO">Unemployment Rate [ILO]</option>
-                    <option value="hasUnemploymentNational">Unemployment Rate [national]</option>
-                    <option value="hasDeathUCDP">Total Deaths [UCDP]</option>
-                    <option value="hasDeathsTerrorism">Deaths through Terrorism</option>
-                    <option value="hasWoundedTerrorism">Wounded through Terrorism</option>
-                  </select>
-                </p>
-                <p><b>Country:</b> <span id="country-name"></span></p>
-                <div>
-                  <canvas id="map-graph"></canvas>
+                    <div class="variable-selector">
+                      <label for="variableSelect">Select Variable:</label>
+                      <select id="variableSelect">
+                        <option value="Liberal Democracy Index" selected>Mean Liberal Democracy Index</option>
+                        <option value="Polyarchy Index">Mean Polyarchy Index</option>
+                        <option value="Participatory Democracy Index">Mean Participatory Democracy Index</option>
+                        <option value="Deliberative Democracy Index">Mean Deliberative Democracy Index</option>
+                        <option value="Egalitarian Democracy Index">Mean Egalitarian Democracy Index</option>
+                        <option value="HHI">Mean HHI</option>
+                        <option value="ENPP">Mean ENPP</option>
+                        <option value="Voter Turnout (parliamentary)">Mean Voter Turnout (parliamentary)</option>
+                      </select>
+                    </div>
+
+                    <div class="legend">
+                      <div class="legend-title">Value Scale</div>
+                      <div class="legend-gradient"></div>
+                      <div class="legend-labels">
+                        <span id="minValue">0</span>
+                        <span id="maxValue">0.9</span>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
-                <div id="data-description">
-                </div>
+
+
               </div>
+
             </div>
           </div>
         </div>
@@ -144,59 +325,218 @@
       <div id="tab2" class="tab-pane" role="tabpanel">
 
         <div class="container">
-          <div class="media-container-row">
+          <div class="row">
             <div class="col-9">
               <canvas id="chart"></canvas>
             </div>
             <div class="col-3">
               <h3>Graph Visualisation</h3>
               <div id="radio_buttons">
-                <label for="graph_type"><b>Graph type:</b></label><br/>
-                <p><input type="radio" name="graph_type" value="bar" class="graph_data">Bar</input><p>
-                <p><input type="radio" name="graph_type" value="line" class="graph_data" checked>Line</input><p>
+                <label for="graph_type"><b>Graph type:</b></label><br />
+                <p><input type="radio" name="graph_type" value="bar" class="graph_data">Bar</input>
+                <p>
+                <p><input type="radio" name="graph_type" value="line" class="graph_data" checked>Line</input>
+                <p>
               </div>
               <p>
-                <label for="nation"><b>Nation:</b></label><br/>
+                <label for="nation"><b>Nation:</b></label><br />
                 <select class="graph_data" id="nation" name="nation">
+                  <!-- Example: Place these inside your <select id="nation"> element -->
+                  <option value="Afghanistan">Afghanistan</option>
+                  <option value="Albania">Albania</option>
+                  <option value="Algeria">Algeria</option>
+                  <option value="Angola">Angola</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Armenia">Armenia</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Austria" selected>Austria</option>
+                  <option value="Azerbaijan">Azerbaijan</option>
+                  <option value="Bahrain">Bahrain</option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Barbados">Barbados</option>
+                  <option value="Belarus">Belarus</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Benin">Benin</option>
+                  <option value="Bhutan">Bhutan</option>
+                  <option value="Bolivia">Bolivia</option>
+                  <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                  <option value="Botswana">Botswana</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="Bulgaria">Bulgaria</option>
+                  <option value="Burkina Faso">Burkina Faso</option>
+                  <option value="Burma/Myanmar">Burma/Myanmar</option>
+                  <option value="Burundi">Burundi</option>
+                  <option value="Cambodia">Cambodia</option>
+                  <option value="Cameroon">Cameroon</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Cape Verde">Cape Verde</option>
+                  <option value="Central African Republic">Central African Republic</option>
+                  <option value="Chad">Chad</option>
+                  <option value="Chile">Chile</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Comoros">Comoros</option>
+                  <option value="Costa Rica">Costa Rica</option>
+                  <option value="Croatia">Croatia</option>
+                  <option value="Cyprus">Cyprus</option>
+                  <option value="Czechia">Czechia</option>
+                  <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Djibouti">Djibouti</option>
+                  <option value="Dominican Republic">Dominican Republic</option>
+                  <option value="Ecuador">Ecuador</option>
+                  <option value="Egypt">Egypt</option>
+                  <option value="El Salvador">El Salvador</option>
+                  <option value="Equatorial Guinea">Equatorial Guinea</option>
+                  <option value="Estonia">Estonia</option>
+                  <option value="Ethiopia">Ethiopia</option>
+                  <option value="Fiji">Fiji</option>
+                  <option value="Finland">Finland</option>
+                  <option value="France">France</option>
+                  <option value="Gabon">Gabon</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Ghana">Ghana</option>
+                  <option value="Greece">Greece</option>
+                  <option value="Guatemala">Guatemala</option>
+                  <option value="Guinea">Guinea</option>
+                  <option value="Guinea-Bissau">Guinea-Bissau</option>
+                  <option value="Guyana">Guyana</option>
+                  <option value="Haiti">Haiti</option>
+                  <option value="Honduras">Honduras</option>
+                  <option value="Hungary">Hungary</option>
+                  <option value="Iceland">Iceland</option>
+                  <option value="India">India</option>
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="Iran">Iran</option>
+                  <option value="Iraq">Iraq</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Ivory Coast">Ivory Coast</option>
+                  <option value="Jamaica">Jamaica</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Jordan">Jordan</option>
+                  <option value="Kazakhstan">Kazakhstan</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Kuwait">Kuwait</option>
+                  <option value="Kyrgyzstan">Kyrgyzstan</option>
+                  <option value="Laos">Laos</option>
+                  <option value="Latvia">Latvia</option>
+                  <option value="Lebanon">Lebanon</option>
+                  <option value="Lesotho">Lesotho</option>
+                  <option value="Liberia">Liberia</option>
+                  <option value="Libya">Libya</option>
+                  <option value="Lithuania">Lithuania</option>
+                  <option value="Luxembourg">Luxembourg</option>
+                  <option value="Madagascar">Madagascar</option>
+                  <option value="Malawi">Malawi</option>
+                  <option value="Malaysia">Malaysia</option>
+                  <option value="Maldives">Maldives</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Malta">Malta</option>
+                  <option value="Mauritania">Mauritania</option>
+                  <option value="Mauritius">Mauritius</option>
+                  <option value="Mexico">Mexico</option>
+                  <option value="Moldova">Moldova</option>
+                  <option value="Mongolia">Mongolia</option>
+                  <option value="Montenegro">Montenegro</option>
+                  <option value="Morocco">Morocco</option>
+                  <option value="Mozambique">Mozambique</option>
+                  <option value="Namibia">Namibia</option>
+                  <option value="Nepal">Nepal</option>
+                  <option value="Netherlands">Netherlands</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Nicaragua">Nicaragua</option>
+                  <option value="Niger">Niger</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="North Macedonia">North Macedonia</option>
+                  <option value="Norway">Norway</option>
+                  <option value="Pakistan">Pakistan</option>
+                  <option value="Palestine/West Bank">Palestine/West Bank</option>
+                  <option value="Panama">Panama</option>
+                  <option value="Papua New Guinea">Papua New Guinea</option>
+                  <option value="Paraguay">Paraguay</option>
+                  <option value="Peru">Peru</option>
+                  <option value="Philippines">Philippines</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Republic of the Congo">Republic of the Congo</option>
+                  <option value="Romania">Romania</option>
+                  <option value="Russia">Russia</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                  <option value="Senegal">Senegal</option>
+                  <option value="Serbia">Serbia</option>
+                  <option value="Seychelles">Seychelles</option>
+                  <option value="Sierra Leone">Sierra Leone</option>
+                  <option value="Singapore">Singapore</option>
+                  <option value="Slovakia">Slovakia</option>
+                  <option value="Slovenia">Slovenia</option>
+                  <option value="Solomon Islands">Solomon Islands</option>
+                  <option value="Somalia">Somalia</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="South Korea">South Korea</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Sri Lanka">Sri Lanka</option>
+                  <option value="Sudan">Sudan</option>
+                  <option value="Suriname">Suriname</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Syria">Syria</option>
+                  <option value="Taiwan">Taiwan</option>
+                  <option value="Tajikistan">Tajikistan</option>
+                  <option value="Tanzania">Tanzania</option>
+                  <option value="Thailand">Thailand</option>
+                  <option value="The Gambia">The Gambia</option>
+                  <option value="Timor-Leste">Timor-Leste</option>
+                  <option value="Togo">Togo</option>
+                  <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                  <option value="Tunisia">Tunisia</option>
+                  <option value="Turkmenistan">Turkmenistan</option>
+                  <option value="T\u00c3\u00bcrkiye">T\u00c3\u00bcrkiye</option>
+                  <option value="Uganda">Uganda</option>
+                  <option value="Ukraine">Ukraine</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="United States of America">United States of America</option>
+                  <option value="Uruguay">Uruguay</option>
+                  <option value="Uzbekistan">Uzbekistan</option>
+                  <option value="Vanuatu">Vanuatu</option>
+                  <option value="Venezuela">Venezuela</option>
+                  <option value="Yemen">Yemen</option>
+                  <option value="Zambia">Zambia</option>
+                  <option value="Zimbabwe">Zimbabwe</option>
                 </select>
               </p>
 
-                <p>
-                  <label for="predicate_1"><b>First dataset:</b></label><br/>
-                  <select class="graph_data" id="predicate_1" name="predicate_1">
-                    <option value="hasTotal">Total Displaced Population</option>
-                    <option value="hasDemocracy">EIU Democracy Index</option>
-                    <option value="hasGDPCapConstant">Constant GDP per Capita</option>
-                    <option value="hasGDPCapGrowth">Growth of GDP per Capita</option>
-                    <option value="hasIncomeCapConstant">Constant Income per Capita</option>
-                    <option value="hasIncomeCapGrowth">Growth of Income per Capita</option>
-                    <option value="hasUnemploymentILO">Unemployment Rate [ILO]</option>
-                    <option value="hasUnemploymentNational">Unemployment Rate [national]</option>
-                    <option value="hasDeathUCDP">Total Deaths [UCDP]</option>
-                    <option value="hasDeathsTerrorism">Deaths through Terrorism</option>
-                    <option value="hasWoundedTerrorism">Wounded through Terrorism</option>
-                  </select>
-                </p>
+              <p>
+                <label for="predicate_1"><b>First Variable:</b></label><br />
+                <select class="graph_data" id="predicate_1" name="predicate_1">
+                  <option value="Liberal Democracy Index" selected>Mean Liberal Democracy Index</option>
+                  <option value="Polyarchy Index">Mean Polyarchy Index</option>
+                  <option value="Participatory Democracy Index">Mean Participatory Democracy Index</option>
+                  <option value="Deliberative Democracy Index">Mean Deliberative Democracy Index</option>
+                  <option value="Egalitarian Democracy Index">Mean Egalitarian Democracy Index</option>
+                  <option value="HHI">Mean HHI</option>
+                  <option value="ENPP">Mean ENPP</option>
+                  <option value="Voter Turnout (parliamentary)">Mean Voter Turnout (parliamentary)</option>>
+                </select>
+              </p>
 
-                <p>
-                  <label for="predicate_2"><b>Second dataset:</b></label><br/>
-                  <select class="graph_data" id="predicate_2" name="predicate_2">
-                    <option value="hasTotal">Total Displaced Population</option>
-                    <option value="hasDemocracy" selected>EIU Democracy Index</option>
-                    <option value="hasGDPCapConstant">Constant GDP per Capita</option>
-                    <option value="hasGDPCapGrowth">Growth of GDP per Capita</option>
-                    <option value="hasIncomeCapConstant">Constant Income per Capita</option>
-                    <option value="hasIncomeCapGrowth">Growth of Income per Capita</option>
-                    <option value="hasUnemploymentILO">Unemployment Rate [ILO]</option>
-                    <option value="hasUnemploymentNational">Unemployment Rate [national]</option>
-                    <option value="hasDeathUCDP">Total Deaths [UCDP]</option>
-                    <option value="hasDeathsTerrorism">Deaths through Terrorism</option>
-                    <option value="hasWoundedTerrorism">Wounded through Terrorism</option>
-                  </select>
-                </p>
-                <div>
-                <p><small><i><b>Note:</b> Syria is not represented by some data due to ongoing research.</i></small></p>
-                </div>
+              <p>
+                <label for="predicate_2"><b>Second Variable:</b></label><br />
+                <select class="graph_data" id="predicate_2" name="predicate_2">
+                  <option value="Liberal Democracy Index">Mean Liberal Democracy Index</option>
+                  <option value="Polyarchy Index">Mean Polyarchy Index</option>
+                  <option value="Participatory Democracy Index">Mean Participatory Democracy Index</option>
+                  <option value="Deliberative Democracy Index">Mean Deliberative Democracy Index</option>
+                  <option value="Egalitarian Democracy Index">Mean Egalitarian Democracy Index</option>
+                  <option value="HHI" selected>Mean HHI</option>
+                  <option value="ENPP">Mean ENPP</option>
+                  <option value="Voter Turnout (parliamentary)">Mean Voter Turnout (parliamentary)</option>
+                </select>
+              </p>
+              <div>
+              </div>
             </div>
           </div>
           <div id="graph-descriptions">
@@ -217,25 +557,7 @@
             </div>
           </div>
         </div>
-
-
-        <div class="container">
-          <div class="media-container-row">
-            <div class="col-6">
-              <div id="bubble"></div>
-            </div>
-            <div id="bubble-description" class="col-6">
-              <div></div>
-              <div></div>
-              <h3>Bubble Chart</h3>
-              <p>This Bubble Chart offers an alternative way to visualise the total amount of people who have been displaced between 2008 and 2018. The total includes refugees, asylum-seekers, returned refugees, internally displaced persons, returned IDPs, stateless persons and other persons of concerns.</p>
-              <p>The size of the bubbles is proportional to the total number of dislocated people. The colour of the bubbles follows the map legend: the more the colour is intense, the higher the number of dislocated people in that country.</p>
-              <p><i><b>Tip</b>: Hover over the bubbles to display the total number of dislocated people for the respective country.</i></p>
-            </div>
-          </div>
-        </div>
-
-       </div>
+      </div>
     </div>
   </section>
 
@@ -244,13 +566,23 @@
       <div class="media-container-row align-center mbr-white">
         <div class="row row-links">
           <ul class="foot-menu">
-            <li class="foot-menu-item mbr-fonts-style display-7"><a href="contact.html" class="text-white"><strong>Contact</strong></a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="disclaimer.html" class="text-white"><strong>Disclaimer</strong></a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="references.html" class="text-white"><strong>References</strong></a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="license.html" class="text-white"><strong>License</strong></a></li>
+            <li class="foot-menu-item mbr-fonts-style display-7"><a href="contact.html"
+                class="text-white"><strong>Contact</strong></a></li>
+            <li class="foot-menu-item mbr-fonts-style display-7"><a href="disclaimer.html"
+                class="text-white"><strong>Disclaimer</strong></a></li>
+            <li class="foot-menu-item mbr-fonts-style display-7"><a href="references.html"
+                class="text-white"><strong>References</strong></a></li>
+            <li class="foot-menu-item mbr-fonts-style display-7"><a href="license.html"
+                class="text-white"><strong>License</strong></a></li>
           </ul>
         </div>
 
         <div class="row row-copirayt">
-            <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">Authored by Valentino Castagna, Romolo David d'Alessandro
-            <br />This website is licensed under a <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">Creative Commons Attribution-ShareAlike 2.0 License</a>.</p>
+          <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">Authored by Severin Josef Burg,
+            Eleonora Peruch
+            <br />This website is licensed under a <a href="https://creativecommons.org/licenses/by-sa/2.0/"
+              target="_blank">Creative Commons Attribution-ShareAlike 2.0 License</a>.
+          </p>
         </div>
       </div>
     </div>
@@ -270,34 +602,290 @@
 
   <script type="text/javascript" src="data/map-data.js"></script>
   <script type="text/javascript" src="data/labels.js"></script>
-  <script type="text/javascript" src="scripts/map.js"></script>
   <script type="text/javascript" src="scripts/graph.js"></script>
-  <script type="text/javascript" src="scripts/bubble.js"></script>
 
   <script>
-    window.onload = updateMap('hasTotal')
-    window.onload = updateChart('line', 'Afghanistan', 'hasTotal', 'hasDemocracy')
-  </script>
+    let countryData;
+    // GeoJSON layer for countries
+    let geojsonLayer;
 
-  <script>
-    var array = nationsData['features'];
-    var select = document.getElementById('nation');
-    var options = []
+    document.addEventListener('DOMContentLoaded', async () => {
+      countryData = await fetch('./data/values_by_country.json').then(response => response.json());
+      console.log(countryData)
+      // Initialize the map
+      loadGeoJSON();
+      updateChart('bar', 'Austria', 'Liberal Democracy Index', 'HHI');
 
-    for (var i = 0; i < array.length; i++) {
-        options.push(array[i].properties.name);
-        options.sort()
+    });
+
+    // GeoJSON data URLs for European countries
+    const geoJsonUrl = 'https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson';
+
+    // Initialize map
+    const map = L.map('map', {
+      maxBounds: [
+        [-60, -180],
+        [90, 180]
+      ],
+      minZoom: 3,
+      maxBoundsViscosity: 1.0
+    }).setView([54.5, 15.0], 4);
+
+
+
+    // Add tile layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+      noWrap: true,
+      bounds: [[-90, -180], [90, 180]]
+    }).addTo(map);
+
+    // Current state
+    let currentDecade = '1990';
+    let currentVariable = 'Liberal Democracy Index';
+    let countryLayers = {};
+
+    // Variable names for display
+
+
+    // Get color based on value
+    function getColor(value, min, max) {
+      const ratio = (value - min) / (max - min);
+
+      // Red component stays at 255 (full red)
+      const red = 255;
+
+      // Green and blue components increase from 0 to 255 as ratio goes from 0 to 1
+      // This creates the transition from red (255,0,0) to white (255,255,255)
+      const greenBlue = Math.round(255 * (1 - ratio));
+
+      return `rgb(${red}, ${greenBlue}, ${greenBlue})`;
     }
 
-    for (var i = 0; i < options.length; i++) {
-        var option = document.createElement('option');
-        option.value = options[i];
-        option.text = options[i];
-        select.appendChild(option);
-    }
-  </script>
+    // Calculate value for country based on current variable
+    function calculateValue(countryName) {
+      if (!countryData[countryName]) return 0;
+      if (!countryData[countryName][currentDecade]) return 0;
 
-  <script>
+      const data = countryData[countryName][currentDecade];
+
+      return (!data[currentVariable]) ? "Missing" : data[currentVariable];
+    }
+
+    // Get country name from feature properties
+    function getCountryName(feature) {
+      // GeoJSON properties might have different name fields
+      return feature.properties.ADMIN ||
+        feature.properties.NAME ||
+        feature.properties.name ||
+        feature.properties.NAME_EN ||
+        'Unknown';
+    }
+
+    // Get min and max values for current variable and decade
+    function getMinMaxValues() {
+      const values = Object.keys(countryData)
+        .filter(key => countryData[key])
+        .map(country => calculateValue(country))
+        .filter(value => value > 0)
+      return {
+        min: Math.min(...values),
+        max: Math.max(...values)
+      };
+    }
+
+    function getValues(obj) {
+      let arr = []
+      Object.keys(obj).forEach(key => {
+        const val = obj[key];
+        let newVal;
+        if ((val === null) || (val === 0.00)) {
+          newVal = "Missing";
+        } else {
+          newVal = val.toFixed(2)
+        }
+        arr.push(newVal)
+      });
+      return arr
+    }
+
+    // Create popup content
+    function createPopupContent(countryName) {
+      if (!countryData[countryName] ||
+        (!countryData[countryName][currentDecade])) {
+        return `<div class="popup-header">${countryName}</div><p>No data available for this country</p>`;
+      }
+
+      let data = countryData[countryName][currentDecade]
+      const values = getValues(data)
+
+      return `
+                <div class="popup-header">${countryName} (${currentDecade})</div>
+                <div class="popup-data">
+                    <div class="data-item">
+                        <span class="data-label">Liberal Democracy Index</span>
+                        <span class="data-value">${values[0]}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Polyarchy Index</span>
+                        <span class="data-value">${values[1]}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Participatory Democracy Index</span>
+                        <span class="data-value">${values[2]}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Deliberatory Democracy Index</span>
+                        <span class="data-value">${values[3]}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Egalitarian Democracy Index</span>
+                        <span class="data-value">${values[4]}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">HHI</span>
+                        <span class="data-value">${values[5]}${values[5] === "Missing" ? "" : "%"}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">ENPP</span>
+                        <span class="data-value">${values[6]}</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Voter Turnout (parliamentary)</span>
+                        <span class="data-value">${values[7]}${values[7] === "Missing" ? "" : "%"}</span>
+                    </div>
+                </div>
+            `;
+    }
+
+    // Style function for GeoJSON features
+    function styleFeature(feature) {
+      const countryName = getCountryName(feature);
+      const { min, max } = getMinMaxValues();
+
+      if ((countryData[countryName]) &&
+        (countryData[countryName][currentDecade])) {
+        const value = calculateValue(countryName);
+        const color = getColor(value, min, max);
+        return {
+          fillColor: color,
+          weight: 2,
+          opacity: 1,
+          color: '#333',
+          fillOpacity: 0.8
+        };
+      } else {
+        // Style for countries without data
+        return {
+          fillColor: '#f0f0f0',
+          weight: 1,
+          opacity: 0.5,
+          color: '#999',
+          fillOpacity: 0.3
+        };
+      }
+    }
+
+    // Feature interaction functions
+    function onEachFeature(feature, layer) {
+      const countryName = getCountryName(feature);
+
+      layer.on({
+        click: function (e) {
+          layer.bindPopup(createPopupContent(countryName)).openPopup();
+        },
+        mouseover: function (e) {
+          const layer = e.target;
+          layer.setStyle({
+            fillOpacity: 0.9
+          });
+        },
+        mouseout: function (e) {
+          geojsonLayer.resetStyle(e.target);
+        }
+      });
+    }
+
+    // Load and display GeoJSON data
+    function loadGeoJSON() {
+      fetch(geoJsonUrl)
+        .then(response => response.json())
+        .then(data => {
+          // Filter for EU member countries only
+          const validCountries = data.features.filter(feature => {
+            const countryName = getCountryName(feature);
+            return Object.keys(countryData).includes(countryName)
+          });
+
+          geojsonLayer = L.geoJSON(
+            {
+              type: 'FeatureCollection',
+              features: validCountries
+            },
+            {
+              style: styleFeature,
+              onEachFeature: onEachFeature
+            })
+            .addTo(map);
+        })
+        .catch(error => {
+          console.error('Error loading GeoJSON:', error);
+          // Fallback to simple rectangles if GeoJSON fails
+          initializeCountries();
+        });
+    }
+
+    // Update map colors and legend
+    function updateMap() {
+      const { min, max } = getMinMaxValues();
+
+      // Update legend
+      document.getElementById('minValue').textContent = min.toFixed(1);
+      document.getElementById('maxValue').textContent = max.toFixed(1);
+
+      // Update GeoJSON layer style if it exists
+      if (geojsonLayer) {
+        geojsonLayer.setStyle(styleFeature);
+      }
+    }
+
+    // Initialize country layers (fallback method)
+    function initializeCountries() {
+      console.log('Using fallback rectangle method for countries');
+      // This is the fallback method using rectangles
+      // (keeping the original implementation as backup)
+    }
+
+    // Event listeners
+
+    // Dropdown decade selection
+    document.getElementById('decadeSelect').addEventListener('change', function () {
+      const decade = this.value;
+      currentDecade = decade;
+      // Update button highlight
+      document.querySelectorAll('.decade-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.decade === decade);
+      });
+      updateMap();
+    });
+    // Button decade selection
+    document.querySelectorAll('.decade-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.getElementById('decadeSelect').value = this.dataset.decade;
+        currentDecade = this.dataset.decade;
+        document.querySelectorAll('.decade-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        updateMap();
+      });
+    });
+
+
+    document.getElementById('variableSelect').addEventListener('change', function () {
+      currentVariable = this.value;
+      updateMap();
+    });
+
+
     const selectElement = document.querySelectorAll('.graph_data')
 
     selectElement.forEach((item) => {
@@ -317,7 +905,202 @@
         updateChart(graph, nation, predicate_1, predicate_2)
       });
     });
+    
+    var dynamic_chart;
+
+    function destroyChart() {
+      if (dynamic_chart != null) {
+        dynamic_chart.destroy();
+      }
+    }
+
+    function updateChart(input_graph, input_nation, predicate_1, predicate_2) {
+      destroyChart();
+
+      /* if (document.getElementById("data-description-predicate-1") != null) {
+        document.getElementById("data-description-predicate-1").innerHTML = '<p><h4>' + info_labels[predicate_1].title + '</h4></p>' + '<p><b>Description:</b>' + '<br />' + info_labels[predicate_1].description + '</p>' + '<p><b>Data provider:</b>' + '<br />' + info_labels[predicate_1].provider + '</p>';
+      }
+
+      if (document.getElementById("data-description-predicate-2") != null) {
+        document.getElementById("data-description-predicate-2").innerHTML = '<p><h4>' + info_labels[predicate_2].title + '</h4></p>' + '<p><b>Description:</b>' + '<br />' + info_labels[predicate_2].description + '</p>' + '<p><b>Data provider:</b>' + '<br />' + info_labels[predicate_2].provider + '</p>';
+      } */
+
+      var customTooltips = function (tooltip) {
+        // Tooltip Element
+        var tooltipEl = document.getElementById('chartjs-tooltip');
+
+        if (!tooltipEl) {
+          tooltipEl = document.createElement('div');
+          tooltipEl.id = 'chartjs-tooltip';
+          tooltipEl.innerHTML = '<table></table>';
+          this._chart.canvas.parentNode.appendChild(tooltipEl);
+        }
+
+        // Hide if no tooltip
+        if (tooltip.opacity === 0) {
+          tooltipEl.style.opacity = 0;
+          return;
+        }
+
+        // Set caret Position
+        tooltipEl.classList.remove('above', 'below', 'no-transform');
+        if (tooltip.yAlign) {
+          tooltipEl.classList.add(tooltip.yAlign);
+        } else {
+          tooltipEl.classList.add('no-transform');
+        }
+
+        function getBody(bodyItem) {
+          console.log(bodyItem.lines.toLocaleString())
+          return bodyItem.lines;
+        }
+
+        // Set Text
+        if (tooltip.body) {
+          console.log(tooltip)
+          var titleLines = tooltip.title || [];
+          var bodyLines = tooltip.body.map(getBody);
+
+          var innerHtml = '<thead>';
+
+          titleLines.forEach(function (title) {
+            innerHtml += '<tr><th>' + title + '</th></tr>';
+          });
+          innerHtml += '</thead><tbody>';
+
+          bodyLines.forEach(function (body, i) {
+            var colors = tooltip.labelColors[i];
+            var style = 'background:' + colors.backgroundColor;
+            style += '; border-color:' + colors.borderColor;
+            style += '; border-width: 2px';
+            var span = '<span class="chartjs-tooltip-key" style="' + style + '"></span>';
+            innerHtml += '<tr><td>' + span + body + '</td></tr>';
+          });
+          innerHtml += '</tbody>';
+
+          var tableRoot = tooltipEl.querySelector('table');
+          tableRoot.innerHTML = innerHtml;
+        }
+
+        var positionY = this._chart.canvas.offsetTop;
+        var positionX = this._chart.canvas.offsetLeft;
+
+        // Display, position, and set styles for font
+        tooltipEl.style.opacity = 1;
+        tooltipEl.style.left = positionX + tooltip.caretX + 'px';
+        tooltipEl.style.top = positionY + tooltip.caretY + 'px';
+        tooltipEl.style.fontFamily = tooltip._bodyFontFamily;
+        tooltipEl.style.fontSize = tooltip.bodyFontSize + 'px';
+        tooltipEl.style.fontStyle = tooltip._bodyFontStyle;
+        tooltipEl.style.padding = tooltip.yPadding + 'px ' + tooltip.xPadding + 'px';
+      };
+
+
+      function chartData(pred) {
+
+        const decades = ['1940', '1950', '1960', '1970', '1980', '1990', '2000', '2010'];
+
+        data = []
+
+        if (pred != "emptyChart") {
+          decades.forEach(
+            (year) => {
+              if (countryData[input_nation][year]) {
+                data.push(countryData[input_nation][year][pred])
+              } else {
+                data.push(data[-1])
+              }
+            }
+          )
+        }
+        console.log(data)
+        
+        data.forEach(value => {
+          if (value > 1.1) {
+            return value / 100
+          }
+        })
+
+        return data
+      }
+
+      var finalChartData = {
+        labels: ['1940', '1950', '1960', '1970', '1980', '1990', '2000', '2010'],
+        datasets: [{
+          label: predicate_1,
+          backgroundColor: 'rgba(247, 94, 25, 0.2)',
+          borderColor: 'rgb(247, 94, 25)',
+          pointBackgroundColor: 'rgb(247, 94, 25)',
+          borderWidth: 1,
+          fill: true,
+          data: chartData(predicate_1),
+          yAxisID: 'y-axis-1'
+        }, {
+          label: predicate_2,
+          backgroundColor: 'rgba(83, 161, 214, 0.2)',
+          borderColor: 'rgb(83, 161, 214)',
+          pointBackgroundColor: 'rgb(83, 161, 214)',
+          borderWidth: 1,
+          fill: true,
+          data: chartData(predicate_2),
+          yAxisID: 'y-axis-2'
+        }]
+      };
+
+
+      // ...existing code...
+dynamic_chart = new Chart(document.getElementById('chart'), {
+    type: input_graph,
+    data: finalChartData,
+    options: {
+      scales: {
+						yAxes: [{
+  							type: 'linear',
+  							display: true,
+  							position: 'left',
+  							id: 'y-axis-1',
+                gridLines: {
+                  drawOnChartArea: false,
+                },
+                ticks:{
+                  beginAtZero:true,
+                  callback: function(value, index, values) {
+                    return value.toLocaleString('de');
+                  }
+                }
+						  }, {
+  							type: 'linear',
+  							display: true,
+  							position: 'right',
+  							id: 'y-axis-2',
+  							gridLines: {
+  								drawOnChartArea: false,
+  							},
+                ticks:{
+                  beginAtZero:true,
+                  callback: function(value, index, values) {
+                    return value.toLocaleString('de');
+                  }
+                }
+						}],
+					},
+      tooltips: {
+        enabled: false,
+        mode: 'index',
+        position: 'nearest',
+        custom: customTooltips,
+      }
+    }
+  });
+// ...existing code...
+    }
+
+  </script>
+  <script>
   </script>
 
+
+
 </body>
+
 </html>

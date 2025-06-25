@@ -1,4 +1,4 @@
-Chart.defaults.global.pointHitDetectionRadius = 1;
+/* Chart.defaults.global.pointHitDetectionRadius = 1;
 var dynamic_chart;
 
 function destroyChart() {
@@ -171,3 +171,4 @@ function updateChart(input_graph, input_nation, predicate_1, predicate_2) {
     }
   });
 }
+ */
