@@ -57,14 +57,6 @@ main {
   flex-shrink: 0;
 }
 
-#side-menu-wrapper {
-  overflow: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
-}
-#side-menu-wrapper::-webkit-scrollbar {
-  display: none; /* WebKit browsers */
-}
 
 .mbr-section-title {
   font-style: normal;
