@@ -171,6 +171,7 @@ for dataset in datasets:
     # Optional properties
     if dataset["version"]:
         metadata_g.add((dataset_uri, DCAT.version, Literal(dataset["version"])))
+    metadata_g.add((dataset_uri, DCTERMS.identifier, Literal(dataset["id"])))
 
 
     # Proprietà per catalog_uri

@@ -109,6 +109,7 @@
 <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ> a dcat3:Dataset,
         dcat3:Distribution ;
     dct:description "Party Facts links datasets on political parties." ;
+    dct:identifier "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ" ;
     dct:temporal <https://github.com/DeVoteD-Research/DeVoteD/19452024> ;
     dct:title "Party Facts - Version 2023" ;
     dcat3:accessURL "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ" ;
@@ -126,6 +127,7 @@
 <https://manifesto-project.wzb.eu/datasets/MPDS2024a> a dcat3:Dataset,
         dcat3:Distribution ;
     dct:description "The Manifesto Corpus is a free, digital, multilingual, and annotated collection of electoral programmes. It is based on the collection of the Manifesto Project, comprising the currently largest collection of annotated electoral programmes." ;
+    dct:identifier "https://manifesto-project.wzb.eu/datasets/MPDS2024a" ;
     dct:temporal <https://github.com/DeVoteD-Research/DeVoteD/19452024> ;
     dct:title "Manifesto Project Corpus" ;
     dcat3:accessURL "https://manifesto-project.wzb.eu/datasets/MPDS2024a" ;
@@ -143,6 +145,7 @@
 <https://v-dem.net/data/the-v-dem-dataset/country-year-v-dem-core-v15/> a dcat3:Dataset,
         dcat3:Distribution ;
     dct:description "The five high-level V-Dem democracy indices, 92 sub-indices, and the 167 indicators constituting them." ;
+    dct:identifier "https://v-dem.net/data/the-v-dem-dataset/country-year-v-dem-core-v15/" ;
     dct:temporal <https://github.com/DeVoteD-Research/DeVoteD/19002024> ;
     dct:title "Country-Year: V-Dem Core" ;
     dcat3:accessURL "https://v-dem.net/data/the-v-dem-dataset/country-year-v-dem-core-v15/" ;
@@ -160,6 +163,7 @@
 <https://www.idea.int/data-tools/data/voter-turnout-database> a dcat3:Dataset,
         dcat3:Distribution ;
     dct:description "The most comprehensive global collection of voter turnout statistics from presidential and parliamentary elections since 1945." ;
+    dct:identifier "https://www.idea.int/data-tools/data/voter-turnout-database" ;
     dct:temporal <https://github.com/DeVoteD-Research/DeVoteD/19452024> ;
     dct:title "IDEA Voter Turnout Database" ;
     dcat3:accessURL "https://www.idea.int/data-tools/data/voter-turnout-database" ;
