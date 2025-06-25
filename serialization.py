@@ -240,14 +240,17 @@ for catalog in catalogs_list:
 metadata_g.add((dataset_uri, DCAT.version, Literal("1.0")))
 
 # License
-metadata_g.add((license_uri, RDF.type, CC.License))
-metadata_g.add((license_uri, CC.legalcode, legalcode_uri))
-metadata_g.add((license_uri, CC.permits, CC.Reproduction))
-metadata_g.add((license_uri, CC.permits, CC.Distribution))
-metadata_g.add((license_uri, CC.permits, CC.DerivativeWorks))
-metadata_g.add((license_uri, CC.requires, CC.Notice))
-metadata_g.add((license_uri, CC.requires, CC.Attribution))
-metadata_g.add((license_uri, RDFS.label, Literal("Creative Commons CC-BY 4.0", lang="en")))
+license_g = Graph()
+license_g.bind("cc", CC)
+
+license_g.add((license_uri, RDF.type, CC.License))
+license_g.add((license_uri, CC.legalcode, legalcode_uri))
+license_g.add((license_uri, CC.permits, CC.Reproduction))
+license_g.add((license_uri, CC.permits, CC.Distribution))
+license_g.add((license_uri, CC.permits, CC.DerivativeWorks))
+license_g.add((license_uri, CC.requires, CC.Notice))
+license_g.add((license_uri, CC.requires, CC.Attribution))
+license_g.add((license_uri, RDFS.label, Literal("Creative Commons CC-BY 4.0", lang="en")))
 
 
 # Creazione della directory serialisations se non esiste
@@ -255,8 +258,11 @@ output_dir = "serialization/"
 
 # Salvataggio del file nella directory
 metadata_file = os.path.join(output_dir, "metadata.ttl")
+license_file = os.path.join(output_dir, "license.ttl")
 
 with open(metadata_file, "w", encoding="utf-8") as f:
     f.write(metadata_g.serialize(format="turtle"))
+with open(license_file, "w", encoding="utf-8") as f:
+    f.write(license_g.serialize(format="turtle"))
 
-print(f"Serializzazione completata! File salvati come {metadata_file}.")
+print(f"Serializzazione completata! File salvati:\n{metadata_file}\n{license_file}.")

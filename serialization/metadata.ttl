@@ -1,10 +1,8 @@
 @prefix adms: <http://www.w3.org/ns/adms#> .
-@prefix cc: <http://creativecommons.org/ns#> .
 @prefix dcat3: <https://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -20,15 +18,6 @@
 <19452019> a dct:PeriodOfTime ;
     dcat3:endDate "2019"^^xsd:gYear ;
     dcat3:startDate "1945"^^xsd:gYear .
-
-<https://creativecommons.org/licenses/by/4.0/> a cc:License ;
-    rdfs:label "Creative Commons CC-BY 4.0"@en ;
-    cc:legalcode <https://creativecommons.org/licenses/by/4.0/legalcode> ;
-    cc:permits cc:DerivativeWorks,
-        cc:Distribution,
-        cc:Reproduction ;
-    cc:requires cc:Attribution,
-        cc:Notice .
 
 <https://github.com/DeVoteD-Research/DeVoteD/19002024> a dct:PeriodOfTime ;
     dcat3:endDate "2024"^^xsd:gYear ;
