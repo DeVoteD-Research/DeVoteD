@@ -1,4 +1,4 @@
 DeVoteD
 .metadata
-data/
+data/*.csv
 DeVoteD backup
