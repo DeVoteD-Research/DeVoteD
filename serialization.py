@@ -11,17 +11,8 @@ CC = Namespace("http://creativecommons.org/ns#")
 VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
 
 
-# Creazione del grafo
-g = Graph()
+# Creazione del grafo per il catalogo
 metadata_g = Graph()
-g.bind("dcat3", DCAT)
-g.bind("dct", DCTERMS)
-g.bind("prov", PROV)
-g.bind("adms", ADMS)
-g.bind("xsd", XSD)
-g.bind("dcatapit", DCATAPIT)
-g.bind("dvd", DVD)
-g.bind("cc", CC)
 
 metadata_g.bind("dcat3", DCAT)
 metadata_g.bind("dct", DCTERMS)
@@ -239,7 +230,7 @@ for catalog in catalogs_list:
     metadata_g.add((devoted_catalog_uri, DCAT.catalog, catalog))
 metadata_g.add((dataset_uri, DCAT.version, Literal("1.0")))
 
-# License
+# Creazione grafo per la licenza del progetto
 license_g = Graph()
 license_g.bind("cc", CC)
 
