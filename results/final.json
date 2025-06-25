@@ -1237,6 +1237,18 @@
     },
     {
         "country_name": "France",
+        "decade": 1990,
+        "Liberal Democracy Index": 0.7979,
+        "Polyarchy Index": 0.8758,
+        "Participatory Democracy Index": 0.652,
+        "Deliberative Democracy Index": 0.8018,
+        "Egalitarian Democracy Index": 0.7611,
+        "HHI": 13.36089026482188,
+        "ENPP": 7.484531196494574,
+        "Voter Turnout (parliamentary)": 68.85750000000002
+    },
+    {
+        "country_name": "France",
         "decade": 2000,
         "Liberal Democracy Index": 0.8019000000000001,
         "Polyarchy Index": 0.8775000000000001,
@@ -2422,6 +2434,18 @@
         "HHI": 100.0,
         "ENPP": 1.0,
         "Voter Turnout (parliamentary)": 45.46
+    },
+    {
+        "country_name": "Mauritius",
+        "decade": 1980,
+        "Liberal Democracy Index": 0.6026,
+        "Polyarchy Index": 0.7019000000000001,
+        "Participatory Democracy Index": 0.4416,
+        "Deliberative Democracy Index": 0.6421,
+        "Egalitarian Democracy Index": 0.5449,
+        "HHI": 40.227400190670146,
+        "ENPP": 2.4858678295395484,
+        "Voter Turnout (parliamentary)": 87.34666666666668
     },
     {
         "country_name": "Mauritius",
