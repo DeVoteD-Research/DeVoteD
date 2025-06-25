@@ -1,11 +1,9 @@
 import os
-from rdflib import Graph, Namespace, Literal, URIRef, BNode
+from rdflib import Graph, Namespace, Literal, URIRef
 from rdflib.namespace import DCTERMS, PROV, XSD, RDF, RDFS, FOAF, SKOS, ORG
 
 # Definizione dei namespace
-DCATAPIT = Namespace("http://dati.gov.it/onto/dcatapit/")
 DCAT = Namespace("https://www.w3.org/ns/dcat#")
-ADMS = Namespace("http://www.w3.org/ns/adms#")
 DVD = Namespace("https://github.com/DeVoteD-Research/DeVoteD/")
 CC = Namespace("http://creativecommons.org/ns#")
 VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
@@ -16,9 +14,7 @@ metadata_g = Graph()
 
 metadata_g.bind("dcat3", DCAT)
 metadata_g.bind("dct", DCTERMS)
-metadata_g.bind("adms", ADMS)
 metadata_g.bind("xsd", XSD)
-metadata_g.bind("dcatapit", DCATAPIT)
 metadata_g.bind("cc", CC)
 metadata_g.bind("vcard", VCARD)
 metadata_g.bind("foaf", FOAF)
@@ -226,7 +222,7 @@ metadata_g.add((devoted_catalog_uri, DCTERMS.temporal, period_uri))
 metadata_g.add((devoted_catalog_uri, DCAT.distribution, devoted_catalog_uri))
 # Optional
 metadata_g.add((devoted_catalog_uri, PROV.wasAttributedTo, devoted_uri))
-metadata_g.add((devoted_catalog_uri, ADMS.identifier,  Literal("DeVoteD-Catalog", datatype=XSD.string)))
+metadata_g.add((devoted_catalog_uri, DCTERMS.identifier,  Literal("DeVoteD-Catalog", datatype=XSD.string)))
 for catalog in catalogs_list:
     metadata_g.add((devoted_catalog_uri, DCAT.catalog, catalog))
 metadata_g.add((dataset_uri, DCAT.version, Literal("1.0")))
