@@ -28,8 +28,8 @@
             "Participatory Democracy Index": 0.2096,
             "Deliberative Democracy Index": 0.27799999999999997,
             "Egalitarian Democracy Index": 0.29379999999999995,
-            "HHI": 50.915764102534986,
-            "ENPP": 1.9640282683103485,
+            "HHI": 38.76301997403948,
+            "ENPP": 2.6993307463098337,
             "Voter Turnout (parliamentary)": 88.015
         },
         "2000": {
@@ -164,8 +164,8 @@
             "Participatory Democracy Index": 0.5718,
             "Deliberative Democracy Index": 0.7669000000000001,
             "Egalitarian Democracy Index": 0.6581,
-            "HHI": 76.52907850618568,
-            "ENPP": 1.4423621704074963,
+            "HHI": 60.42872366847874,
+            "ENPP": 2.142434806114175,
             "Voter Turnout (parliamentary)": 81.82600000000001
         },
         "2000": {
@@ -174,8 +174,8 @@
             "Participatory Democracy Index": 0.5506999999999999,
             "Deliberative Democracy Index": 0.6451000000000001,
             "Egalitarian Democracy Index": 0.6353,
-            "HHI": 52.42167916050296,
-            "ENPP": 1.917529956727584,
+            "HHI": 45.635320223763806,
+            "ENPP": 2.615696488814382,
             "Voter Turnout (parliamentary)": 74.285
         },
         "2010": {
@@ -184,8 +184,8 @@
             "Participatory Democracy Index": 0.5165,
             "Deliberative Democracy Index": 0.5740000000000001,
             "Egalitarian Democracy Index": 0.6097999999999999,
-            "HHI": 72.60862491471437,
-            "ENPP": 1.8157854382221625,
+            "HHI": 62.884197629999804,
+            "ENPP": 2.2864310977946154,
             "Voter Turnout (parliamentary)": 78.94600000000001
         }
     },
@@ -206,9 +206,19 @@
             "Participatory Democracy Index": 0.1861,
             "Deliberative Democracy Index": 0.19039999999999999,
             "Egalitarian Democracy Index": 0.2976,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 42.97378618713591,
+            "ENPP": 5.109911686841046,
             "Voter Turnout (parliamentary)": 57.585
+        },
+        "2010": {
+            "Liberal Democracy Index": 0.2644,
+            "Polyarchy Index": 0.4099,
+            "Participatory Democracy Index": 0.252,
+            "Deliberative Democracy Index": 0.2889,
+            "Egalitarian Democracy Index": 0.3410000000000001,
+            "HHI": 28.73669301540212,
+            "ENPP": 3.47987153380532,
+            "Voter Turnout (parliamentary)": 57.47666666666667
         },
         "2020": {
             "Liberal Democracy Index": 0.47959999999999997,
@@ -238,8 +248,8 @@
             "Participatory Democracy Index": 0.5865,
             "Deliberative Democracy Index": 0.731,
             "Egalitarian Democracy Index": 0.6227,
-            "HHI": 42.44689755289228,
-            "ENPP": 2.3564108822485523,
+            "HHI": 38.14912602142409,
+            "ENPP": 2.6988354150012444,
             "Voter Turnout (parliamentary)": 95.61500000000001
         },
         "1960": {
@@ -278,8 +288,8 @@
             "Participatory Democracy Index": 0.6508000000000002,
             "Deliberative Democracy Index": 0.8013000000000001,
             "Egalitarian Democracy Index": 0.7960000000000002,
-            "HHI": 37.74486287139343,
-            "ENPP": 2.679982857440799,
+            "HHI": 35.16110916697368,
+            "ENPP": 2.9220680838799824,
             "Voter Turnout (parliamentary)": 95.455
         },
         "2000": {
@@ -298,8 +308,8 @@
             "Participatory Democracy Index": 0.6169,
             "Deliberative Democracy Index": 0.7982000000000001,
             "Egalitarian Democracy Index": 0.7682,
-            "HHI": 26.32200401188662,
-            "ENPP": 3.82502704423615,
+            "HHI": 24.96775252946371,
+            "ENPP": 4.064656544524957,
             "Voter Turnout (parliamentary)": 92.3375
         },
         "2020": {
@@ -320,8 +330,8 @@
             "Participatory Democracy Index": 0.5317500000000001,
             "Deliberative Democracy Index": 0.5045000000000001,
             "Egalitarian Democracy Index": 0.6372500000000001,
-            "HHI": 82.34877126654064,
-            "ENPP": 1.2143472022955526,
+            "HHI": 57.651306193232294,
+            "ENPP": 2.124447409018687,
             "Voter Turnout (parliamentary)": 95.545
         },
         "1950": {
@@ -370,8 +380,8 @@
             "Participatory Democracy Index": 0.6282,
             "Deliberative Democracy Index": 0.7698,
             "Egalitarian Democracy Index": 0.7621,
-            "HHI": 54.03085636440609,
-            "ENPP": 2.501338321617592,
+            "HHI": 46.527929707173726,
+            "ENPP": 2.916839918818375,
             "Voter Turnout (parliamentary)": 83.75
         },
         "2000": {
@@ -380,8 +390,8 @@
             "Participatory Democracy Index": 0.6232,
             "Deliberative Democracy Index": 0.7776000000000001,
             "Egalitarian Democracy Index": 0.7688000000000001,
-            "HHI": 30.796034336061503,
-            "ENPP": 3.280465116681471,
+            "HHI": 26.858550466183598,
+            "ENPP": 3.9428799274150674,
             "Voter Turnout (parliamentary)": 80.52333333333334
         },
         "2010": {
@@ -390,8 +400,8 @@
             "Participatory Democracy Index": 0.6411000000000001,
             "Deliberative Democracy Index": 0.7757,
             "Egalitarian Democracy Index": 0.7681000000000001,
-            "HHI": 62.65385679585017,
-            "ENPP": 2.475682229010111,
+            "HHI": 40.991215782363845,
+            "ENPP": 3.931403444511542,
             "Voter Turnout (parliamentary)": 76.83333333333333
         },
         "2020": {
@@ -422,8 +432,8 @@
             "Participatory Democracy Index": 0.08189999999999999,
             "Deliberative Democracy Index": 0.0605,
             "Egalitarian Democracy Index": 0.1467,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 66.65948596508628,
+            "ENPP": 2.0006465416996146,
             "Voter Turnout (parliamentary)": 54.23
         },
         "2010": {
@@ -612,8 +622,8 @@
             "Participatory Democracy Index": 0.5791000000000001,
             "Deliberative Democracy Index": 0.7530000000000001,
             "Egalitarian Democracy Index": 0.7484,
-            "HHI": 33.00869118296042,
-            "ENPP": 3.065528707559646,
+            "HHI": 27.34140960562264,
+            "ENPP": 4.126128054703569,
             "Voter Turnout (parliamentary)": 91.31333333333333
         },
         "1970": {
@@ -622,8 +632,8 @@
             "Participatory Democracy Index": 0.5872,
             "Deliberative Democracy Index": 0.7591000000000001,
             "Egalitarian Democracy Index": 0.7766000000000001,
-            "HHI": 15.685669807166477,
-            "ENPP": 6.383807994144215,
+            "HHI": 14.775720483607534,
+            "ENPP": 6.828717914635335,
             "Voter Turnout (parliamentary)": 92.96
         },
         "1980": {
@@ -642,8 +652,8 @@
             "Participatory Democracy Index": 0.627,
             "Deliberative Democracy Index": 0.7869,
             "Egalitarian Democracy Index": 0.8165999999999999,
-            "HHI": 32.11459766157762,
-            "ENPP": 5.579228454326279,
+            "HHI": 24.837918144200522,
+            "ENPP": 6.960590381555295,
             "Voter Turnout (parliamentary)": 91.47666666666666
         },
         "2010": {
@@ -652,8 +662,8 @@
             "Participatory Democracy Index": 0.6501,
             "Deliberative Democracy Index": 0.8103999999999999,
             "Egalitarian Democracy Index": 0.8386,
-            "HHI": 11.262646031041278,
-            "ENPP": 8.878908182356735,
+            "HHI": 10.45732833528008,
+            "ENPP": 9.661335189833828,
             "Voter Turnout (parliamentary)": 88.99
         }
     },
@@ -738,8 +748,8 @@
             "Participatory Democracy Index": 0.0364,
             "Deliberative Democracy Index": 0.018300000000000004,
             "Egalitarian Democracy Index": 0.09369999999999999,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 71.56018627914304,
+            "ENPP": 1.6595447124770244,
             "Voter Turnout (parliamentary)": 96.56
         },
         "1980": {
@@ -784,14 +794,24 @@
         }
     },
     "Bosnia and Herzegovina": {
+        "1990": {
+            "Liberal Democracy Index": 0.19312500000000002,
+            "Polyarchy Index": 0.368125,
+            "Participatory Democracy Index": 0.203375,
+            "Deliberative Democracy Index": 0.216,
+            "Egalitarian Democracy Index": 0.25975000000000004,
+            "HHI": 17.781552752520575,
+            "ENPP": 5.623805827971056,
+            "Voter Turnout (parliamentary)": 58.4
+        },
         "2000": {
             "Liberal Democracy Index": 0.4093,
             "Polyarchy Index": 0.6226999999999999,
             "Participatory Democracy Index": 0.35500000000000004,
             "Deliberative Democracy Index": 0.4261,
             "Egalitarian Democracy Index": 0.42140000000000005,
-            "HHI": 16.35816008064922,
-            "ENPP": 6.113156950841578,
+            "HHI": 14.2936716340159,
+            "ENPP": 7.14515898270989,
             "Voter Turnout (parliamentary)": 58.03
         },
         "2010": {
@@ -800,8 +820,8 @@
             "Participatory Democracy Index": 0.3231,
             "Deliberative Democracy Index": 0.38289999999999996,
             "Egalitarian Democracy Index": 0.3873,
-            "HHI": 42.34428166094896,
-            "ENPP": 5.302015657998762,
+            "HHI": 34.37227875958423,
+            "ENPP": 6.367421682447505,
             "Voter Turnout (parliamentary)": 55.019999999999996
         },
         "2020": {
@@ -950,14 +970,24 @@
         }
     },
     "Bulgaria": {
+        "1990": {
+            "Liberal Democracy Index": 0.5815,
+            "Polyarchy Index": 0.6821,
+            "Participatory Democracy Index": 0.4303,
+            "Deliberative Democracy Index": 0.6062000000000001,
+            "Egalitarian Democracy Index": 0.5550999999999999,
+            "HHI": 25.286798168711993,
+            "ENPP": 3.9546327428568073,
+            "Voter Turnout (parliamentary)": 72.65666666666667
+        },
         "2000": {
             "Liberal Democracy Index": 0.6132,
             "Polyarchy Index": 0.7086,
             "Participatory Democracy Index": 0.44359999999999994,
             "Deliberative Democracy Index": 0.6121,
             "Egalitarian Democracy Index": 0.5617000000000001,
-            "HHI": 62.826783606004376,
-            "ENPP": 1.5916778523489934,
+            "HHI": 38.44288923378659,
+            "ENPP": 4.352280940153629,
             "Voter Turnout (parliamentary)": 61.01
         },
         "2010": {
@@ -966,8 +996,8 @@
             "Participatory Democracy Index": 0.45539999999999997,
             "Deliberative Democracy Index": 0.5253000000000001,
             "Egalitarian Democracy Index": 0.5045999999999999,
-            "HHI": 26.176520889600912,
-            "ENPP": 3.820217378075127,
+            "HHI": 23.120270403270442,
+            "ENPP": 4.402131733621227,
             "Voter Turnout (parliamentary)": 52.46333333333334
         },
         "2020": {
@@ -1148,8 +1178,8 @@
             "Participatory Democracy Index": 0.487,
             "Deliberative Democracy Index": 0.6100000000000001,
             "Egalitarian Democracy Index": 0.507,
-            "HHI": 36.862023155122984,
-            "ENPP": 2.7128190869822695,
+            "HHI": 30.760273767764005,
+            "ENPP": 3.3841058982548713,
             "Voter Turnout (parliamentary)": 75.55000000000001
         },
         "1950": {
@@ -1198,8 +1228,8 @@
             "Participatory Democracy Index": 0.5982000000000001,
             "Deliberative Democracy Index": 0.7524000000000001,
             "Egalitarian Democracy Index": 0.7068,
-            "HHI": 25.261649789918046,
-            "ENPP": 3.9585696433773743,
+            "HHI": 23.636697609815915,
+            "ENPP": 4.250799371030363,
             "Voter Turnout (parliamentary)": 68.32
         },
         "2000": {
@@ -1208,8 +1238,8 @@
             "Participatory Democracy Index": 0.5758,
             "Deliberative Democracy Index": 0.7343,
             "Egalitarian Democracy Index": 0.7003999999999999,
-            "HHI": 29.54724984282825,
-            "ENPP": 3.3844435755054545,
+            "HHI": 27.546594119621265,
+            "ENPP": 3.672007466825357,
             "Voter Turnout (parliamentary)": 61.56999999999999
         },
         "2010": {
@@ -1360,6 +1390,16 @@
             "ENPP": 1.3613432867564177,
             "Voter Turnout (parliamentary)": 81.75
         },
+        "1990": {
+            "Liberal Democracy Index": 0.7601000000000001,
+            "Polyarchy Index": 0.8291,
+            "Participatory Democracy Index": 0.5135,
+            "Deliberative Democracy Index": 0.7313,
+            "Egalitarian Democracy Index": 0.5342,
+            "HHI": 42.07820484009418,
+            "ENPP": 2.376527239696193,
+            "Voter Turnout (parliamentary)": 89.13999999999999
+        },
         "2000": {
             "Liberal Democracy Index": 0.8253999999999999,
             "Polyarchy Index": 0.8838,
@@ -1369,6 +1409,16 @@
             "HHI": 100.0,
             "ENPP": 1.0,
             "Voter Turnout (parliamentary)": 87.48333333333333
+        },
+        "2010": {
+            "Liberal Democracy Index": 0.8311,
+            "Polyarchy Index": 0.8825999999999999,
+            "Participatory Democracy Index": 0.5815,
+            "Deliberative Democracy Index": 0.8002,
+            "Egalitarian Democracy Index": 0.6709,
+            "HHI": 19.756308157254516,
+            "ENPP": 5.061674438565588,
+            "Voter Turnout (parliamentary)": 47.94
         },
         "2020": {
             "Liberal Democracy Index": 0.7778,
@@ -1460,8 +1510,8 @@
             "Participatory Democracy Index": 0.2531,
             "Deliberative Democracy Index": 0.2959,
             "Egalitarian Democracy Index": 0.2798,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 79.46004577974122,
+            "ENPP": 1.3486069637132656,
             "Voter Turnout (parliamentary)": null
         },
         "2010": {
@@ -1564,9 +1614,19 @@
             "Participatory Democracy Index": 0.22333333333333333,
             "Deliberative Democracy Index": 0.14222222222222222,
             "Egalitarian Democracy Index": 0.30499999999999994,
-            "HHI": 26.738277119064392,
-            "ENPP": 3.739956750193901,
+            "HHI": 24.579024596641563,
+            "ENPP": 4.100152697765321,
             "Voter Turnout (parliamentary)": 76.31333333333333
+        },
+        "2000": {
+            "Liberal Democracy Index": 0.6326999999999999,
+            "Polyarchy Index": 0.775,
+            "Participatory Democracy Index": 0.48280000000000006,
+            "Deliberative Democracy Index": 0.5894,
+            "Egalitarian Democracy Index": 0.6414,
+            "HHI": 14.742523913511087,
+            "ENPP": 6.78309905323287,
+            "Voter Turnout (parliamentary)": 65.92666666666666
         },
         "2010": {
             "Liberal Democracy Index": 0.6871999999999999,
@@ -1577,6 +1637,16 @@
             "HHI": 38.7573394282159,
             "ENPP": 3.0564585290159347,
             "Voter Turnout (parliamentary)": 55.86
+        },
+        "2020": {
+            "Liberal Democracy Index": 0.6456,
+            "Polyarchy Index": 0.7486,
+            "Participatory Democracy Index": 0.512,
+            "Deliberative Democracy Index": 0.5494,
+            "Egalitarian Democracy Index": 0.5942,
+            "HHI": 18.004261243824555,
+            "ENPP": 5.554240668125159,
+            "Voter Turnout (parliamentary)": 54.599999999999994
         }
     },
     "Cyprus": {
@@ -1616,8 +1686,8 @@
             "Participatory Democracy Index": 0.5554,
             "Deliberative Democracy Index": 0.73,
             "Egalitarian Democracy Index": 0.6966,
-            "HHI": 94.58738750178568,
-            "ENPP": 1.0690828791961264,
+            "HHI": 80.12323633518203,
+            "ENPP": 1.753471307935717,
             "Voter Turnout (parliamentary)": 90.375
         },
         "2010": {
@@ -1626,8 +1696,8 @@
             "Participatory Democracy Index": 0.5740999999999999,
             "Deliberative Democracy Index": 0.7329,
             "Egalitarian Democracy Index": 0.734,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 60.56502829879767,
+            "ENPP": 2.9688264385081906,
             "Voter Turnout (parliamentary)": 72.72
         },
         "2020": {
@@ -1642,6 +1712,16 @@
         }
     },
     "Czechia": {
+        "1990": {
+            "Liberal Democracy Index": 0.8067000000000002,
+            "Polyarchy Index": 0.8822000000000001,
+            "Participatory Democracy Index": 0.5736,
+            "Deliberative Democracy Index": 0.7764,
+            "Egalitarian Democracy Index": 0.7984000000000001,
+            "HHI": 16.977464920085854,
+            "ENPP": 5.90299385189846,
+            "Voter Turnout (parliamentary)": 82.825
+        },
         "2000": {
             "Liberal Democracy Index": 0.8196999999999999,
             "Polyarchy Index": 0.8935,
@@ -1658,8 +1738,8 @@
             "Participatory Democracy Index": 0.5822,
             "Deliberative Democracy Index": 0.73,
             "Egalitarian Democracy Index": 0.7741,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 82.41079399464898,
+            "ENPP": 2.459204398583386,
             "Voter Turnout (parliamentary)": 60.97333333333333
         },
         "2020": {
@@ -1702,8 +1782,8 @@
             "Participatory Democracy Index": 0.6597500000000001,
             "Deliberative Democracy Index": 0.8402499999999999,
             "Egalitarian Democracy Index": 0.8097500000000001,
-            "HHI": 27.248822664118077,
-            "ENPP": 3.6698833279018133,
+            "HHI": 22.434912623231398,
+            "ENPP": 4.672464657682108,
             "Voter Turnout (parliamentary)": 86.035
         },
         "1950": {
@@ -1712,8 +1792,8 @@
             "Participatory Democracy Index": 0.6774,
             "Deliberative Democracy Index": 0.8402,
             "Egalitarian Democracy Index": 0.8147,
-            "HHI": 25.80875117974256,
-            "ENPP": 3.874654736432601,
+            "HHI": 23.90485433574017,
+            "ENPP": 4.209955730812655,
             "Voter Turnout (parliamentary)": 82.06
         },
         "1960": {
@@ -1722,8 +1802,8 @@
             "Participatory Democracy Index": 0.7168999999999999,
             "Deliberative Democracy Index": 0.8502,
             "Egalitarian Democracy Index": 0.8392,
-            "HHI": 24.64609227071673,
-            "ENPP": 4.102898615328236,
+            "HHI": 24.190839605243852,
+            "ENPP": 4.162924542543978,
             "Voter Turnout (parliamentary)": 87.31
         },
         "1970": {
@@ -1732,8 +1812,8 @@
             "Participatory Democracy Index": 0.7073,
             "Deliberative Democracy Index": 0.8633,
             "Egalitarian Democracy Index": 0.8697,
-            "HHI": 20.933729414020796,
-            "ENPP": 4.795609987253336,
+            "HHI": 17.707647373458716,
+            "ENPP": 5.921995283118914,
             "Voter Turnout (parliamentary)": 87.68599999999999
         },
         "1980": {
@@ -1742,8 +1822,8 @@
             "Participatory Democracy Index": 0.7109,
             "Deliberative Democracy Index": 0.8636999999999998,
             "Egalitarian Democracy Index": 0.8718999999999999,
-            "HHI": 18.7246232234142,
-            "ENPP": 5.343038529543737,
+            "HHI": 17.044284554810123,
+            "ENPP": 5.925982761852945,
             "Voter Turnout (parliamentary)": 87.1625
         },
         "1990": {
@@ -2094,8 +2174,8 @@
             "Participatory Democracy Index": 0.0498,
             "Deliberative Democracy Index": 0.0613,
             "Egalitarian Democracy Index": 0.1087,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 72.19888392647024,
+            "ENPP": 1.6261827433670963,
             "Voter Turnout (parliamentary)": 94.94
         },
         "2000": {
@@ -2136,8 +2216,8 @@
             "Participatory Democracy Index": 0.6386000000000001,
             "Deliberative Democracy Index": 0.8030999999999999,
             "Egalitarian Democracy Index": 0.799,
-            "HHI": 60.350900864329944,
-            "ENPP": 2.9152487138730168,
+            "HHI": 46.118334417008775,
+            "ENPP": 3.831730763973765,
             "Voter Turnout (parliamentary)": 63.81
         },
         "2020": {
@@ -2222,8 +2302,8 @@
             "Participatory Democracy Index": 0.5591,
             "Deliberative Democracy Index": 0.6778,
             "Egalitarian Democracy Index": 0.685,
-            "HHI": 20.021893521234638,
-            "ENPP": 4.996869981562907,
+            "HHI": 19.327263483487343,
+            "ENPP": 5.189498800680516,
             "Voter Turnout (parliamentary)": 76.49
         },
         "1960": {
@@ -2232,8 +2312,8 @@
             "Participatory Democracy Index": 0.5564,
             "Deliberative Democracy Index": 0.6538,
             "Egalitarian Democracy Index": 0.6928,
-            "HHI": 17.131883563751988,
-            "ENPP": 5.837069790246659,
+            "HHI": 17.2837318038431,
+            "ENPP": 5.7862341557163175,
             "Voter Turnout (parliamentary)": 85.015
         },
         "1970": {
@@ -2242,8 +2322,8 @@
             "Participatory Democracy Index": 0.5647,
             "Deliberative Democracy Index": 0.6622999999999999,
             "Egalitarian Democracy Index": 0.7456999999999999,
-            "HHI": 17.433613267745162,
-            "ENPP": 5.738735862060185,
+            "HHI": 16.724099466747447,
+            "ENPP": 6.016901784901476,
             "Voter Turnout (parliamentary)": 78.185
         },
         "1980": {
@@ -2272,8 +2352,8 @@
             "Participatory Democracy Index": 0.6314,
             "Deliberative Democracy Index": 0.8226999999999999,
             "Egalitarian Democracy Index": 0.8121,
-            "HHI": 17.718057836064183,
-            "ENPP": 5.643959452285747,
+            "HHI": 17.410081703834507,
+            "ENPP": 5.745596341106156,
             "Voter Turnout (parliamentary)": 65.865
         },
         "2010": {
@@ -2282,8 +2362,8 @@
             "Participatory Democracy Index": 0.6216,
             "Deliberative Democracy Index": 0.8118,
             "Egalitarian Democracy Index": 0.8140999999999999,
-            "HHI": 13.502100755520512,
-            "ENPP": 7.406254908823256,
+            "HHI": 13.865478374251884,
+            "ENPP": 7.214997974759577,
             "Voter Turnout (parliamentary)": 67.64999999999999
         }
     },
@@ -2304,8 +2384,8 @@
             "Participatory Democracy Index": 0.5005,
             "Deliberative Democracy Index": 0.5782999999999999,
             "Egalitarian Democracy Index": 0.5931,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 43.097853442964905,
+            "ENPP": 4.886473486054835,
             "Voter Turnout (parliamentary)": 77.7
         },
         "1960": {
@@ -2324,8 +2404,8 @@
             "Participatory Democracy Index": 0.6171000000000001,
             "Deliberative Democracy Index": 0.7506,
             "Egalitarian Democracy Index": 0.6999,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 58.72396702658658,
+            "ENPP": 3.365668786208347,
             "Voter Turnout (parliamentary)": 82.81
         },
         "1980": {
@@ -2337,6 +2417,16 @@
             "HHI": 49.09455520028912,
             "ENPP": 3.153224646588802,
             "Voter Turnout (parliamentary)": 71.782
+        },
+        "1990": {
+            "Liberal Democracy Index": 0.7979,
+            "Polyarchy Index": 0.8758,
+            "Participatory Democracy Index": 0.652,
+            "Deliberative Democracy Index": 0.8018,
+            "Egalitarian Democracy Index": 0.7611,
+            "HHI": 13.481849497173677,
+            "ENPP": 7.417977063003303,
+            "Voter Turnout (parliamentary)": 68.85750000000002
         },
         "2000": {
             "Liberal Democracy Index": 0.8019000000000001,
@@ -2354,8 +2444,8 @@
             "Participatory Democracy Index": 0.6355,
             "Deliberative Democracy Index": 0.8203999999999999,
             "Egalitarian Democracy Index": 0.7914,
-            "HHI": 69.1245266206282,
-            "ENPP": 1.8072218986604542,
+            "HHI": 51.93568157736555,
+            "ENPP": 3.103285352480033,
             "Voter Turnout (parliamentary)": 50.99
         },
         "2020": {
@@ -2418,8 +2508,8 @@
             "Participatory Democracy Index": 0.24489999999999998,
             "Deliberative Democracy Index": 0.3082,
             "Egalitarian Democracy Index": 0.3799,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 66.97757519211727,
+            "ENPP": 1.972530659832245,
             "Voter Turnout (parliamentary)": 59.126666666666665
         },
         "2010": {
@@ -2431,9 +2521,29 @@
             "HHI": 38.13553480867758,
             "ENPP": 2.6222262386430573,
             "Voter Turnout (parliamentary)": 55.849999999999994
+        },
+        "2020": {
+            "Liberal Democracy Index": 0.4344,
+            "Polyarchy Index": 0.5781999999999999,
+            "Participatory Democracy Index": 0.3554,
+            "Deliberative Democracy Index": 0.46819999999999995,
+            "Egalitarian Democracy Index": 0.4638,
+            "HHI": 28.325154113073168,
+            "ENPP": 3.5304309237225326,
+            "Voter Turnout (parliamentary)": 57.739999999999995
         }
     },
     "Germany": {
+        "1940": {
+            "Liberal Democracy Index": 0.753,
+            "Polyarchy Index": 0.802,
+            "Participatory Democracy Index": 0.558,
+            "Deliberative Democracy Index": 0.718,
+            "Egalitarian Democracy Index": 0.692,
+            "HHI": 18.262251841509713,
+            "ENPP": 5.47577598139908,
+            "Voter Turnout (parliamentary)": 78.49
+        },
         "1950": {
             "Liberal Democracy Index": 0.7811,
             "Polyarchy Index": 0.8265,
@@ -2454,14 +2564,24 @@
             "ENPP": 2.5317352727629268,
             "Voter Turnout (parliamentary)": 87.06
         },
+        "1970": {
+            "Liberal Democracy Index": 0.8156000000000001,
+            "Polyarchy Index": 0.8606,
+            "Participatory Democracy Index": 0.6171,
+            "Deliberative Democracy Index": 0.8226,
+            "Egalitarian Democracy Index": 0.7864,
+            "HHI": 36.153176510820536,
+            "ENPP": 2.766008678935039,
+            "Voter Turnout (parliamentary)": 90.93
+        },
         "1980": {
             "Liberal Democracy Index": 0.8267,
             "Polyarchy Index": 0.8696,
             "Participatory Democracy Index": 0.6260999999999999,
             "Deliberative Democracy Index": 0.8290000000000001,
             "Egalitarian Democracy Index": 0.7932,
-            "HHI": 60.17243361911491,
-            "ENPP": 1.9897635412821428,
+            "HHI": 52.88828117402523,
+            "ENPP": 2.2978434028857175,
             "Voter Turnout (parliamentary)": 87.33
         },
         "1990": {
@@ -2490,8 +2610,8 @@
             "Participatory Democracy Index": 0.6459,
             "Deliberative Democracy Index": 0.8589,
             "Egalitarian Democracy Index": 0.8271,
-            "HHI": 63.40710917750501,
-            "ENPP": 2.3646823613509467,
+            "HHI": 48.2208533199442,
+            "ENPP": 3.444042052152585,
             "Voter Turnout (parliamentary)": 73.84
         },
         "2020": {
@@ -2588,6 +2708,16 @@
             "ENPP": 2.2120040053270458,
             "Voter Turnout (parliamentary)": 82.2
         },
+        "1970": {
+            "Liberal Democracy Index": 0.3871,
+            "Polyarchy Index": 0.4492,
+            "Participatory Democracy Index": 0.28690000000000004,
+            "Deliberative Democracy Index": 0.3405,
+            "Egalitarian Democracy Index": 0.4173,
+            "HHI": 24.287638810357098,
+            "ENPP": 4.117320781193292,
+            "Voter Turnout (parliamentary)": 80.345
+        },
         "1980": {
             "Liberal Democracy Index": 0.7609,
             "Polyarchy Index": 0.8555,
@@ -2604,8 +2734,8 @@
             "Participatory Democracy Index": 0.5989000000000001,
             "Deliberative Democracy Index": 0.7535000000000001,
             "Egalitarian Democracy Index": 0.7969,
-            "HHI": 59.700381675660296,
-            "ENPP": 2.022507524511948,
+            "HHI": 52.63856559767491,
+            "ENPP": 2.3117144180748452,
             "Voter Turnout (parliamentary)": 79.64500000000001
         },
         "2000": {
@@ -2614,8 +2744,8 @@
             "Participatory Democracy Index": 0.6055999999999999,
             "Deliberative Democracy Index": 0.7727999999999999,
             "Egalitarian Democracy Index": 0.8086,
-            "HHI": 39.46087070614432,
-            "ENPP": 2.5498041851308937,
+            "HHI": 37.06904878096836,
+            "ENPP": 2.7486530228550534,
             "Voter Turnout (parliamentary)": 74.1625
         },
         "2010": {
@@ -2624,8 +2754,8 @@
             "Participatory Democracy Index": 0.6272,
             "Deliberative Democracy Index": 0.791,
             "Egalitarian Democracy Index": 0.7828999999999999,
-            "HHI": 51.388888888888886,
-            "ENPP": 1.945945945945946,
+            "HHI": 36.723039813048345,
+            "ENPP": 3.239807430529533,
             "Voter Turnout (parliamentary)": 61.39666666666667
         },
         "2020": {
@@ -2898,8 +3028,8 @@
             "Participatory Democracy Index": 0.6173000000000001,
             "Deliberative Democracy Index": 0.6587000000000001,
             "Egalitarian Democracy Index": 0.7203999999999999,
-            "HHI": 19.56843106168137,
-            "ENPP": 5.110271727191181,
+            "HHI": 18.746938889687076,
+            "ENPP": 5.344466628259267,
             "Voter Turnout (parliamentary)": 63.67666666666667
         },
         "2010": {
@@ -2908,8 +3038,8 @@
             "Participatory Democracy Index": 0.4459,
             "Deliberative Democracy Index": 0.3802,
             "Egalitarian Democracy Index": 0.49670000000000003,
-            "HHI": 65.11713923958493,
-            "ENPP": 2.153752049497325,
+            "HHI": 58.13290431984659,
+            "ENPP": 2.190589826171694,
             "Voter Turnout (parliamentary)": 65.29666666666667
         },
         "2020": {
@@ -2930,9 +3060,19 @@
             "Participatory Democracy Index": 0.59525,
             "Deliberative Democracy Index": 0.62675,
             "Egalitarian Democracy Index": 0.6727500000000001,
-            "HHI": 28.134299379999998,
-            "ENPP": 3.554380318817806,
+            "HHI": 25.189507940650028,
+            "ENPP": 4.024914916749722,
             "Voter Turnout (parliamentary)": 88.22
+        },
+        "1950": {
+            "Liberal Democracy Index": 0.6961,
+            "Polyarchy Index": 0.8053000000000001,
+            "Participatory Democracy Index": 0.5857999999999999,
+            "Deliberative Democracy Index": 0.6521,
+            "Egalitarian Democracy Index": 0.6856000000000001,
+            "HHI": 24.392306992499627,
+            "ENPP": 4.1490871071959745,
+            "Voter Turnout (parliamentary)": 90.86666666666666
         },
         "1960": {
             "Liberal Democracy Index": 0.7057999999999999,
@@ -2950,9 +3090,19 @@
             "Participatory Democracy Index": 0.5810000000000001,
             "Deliberative Democracy Index": 0.6495000000000001,
             "Egalitarian Democracy Index": 0.7258,
-            "HHI": 28.04694306995517,
-            "ENPP": 3.57022669813935,
+            "HHI": 25.770632527523578,
+            "ENPP": 3.9511434667616516,
             "Voter Turnout (parliamentary)": 90.3725
+        },
+        "1980": {
+            "Liberal Democracy Index": 0.7492000000000001,
+            "Polyarchy Index": 0.8517999999999999,
+            "Participatory Democracy Index": 0.6009000000000001,
+            "Deliberative Democracy Index": 0.6878000000000001,
+            "Egalitarian Democracy Index": 0.7629,
+            "HHI": 17.469675177995132,
+            "ENPP": 6.007499795967602,
+            "Voter Turnout (parliamentary)": 89.35
         },
         "1990": {
             "Liberal Democracy Index": 0.7777999999999999,
@@ -2960,8 +3110,8 @@
             "Participatory Democracy Index": 0.614,
             "Deliberative Democracy Index": 0.7366999999999999,
             "Egalitarian Democracy Index": 0.784,
-            "HHI": 26.45992872731906,
-            "ENPP": 3.8045907996601303,
+            "HHI": 24.790199930176318,
+            "ENPP": 4.090341641830631,
             "Voter Turnout (parliamentary)": 86.35666666666667
         },
         "2000": {
@@ -2973,6 +3123,16 @@
             "HHI": 24.63993082114556,
             "ENPP": 4.0584529528866105,
             "Voter Turnout (parliamentary)": 85.47333333333333
+        },
+        "2010": {
+            "Liberal Democracy Index": 0.7869,
+            "Polyarchy Index": 0.8676999999999999,
+            "Participatory Democracy Index": 0.6438,
+            "Deliberative Democracy Index": 0.7443999999999998,
+            "Egalitarian Democracy Index": 0.7992,
+            "HHI": 14.071501551704031,
+            "ENPP": 7.129350779345145,
+            "Voter Turnout (parliamentary)": 80.60666666666667
         },
         "2020": {
             "Liberal Democracy Index": 0.758,
@@ -3148,12 +3308,22 @@
             "Participatory Democracy Index": 0.2529,
             "Deliberative Democracy Index": 0.2839,
             "Egalitarian Democracy Index": 0.2164,
-            "HHI": 45.32194663544846,
-            "ENPP": 4.045795134993728,
+            "HHI": 38.70602041513469,
+            "ENPP": 4.360026673189465,
             "Voter Turnout (parliamentary)": 55.92666666666666
         }
     },
     "Ireland": {
+        "1940": {
+            "Liberal Democracy Index": 0.661,
+            "Polyarchy Index": 0.774,
+            "Participatory Democracy Index": 0.51075,
+            "Deliberative Democracy Index": 0.47874999999999995,
+            "Egalitarian Democracy Index": 0.58075,
+            "HHI": 24.816488776357517,
+            "ENPP": 4.029578918322613,
+            "Voter Turnout (parliamentary)": 74.25
+        },
         "1950": {
             "Liberal Democracy Index": 0.6749999999999999,
             "Polyarchy Index": 0.7840000000000001,
@@ -3190,8 +3360,8 @@
             "Participatory Democracy Index": 0.58,
             "Deliberative Democracy Index": 0.6469,
             "Egalitarian Democracy Index": 0.7105,
-            "HHI": 33.94252219247112,
-            "ENPP": 2.9892662406980763,
+            "HHI": 31.733868299962893,
+            "ENPP": 3.2131051561751027,
             "Voter Turnout (parliamentary)": 72.72999999999999
         },
         "1990": {
@@ -3236,6 +3406,36 @@
         }
     },
     "Israel": {
+        "1940": {
+            "Liberal Democracy Index": 0.39149999999999996,
+            "Polyarchy Index": 0.4325,
+            "Participatory Democracy Index": 0.283,
+            "Deliberative Democracy Index": 0.283,
+            "Egalitarian Democracy Index": 0.3385,
+            "HHI": 17.78967129745427,
+            "ENPP": 5.621239331966192,
+            "Voter Turnout (parliamentary)": 86.89
+        },
+        "1950": {
+            "Liberal Democracy Index": 0.5062,
+            "Polyarchy Index": 0.605,
+            "Participatory Democracy Index": 0.37,
+            "Deliberative Democracy Index": 0.3717,
+            "Egalitarian Democracy Index": 0.4377,
+            "HHI": 16.735701694389753,
+            "ENPP": 6.073319196025661,
+            "Voter Turnout (parliamentary)": 79.86
+        },
+        "1960": {
+            "Liberal Democracy Index": 0.5531,
+            "Polyarchy Index": 0.6516000000000001,
+            "Participatory Democracy Index": 0.4001,
+            "Deliberative Democracy Index": 0.4229,
+            "Egalitarian Democracy Index": 0.4778,
+            "HHI": 19.09219264608481,
+            "ENPP": 5.237743084501441,
+            "Voter Turnout (parliamentary)": 82.8
+        },
         "1970": {
             "Liberal Democracy Index": 0.6514000000000001,
             "Polyarchy Index": 0.7316,
@@ -3252,8 +3452,8 @@
             "Participatory Democracy Index": 0.49219999999999997,
             "Deliberative Democracy Index": 0.5981,
             "Egalitarian Democracy Index": 0.6096,
-            "HHI": 20.088983928451075,
-            "ENPP": 4.977852556214889,
+            "HHI": 20.471552583338926,
+            "ENPP": 4.88653389862646,
             "Voter Turnout (parliamentary)": 78.98
         },
         "1990": {
@@ -3262,9 +3462,39 @@
             "Participatory Democracy Index": 0.5105,
             "Deliberative Democracy Index": 0.6254,
             "Egalitarian Democracy Index": 0.6252,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 57.81273906517518,
+            "ENPP": 3.7095286645005876,
             "Voter Turnout (parliamentary)": 78.47666666666667
+        },
+        "2000": {
+            "Liberal Democracy Index": 0.6893,
+            "Polyarchy Index": 0.762,
+            "Participatory Democracy Index": 0.49299999999999994,
+            "Deliberative Democracy Index": 0.6201,
+            "Egalitarian Democracy Index": 0.6274,
+            "HHI": 11.569048338383206,
+            "ENPP": 8.81990455914719,
+            "Voter Turnout (parliamentary)": 64.5925
+        },
+        "2010": {
+            "Liberal Democracy Index": 0.6547000000000001,
+            "Polyarchy Index": 0.7352,
+            "Participatory Democracy Index": 0.4702,
+            "Deliberative Democracy Index": 0.5937999999999999,
+            "Egalitarian Democracy Index": 0.602,
+            "HHI": 8.61006384499862,
+            "ENPP": 11.614315735659451,
+            "Voter Turnout (parliamentary)": 69.6
+        },
+        "2020": {
+            "Liberal Democracy Index": 0.639,
+            "Polyarchy Index": 0.7257999999999999,
+            "Participatory Democracy Index": 0.472,
+            "Deliberative Democracy Index": 0.5871999999999999,
+            "Egalitarian Democracy Index": 0.5854,
+            "HHI": 14.231530865021625,
+            "ENPP": 7.522210265872918,
+            "Voter Turnout (parliamentary)": 69.86333333333333
         }
     },
     "Italy": {
@@ -3277,6 +3507,26 @@
             "HHI": 26.592365611986907,
             "ENPP": 3.7694391920047683,
             "Voter Turnout (parliamentary)": 93.795
+        },
+        "1960": {
+            "Liberal Democracy Index": 0.6189000000000001,
+            "Polyarchy Index": 0.7300000000000001,
+            "Participatory Democracy Index": 0.4553,
+            "Deliberative Democracy Index": 0.6481,
+            "Egalitarian Democracy Index": 0.606,
+            "HHI": 22.002957689981994,
+            "ENPP": 4.544844655159696,
+            "Voter Turnout (parliamentary)": 92.83500000000001
+        },
+        "1970": {
+            "Liberal Democracy Index": 0.6545000000000001,
+            "Polyarchy Index": 0.757,
+            "Participatory Democracy Index": 0.5199,
+            "Deliberative Democracy Index": 0.6879,
+            "Egalitarian Democracy Index": 0.6501,
+            "HHI": 23.8032664423383,
+            "ENPP": 4.2053580037538545,
+            "Voter Turnout (parliamentary)": 92.3
         },
         "1980": {
             "Liberal Democracy Index": 0.7207999999999999,
@@ -3314,8 +3564,8 @@
             "Participatory Democracy Index": 0.6821,
             "Deliberative Democracy Index": 0.8031000000000001,
             "Egalitarian Democracy Index": 0.7921,
-            "HHI": 75.93852355757117,
-            "ENPP": 1.4649326580362971,
+            "HHI": 63.77863872920176,
+            "ENPP": 2.4930286724110777,
             "Voter Turnout (parliamentary)": 74.06
         },
         "2020": {
@@ -3420,8 +3670,8 @@
             "Participatory Democracy Index": 0.5367,
             "Deliberative Democracy Index": 0.7147,
             "Egalitarian Democracy Index": 0.7515,
-            "HHI": 37.665435553218245,
-            "ENPP": 2.6869742330998565,
+            "HHI": 37.74188876306549,
+            "ENPP": 2.673623565717238,
             "Voter Turnout (parliamentary)": 71.78
         },
         "1970": {
@@ -3450,9 +3700,29 @@
             "Participatory Democracy Index": 0.555,
             "Deliberative Democracy Index": 0.7457,
             "Egalitarian Democracy Index": 0.7636000000000001,
-            "HHI": 33.20190987049124,
-            "ENPP": 3.011874930992349,
+            "HHI": 24.689312455964497,
+            "ENPP": 4.596799848366963,
             "Voter Turnout (parliamentary)": 66.66
+        },
+        "2000": {
+            "Liberal Democracy Index": 0.7742,
+            "Polyarchy Index": 0.8492,
+            "Participatory Democracy Index": 0.5592,
+            "Deliberative Democracy Index": 0.7535000000000001,
+            "Egalitarian Democracy Index": 0.7701,
+            "HHI": 22.289266874553423,
+            "ENPP": 4.662831905706379,
+            "Voter Turnout (parliamentary)": 64.2875
+        },
+        "2010": {
+            "Liberal Democracy Index": 0.7603000000000002,
+            "Polyarchy Index": 0.8361000000000001,
+            "Participatory Democracy Index": 0.5461,
+            "Deliberative Democracy Index": 0.7416,
+            "Egalitarian Democracy Index": 0.7588000000000001,
+            "HHI": 19.460873467883264,
+            "ENPP": 5.138515502144975,
+            "Voter Turnout (parliamentary)": 55.22
         },
         "2020": {
             "Liberal Democracy Index": 0.74,
@@ -3674,8 +3944,8 @@
             "Participatory Democracy Index": 0.5806,
             "Deliberative Democracy Index": 0.6308,
             "Egalitarian Democracy Index": 0.6666,
-            "HHI": 79.69345374180766,
-            "ENPP": 1.3419364152577713,
+            "HHI": 57.37282287015891,
+            "ENPP": 3.512789716346614,
             "Voter Turnout (parliamentary)": 66.075
         },
         "2020": {
@@ -3834,8 +4104,8 @@
             "Participatory Democracy Index": 0.6163,
             "Deliberative Democracy Index": 0.6995,
             "Egalitarian Democracy Index": 0.7374999999999999,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 55.39977960502401,
+            "ENPP": 5.129818590510576,
             "Voter Turnout (parliamentary)": 51.785
         },
         "2020": {
@@ -3906,8 +4176,8 @@
             "Participatory Democracy Index": 0.5925999999999999,
             "Deliberative Democracy Index": 0.8012,
             "Egalitarian Democracy Index": 0.8189,
-            "HHI": 22.16130153029764,
-            "ENPP": 4.512370352584474,
+            "HHI": 20.8794349941734,
+            "ENPP": 4.807522098881931,
             "Voter Turnout (parliamentary)": 87.405
         },
         "2000": {
@@ -3916,8 +4186,8 @@
             "Participatory Democracy Index": 0.6162,
             "Deliberative Democracy Index": 0.8131999999999999,
             "Egalitarian Democracy Index": 0.8207,
-            "HHI": 24.84916408471285,
-            "ENPP": 4.024280239733287,
+            "HHI": 22.558287514874266,
+            "ENPP": 4.4791547837325805,
             "Voter Turnout (parliamentary)": 91.305
         },
         "2010": {
@@ -3926,8 +4196,8 @@
             "Participatory Democracy Index": 0.6346,
             "Deliberative Democracy Index": 0.8249,
             "Egalitarian Democracy Index": 0.8251,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 59.78244993191539,
+            "ENPP": 3.055597030804842,
             "Voter Turnout (parliamentary)": 90.405
         }
     },
@@ -4232,8 +4502,8 @@
             "Participatory Democracy Index": 0.4416,
             "Deliberative Democracy Index": 0.6421,
             "Egalitarian Democracy Index": 0.5449,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 70.11370009533508,
+            "ENPP": 1.7429339147697742,
             "Voter Turnout (parliamentary)": 87.34666666666668
         },
         "1990": {
@@ -4324,9 +4594,19 @@
             "Participatory Democracy Index": 0.2844,
             "Deliberative Democracy Index": 0.3321,
             "Egalitarian Democracy Index": 0.2379,
-            "HHI": 38.187247052381956,
-            "ENPP": 2.6186752834743143,
+            "HHI": 39.268088195257626,
+            "ENPP": 2.5485278958573723,
             "Voter Turnout (parliamentary)": 65.51
+        },
+        "2000": {
+            "Liberal Democracy Index": 0.4835,
+            "Polyarchy Index": 0.6746,
+            "Participatory Democracy Index": 0.4205,
+            "Deliberative Democracy Index": 0.5378999999999999,
+            "Egalitarian Democracy Index": 0.34700000000000003,
+            "HHI": 24.85073729641065,
+            "ENPP": 4.026063087278867,
+            "Voter Turnout (parliamentary)": 50.607499999999995
         },
         "2010": {
             "Liberal Democracy Index": 0.4443,
@@ -4334,8 +4614,8 @@
             "Participatory Democracy Index": 0.40180000000000005,
             "Deliberative Democracy Index": 0.5014000000000001,
             "Egalitarian Democracy Index": 0.34190000000000004,
-            "HHI": 23.05046750048186,
-            "ENPP": 4.338306804315771,
+            "HHI": 19.368005567865424,
+            "ENPP": 5.332166076637016,
             "Voter Turnout (parliamentary)": 57.79333333333334
         }
     },
@@ -4349,6 +4629,16 @@
             "HHI": 100.0,
             "ENPP": 1.0,
             "Voter Turnout (parliamentary)": 74.215
+        },
+        "2010": {
+            "Liberal Democracy Index": 0.48039999999999994,
+            "Polyarchy Index": 0.5850000000000001,
+            "Participatory Democracy Index": 0.38249999999999995,
+            "Deliberative Democracy Index": 0.43389999999999995,
+            "Egalitarian Democracy Index": 0.4377,
+            "HHI": 17.490524354204247,
+            "ENPP": 5.717381478958503,
+            "Voter Turnout (parliamentary)": 57.05
         }
     },
     "Mongolia": {
@@ -4580,8 +4870,8 @@
             "Participatory Democracy Index": 0.46799999999999997,
             "Deliberative Democracy Index": 0.61375,
             "Egalitarian Democracy Index": 0.6105,
-            "HHI": 21.282438544781144,
-            "ENPP": 4.698709679794748,
+            "HHI": 20.00056364782424,
+            "ENPP": 5.020482110907916,
             "Voter Turnout (parliamentary)": 93.39500000000001
         },
         "1950": {
@@ -4630,8 +4920,8 @@
             "Participatory Democracy Index": 0.5833,
             "Deliberative Democracy Index": 0.7903,
             "Egalitarian Democracy Index": 0.7835,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 58.87268881670623,
+            "ENPP": 3.3176351629652507,
             "Voter Turnout (parliamentary)": 75.99000000000001
         },
         "2000": {
@@ -4640,8 +4930,8 @@
             "Participatory Democracy Index": 0.5951,
             "Deliberative Democracy Index": 0.7880000000000001,
             "Egalitarian Democracy Index": 0.7917000000000001,
-            "HHI": 60.52393609790086,
-            "ENPP": 2.875537039319974,
+            "HHI": 37.301479934074045,
+            "ENPP": 4.989218231561139,
             "Voter Turnout (parliamentary)": 79.81666666666666
         },
         "2010": {
@@ -4650,9 +4940,19 @@
             "Participatory Democracy Index": 0.6133,
             "Deliberative Democracy Index": 0.807,
             "Egalitarian Democracy Index": 0.8006000000000001,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 41.33366589577716,
+            "ENPP": 5.912496390383231,
             "Voter Turnout (parliamentary)": 77.29666666666667
+        },
+        "2020": {
+            "Liberal Democracy Index": 0.7928000000000001,
+            "Polyarchy Index": 0.8474,
+            "Participatory Democracy Index": 0.5773999999999999,
+            "Deliberative Democracy Index": 0.7876000000000001,
+            "Egalitarian Democracy Index": 0.7582000000000001,
+            "HHI": 10.278194066634612,
+            "ENPP": 9.729335654852349,
+            "Voter Turnout (parliamentary)": 78.225
         }
     },
     "New Zealand": {
@@ -4702,8 +5002,8 @@
             "Participatory Democracy Index": 0.6193,
             "Deliberative Democracy Index": 0.6426000000000001,
             "Egalitarian Democracy Index": 0.7296,
-            "HHI": 39.51929319901393,
-            "ENPP": 2.575125259148833,
+            "HHI": 35.464173071011494,
+            "ENPP": 2.935343987365241,
             "Voter Turnout (parliamentary)": 91.40333333333332
         },
         "1990": {
@@ -4712,8 +5012,8 @@
             "Participatory Democracy Index": 0.678,
             "Deliberative Democracy Index": 0.6992999999999999,
             "Egalitarian Democracy Index": 0.7494,
-            "HHI": 36.080949300204225,
-            "ENPP": 2.884575034386768,
+            "HHI": 28.957216576444168,
+            "ENPP": 3.7577965413574574,
             "Voter Turnout (parliamentary)": 85.8725
         },
         "2000": {
@@ -4722,8 +5022,8 @@
             "Participatory Democracy Index": 0.6938,
             "Deliberative Democracy Index": 0.7692,
             "Egalitarian Democracy Index": 0.7807000000000001,
-            "HHI": 37.106998808899306,
-            "ENPP": 2.701163662417107,
+            "HHI": 31.381720473938074,
+            "ENPP": 3.473198602889062,
             "Voter Turnout (parliamentary)": 78.91
         },
         "2010": {
@@ -4732,8 +5032,8 @@
             "Participatory Democracy Index": 0.6890999999999999,
             "Deliberative Democracy Index": 0.7657,
             "Egalitarian Democracy Index": 0.7875000000000001,
-            "HHI": 33.08976389117674,
-            "ENPP": 3.0335577037483183,
+            "HHI": 31.50304795890609,
+            "ENPP": 3.1989967600098232,
             "Voter Turnout (parliamentary)": 76.97
         },
         "2020": {
@@ -4852,6 +5152,16 @@
             "ENPP": 2.428863492323104,
             "Voter Turnout (parliamentary)": 79.52
         },
+        "1970": {
+            "Liberal Democracy Index": 0.0964,
+            "Polyarchy Index": 0.1926,
+            "Participatory Democracy Index": 0.14919999999999997,
+            "Deliberative Democracy Index": 0.0622,
+            "Egalitarian Democracy Index": 0.0968,
+            "HHI": 23.902977362824917,
+            "ENPP": 4.183579245467759,
+            "Voter Turnout (parliamentary)": 32.34
+        },
         "1990": {
             "Liberal Democracy Index": 0.11829999999999999,
             "Polyarchy Index": 0.2237,
@@ -4926,6 +5236,16 @@
         }
     },
     "Norway": {
+        "1940": {
+            "Liberal Democracy Index": 0.70075,
+            "Polyarchy Index": 0.779,
+            "Participatory Democracy Index": 0.54575,
+            "Deliberative Democracy Index": 0.7205,
+            "Egalitarian Democracy Index": 0.65825,
+            "HHI": 23.057924814563165,
+            "ENPP": 4.3840633091862955,
+            "Voter Turnout (parliamentary)": 79.19
+        },
         "1950": {
             "Liberal Democracy Index": 0.728,
             "Polyarchy Index": 0.7958999999999999,
@@ -4942,8 +5262,8 @@
             "Participatory Democracy Index": 0.5879000000000001,
             "Deliberative Democracy Index": 0.7979000000000002,
             "Egalitarian Democracy Index": 0.7574,
-            "HHI": 30.030737067609934,
-            "ENPP": 3.331488880790176,
+            "HHI": 28.084726393721937,
+            "ENPP": 3.5988183933622033,
             "Voter Turnout (parliamentary)": 82.78
         },
         "1970": {
@@ -4952,8 +5272,8 @@
             "Participatory Democracy Index": 0.6205999999999999,
             "Deliberative Democracy Index": 0.8124,
             "Egalitarian Democracy Index": 0.7979,
-            "HHI": 28.73751210997489,
-            "ENPP": 3.4797723483268985,
+            "HHI": 24.202749879386452,
+            "ENPP": 4.282088299405056,
             "Voter Turnout (parliamentary)": 81.565
         },
         "1980": {
@@ -4966,14 +5286,24 @@
             "ENPP": 4.07185139193047,
             "Voter Turnout (parliamentary)": 83.06
         },
+        "1990": {
+            "Liberal Democracy Index": 0.8470999999999999,
+            "Polyarchy Index": 0.8814,
+            "Participatory Democracy Index": 0.6512,
+            "Deliberative Democracy Index": 0.8529999999999999,
+            "Egalitarian Democracy Index": 0.8403999999999999,
+            "HHI": 17.783468893582793,
+            "ENPP": 5.629314049734502,
+            "Voter Turnout (parliamentary)": 77.09
+        },
         "2000": {
             "Liberal Democracy Index": 0.8597,
             "Polyarchy Index": 0.8929,
             "Participatory Democracy Index": 0.6527000000000001,
             "Deliberative Democracy Index": 0.8650999999999999,
             "Egalitarian Democracy Index": 0.8533,
-            "HHI": 20.838609891004463,
-            "ENPP": 4.798784588945525,
+            "HHI": 17.904730194391913,
+            "ENPP": 5.739215907527781,
             "Voter Turnout (parliamentary)": 76.43
         },
         "2010": {
@@ -5198,6 +5528,16 @@
         }
     },
     "Peru": {
+        "1950": {
+            "Liberal Democracy Index": 0.1206,
+            "Polyarchy Index": 0.2249,
+            "Participatory Democracy Index": 0.0903,
+            "Deliberative Democracy Index": 0.0929,
+            "Egalitarian Democracy Index": 0.049,
+            "HHI": 36.25673942882194,
+            "ENPP": 2.758107915255777,
+            "Voter Turnout (parliamentary)": 84.04
+        },
         "1960": {
             "Liberal Democracy Index": 0.2396,
             "Polyarchy Index": 0.3297,
@@ -5322,14 +5662,24 @@
             "ENPP": 1.245312898500009,
             "Voter Turnout (parliamentary)": 79.94666666666667
         },
+        "1990": {
+            "Liberal Democracy Index": 0.7886,
+            "Polyarchy Index": 0.8657999999999999,
+            "Participatory Democracy Index": 0.6016,
+            "Deliberative Democracy Index": 0.745,
+            "Egalitarian Democracy Index": 0.7576,
+            "HHI": 11.783333372885323,
+            "ENPP": 8.48656291352245,
+            "Voter Turnout (parliamentary)": 47.736666666666665
+        },
         "2000": {
             "Liberal Democracy Index": 0.8129000000000001,
             "Polyarchy Index": 0.8812,
             "Participatory Democracy Index": 0.6428,
             "Deliberative Democracy Index": 0.7332,
             "Egalitarian Democracy Index": 0.7774000000000001,
-            "HHI": 52.21829113192276,
-            "ENPP": 1.9178400964788613,
+            "HHI": 39.669764423124406,
+            "ENPP": 3.5659404508986077,
             "Voter Turnout (parliamentary)": 46.876666666666665
         },
         "2010": {
@@ -5338,20 +5688,30 @@
             "Participatory Democracy Index": 0.5682000000000001,
             "Deliberative Democracy Index": 0.6368,
             "Egalitarian Democracy Index": 0.7245,
-            "HHI": 61.59122085048012,
-            "ENPP": 1.6236080178173715,
+            "HHI": 42.424553460581336,
+            "ENPP": 2.9616124587414023,
             "Voter Turnout (parliamentary)": 53.86
         }
     },
     "Portugal": {
+        "1970": {
+            "Liberal Democracy Index": 0.3286,
+            "Polyarchy Index": 0.3884,
+            "Participatory Democracy Index": 0.2268,
+            "Deliberative Democracy Index": 0.2994,
+            "Egalitarian Democracy Index": 0.339,
+            "HHI": 22.147028064817555,
+            "ENPP": 4.6592682504838505,
+            "Voter Turnout (parliamentary)": 87.51333333333334
+        },
         "1980": {
             "Liberal Democracy Index": 0.8001999999999999,
             "Polyarchy Index": 0.8594,
             "Participatory Democracy Index": 0.5630000000000001,
             "Deliberative Democracy Index": 0.7343999999999999,
             "Egalitarian Democracy Index": 0.7618999999999999,
-            "HHI": 27.53688099852529,
-            "ENPP": 3.6314933417969666,
+            "HHI": 24.755196243542347,
+            "ENPP": 4.245279871512043,
             "Voter Turnout (parliamentary)": 78.025
         },
         "1990": {
@@ -5370,8 +5730,8 @@
             "Participatory Democracy Index": 0.6379000000000001,
             "Deliberative Democracy Index": 0.7998999999999999,
             "Egalitarian Democracy Index": 0.7985,
-            "HHI": 33.28216922193153,
-            "ENPP": 3.0046118488606286,
+            "HHI": 28.14724044858388,
+            "ENPP": 3.6750559160708973,
             "Voter Turnout (parliamentary)": 62.26
         },
         "2010": {
@@ -5380,8 +5740,8 @@
             "Participatory Democracy Index": 0.6422000000000001,
             "Deliberative Democracy Index": 0.827,
             "Egalitarian Democracy Index": 0.8024,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 50.131588125245024,
+            "ENPP": 2.9831556916173168,
             "Voter Turnout (parliamentary)": 54.14666666666667
         }
     },
@@ -5408,6 +5768,16 @@
         }
     },
     "Romania": {
+        "1990": {
+            "Liberal Democracy Index": 0.3879,
+            "Polyarchy Index": 0.5705,
+            "Participatory Democracy Index": 0.3526,
+            "Deliberative Democracy Index": 0.3546,
+            "Egalitarian Democracy Index": 0.46,
+            "HHI": 12.976101231543662,
+            "ENPP": 7.706475020163187,
+            "Voter Turnout (parliamentary)": 77.33
+        },
         "2000": {
             "Liberal Democracy Index": 0.45749999999999996,
             "Polyarchy Index": 0.6105,
@@ -5424,8 +5794,8 @@
             "Participatory Democracy Index": 0.4822000000000001,
             "Deliberative Democracy Index": 0.44910000000000005,
             "Egalitarian Democracy Index": 0.5324000000000001,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 73.81302214201493,
+            "ENPP": 2.2214607360968084,
             "Voter Turnout (parliamentary)": 39.775
         },
         "2020": {
@@ -5446,8 +5816,8 @@
             "Participatory Democracy Index": 0.26389999999999997,
             "Deliberative Democracy Index": 0.34400000000000003,
             "Egalitarian Democracy Index": 0.3065,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 55.08330383555985,
+            "ENPP": 5.418061325611597,
             "Voter Turnout (parliamentary)": 59.02
         },
         "2000": {
@@ -5466,8 +5836,8 @@
             "Participatory Democracy Index": 0.16060000000000002,
             "Deliberative Democracy Index": 0.1563,
             "Egalitarian Democracy Index": 0.2077,
-            "HHI": 63.51999999999999,
-            "ENPP": 1.5743073047858944,
+            "HHI": 45.9411428543503,
+            "ENPP": 2.550058113392071,
             "Voter Turnout (parliamentary)": 53.99
         }
     },
@@ -5574,9 +5944,19 @@
             "Participatory Democracy Index": 0.3158,
             "Deliberative Democracy Index": 0.34529999999999994,
             "Egalitarian Democracy Index": 0.37429999999999997,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 61.671846936745595,
+            "ENPP": 2.6419060869702116,
             "Voter Turnout (parliamentary)": 55.64333333333333
+        },
+        "2020": {
+            "Liberal Democracy Index": 0.241,
+            "Polyarchy Index": 0.3444,
+            "Participatory Democracy Index": 0.23420000000000002,
+            "Deliberative Democracy Index": 0.20520000000000002,
+            "Egalitarian Democracy Index": 0.3026,
+            "HHI": 21.959837103492326,
+            "ENPP": 4.553767841205741,
+            "Voter Turnout (parliamentary)": 55.410000000000004
         }
     },
     "Seychelles": {
@@ -5712,8 +6092,8 @@
             "Participatory Democracy Index": 0.6461,
             "Deliberative Democracy Index": 0.6842,
             "Egalitarian Democracy Index": 0.6797,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 55.40669244515674,
+            "ENPP": 5.123899038754229,
             "Voter Turnout (parliamentary)": 62.37
         },
         "2010": {
@@ -5722,8 +6102,8 @@
             "Participatory Democracy Index": 0.6404000000000001,
             "Deliberative Democracy Index": 0.6695,
             "Egalitarian Democracy Index": 0.6775000000000001,
-            "HHI": 36.41859213409711,
-            "ENPP": 2.8274449310690457,
+            "HHI": 25.348498623165327,
+            "ENPP": 4.936612171219236,
             "Voter Turnout (parliamentary)": 59.25666666666667
         },
         "2020": {
@@ -5738,6 +6118,16 @@
         }
     },
     "Slovenia": {
+        "1990": {
+            "Liberal Democracy Index": 0.7347999999999999,
+            "Polyarchy Index": 0.8221999999999998,
+            "Participatory Democracy Index": 0.6096000000000001,
+            "Deliberative Democracy Index": 0.7249,
+            "Egalitarian Democracy Index": 0.738,
+            "HHI": 16.31638394221766,
+            "ENPP": 6.1288089538795445,
+            "Voter Turnout (parliamentary)": 79.785
+        },
         "2000": {
             "Liberal Democracy Index": 0.7505,
             "Polyarchy Index": 0.8382,
@@ -5754,8 +6144,8 @@
             "Participatory Democracy Index": 0.6842,
             "Deliberative Democracy Index": 0.7484999999999999,
             "Egalitarian Democracy Index": 0.7686000000000001,
-            "HHI": 50.0,
-            "ENPP": 2.0,
+            "HHI": 30.76031438013419,
+            "ENPP": 5.340040898847193,
             "Voter Turnout (parliamentary)": 56.656666666666666
         },
         "2020": {
@@ -5840,9 +6230,19 @@
             "Participatory Democracy Index": 0.332,
             "Deliberative Democracy Index": 0.43739999999999996,
             "Egalitarian Democracy Index": 0.2707,
-            "HHI": 65.99878023893834,
-            "ENPP": 1.5151795175299532,
+            "HHI": 54.993800404968255,
+            "ENPP": 1.8942421934284557,
             "Voter Turnout (parliamentary)": 88.075
+        },
+        "2000": {
+            "Liberal Democracy Index": 0.6392,
+            "Polyarchy Index": 0.7569999999999999,
+            "Participatory Democracy Index": 0.5226,
+            "Deliberative Democracy Index": 0.665,
+            "Egalitarian Democracy Index": 0.5122,
+            "HHI": 35.74139168185496,
+            "ENPP": 2.7978765038063025,
+            "Voter Turnout (parliamentary)": 77.015
         },
         "2010": {
             "Liberal Democracy Index": 0.6440999999999999,
@@ -5892,8 +6292,8 @@
             "Participatory Democracy Index": 0.43529999999999996,
             "Deliberative Democracy Index": 0.6218999999999999,
             "Egalitarian Democracy Index": 0.6080000000000001,
-            "HHI": 37.01341955647411,
-            "ENPP": 2.701722812922556,
+            "HHI": 32.00807807475615,
+            "ENPP": 3.2025255823393235,
             "Voter Turnout (parliamentary)": 67.88499999999999
         },
         "2000": {
@@ -5938,14 +6338,24 @@
             "ENPP": 3.767213444031982,
             "Voter Turnout (parliamentary)": 72.54499999999999
         },
+        "1980": {
+            "Liberal Democracy Index": 0.8032,
+            "Polyarchy Index": 0.8848999999999999,
+            "Participatory Democracy Index": 0.6477999999999999,
+            "Deliberative Democracy Index": 0.794,
+            "Egalitarian Democracy Index": 0.7902000000000001,
+            "HHI": 24.10817936536708,
+            "ENPP": 4.147969802466972,
+            "Voter Turnout (parliamentary)": 73.40333333333334
+        },
         "1990": {
             "Liberal Democracy Index": 0.8193,
             "Polyarchy Index": 0.8936999999999999,
             "Participatory Democracy Index": 0.6515999999999998,
             "Deliberative Democracy Index": 0.8038000000000001,
             "Egalitarian Democracy Index": 0.8096,
-            "HHI": 65.94788018659837,
-            "ENPP": 2.0676064597606194,
+            "HHI": 53.321473220502384,
+            "ENPP": 2.565968450235721,
             "Voter Turnout (parliamentary)": 77.555
         },
         "2000": {
@@ -5954,8 +6364,8 @@
             "Participatory Democracy Index": 0.6316,
             "Deliberative Democracy Index": 0.7931000000000001,
             "Egalitarian Democracy Index": 0.806,
-            "HHI": 69.47793893006641,
-            "ENPP": 1.7835033567853347,
+            "HHI": 57.00369609793637,
+            "ENPP": 2.228874785326249,
             "Voter Turnout (parliamentary)": 73.22999999999999
         },
         "2010": {
@@ -5964,8 +6374,8 @@
             "Participatory Democracy Index": 0.6223,
             "Deliberative Democracy Index": 0.7695000000000001,
             "Egalitarian Democracy Index": 0.7717,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 46.915496063496626,
+            "ENPP": 3.7509052430006298,
             "Voter Turnout (parliamentary)": 70.935
         }
     },
@@ -6130,8 +6540,8 @@
             "Participatory Democracy Index": 0.5009,
             "Deliberative Democracy Index": 0.6233,
             "Egalitarian Democracy Index": 0.578,
-            "HHI": 28.69510480037928,
-            "ENPP": 3.4849149600833047,
+            "HHI": 26.614628154444883,
+            "ENPP": 3.7804329927736022,
             "Voter Turnout (parliamentary)": 58.265
         },
         "2010": {
@@ -6212,8 +6622,8 @@
             "Participatory Democracy Index": 0.6837000000000001,
             "Deliberative Democracy Index": 0.8827,
             "Egalitarian Democracy Index": 0.8734,
-            "HHI": 28.66729567664453,
-            "ENPP": 3.4882955521148364,
+            "HHI": 24.313113258662405,
+            "ENPP": 4.249291984387959,
             "Voter Turnout (parliamentary)": 84.98333333333332
         },
         "2000": {
@@ -6232,8 +6642,8 @@
             "Participatory Democracy Index": 0.6643000000000001,
             "Deliberative Democracy Index": 0.8676999999999999,
             "Egalitarian Democracy Index": 0.8524,
-            "HHI": 17.814565925585388,
-            "ENPP": 5.61338403740612,
+            "HHI": 16.952734486312124,
+            "ENPP": 5.9140378186146,
             "Voter Turnout (parliamentary)": 85.87333333333333
         },
         "2020": {
@@ -6274,8 +6684,8 @@
             "Participatory Democracy Index": 0.5339,
             "Deliberative Democracy Index": 0.5922,
             "Egalitarian Democracy Index": 0.5282,
-            "HHI": 19.41051642367074,
-            "ENPP": 5.151846443304929,
+            "HHI": 19.491055303429732,
+            "ENPP": 5.130646129352448,
             "Voter Turnout (parliamentary)": 65.91499999999999
         },
         "1970": {
@@ -6304,8 +6714,8 @@
             "Participatory Democracy Index": 0.7863,
             "Deliberative Democracy Index": 0.8521,
             "Egalitarian Democracy Index": 0.8113,
-            "HHI": 17.407393646932157,
-            "ENPP": 5.792541479947802,
+            "HHI": 15.938544943670061,
+            "ENPP": 6.425629727875625,
             "Voter Turnout (parliamentary)": 43.85666666666666
         },
         "2000": {
@@ -6324,8 +6734,8 @@
             "Participatory Democracy Index": 0.8039000000000001,
             "Deliberative Democracy Index": 0.8741,
             "Egalitarian Democracy Index": 0.8350000000000001,
-            "HHI": 16.501946350061957,
-            "ENPP": 6.0598912321409015,
+            "HHI": 15.557972821221346,
+            "ENPP": 6.447444367489091,
             "Voter Turnout (parliamentary)": 47.71
         }
     },
@@ -6768,8 +7178,8 @@
             "Participatory Democracy Index": 0.24280000000000002,
             "Deliberative Democracy Index": 0.2837,
             "Egalitarian Democracy Index": 0.2816,
-            "HHI": 39.56373519159094,
-            "ENPP": 2.5275672156772107,
+            "HHI": 32.029856015305896,
+            "ENPP": 3.304935113189171,
             "Voter Turnout (parliamentary)": 72.88
         },
         "1970": {
@@ -6778,9 +7188,29 @@
             "Participatory Democracy Index": 0.3313,
             "Deliberative Democracy Index": 0.3831,
             "Egalitarian Democracy Index": 0.3495,
-            "HHI": 36.657080015722684,
-            "ENPP": 2.7279859704348723,
+            "HHI": 30.00461937719191,
+            "ENPP": 3.505122658048132,
             "Voter Turnout (parliamentary)": 68.615
+        },
+        "1980": {
+            "Liberal Democracy Index": 0.2249,
+            "Polyarchy Index": 0.3357,
+            "Participatory Democracy Index": 0.2195,
+            "Deliberative Democracy Index": 0.2381,
+            "Egalitarian Democracy Index": 0.22469999999999998,
+            "HHI": 22.485486126704338,
+            "ENPP": 4.447313232923056,
+            "Voter Turnout (parliamentary)": 92.775
+        },
+        "1990": {
+            "Liberal Democracy Index": 0.3824,
+            "Polyarchy Index": 0.5436,
+            "Participatory Democracy Index": 0.33809999999999996,
+            "Deliberative Democracy Index": 0.4217000000000001,
+            "Egalitarian Democracy Index": 0.3334,
+            "HHI": 15.576444656615635,
+            "ENPP": 6.419950264935969,
+            "Voter Turnout (parliamentary)": 85.40333333333334
         },
         "2000": {
             "Liberal Democracy Index": 0.46629999999999994,
@@ -6791,6 +7221,16 @@
             "HHI": 27.534406418411418,
             "ENPP": 3.6824385427468584,
             "Voter Turnout (parliamentary)": 81.695
+        },
+        "2010": {
+            "Liberal Democracy Index": 0.23389999999999997,
+            "Polyarchy Index": 0.4037,
+            "Participatory Democracy Index": 0.2767,
+            "Deliberative Democracy Index": 0.1984,
+            "Egalitarian Democracy Index": 0.3049,
+            "HHI": 23.31172659082291,
+            "ENPP": 4.28968654940243,
+            "Voter Turnout (parliamentary)": 84.86999999999999
         },
         "2020": {
             "Liberal Democracy Index": 0.1154,
@@ -6852,8 +7292,8 @@
             "Participatory Democracy Index": 0.2865,
             "Deliberative Democracy Index": 0.34419999999999995,
             "Egalitarian Democracy Index": 0.31329999999999997,
-            "HHI": 100.0,
-            "ENPP": 1.0,
+            "HHI": 59.69834249837517,
+            "ENPP": 3.0777600661338176,
             "Voter Turnout (parliamentary)": 52.626666666666665
         }
     },
@@ -6884,8 +7324,8 @@
             "Participatory Democracy Index": 0.5424,
             "Deliberative Democracy Index": 0.6912,
             "Egalitarian Democracy Index": 0.6669,
-            "HHI": 42.652046574979806,
-            "ENPP": 2.3445533809076626,
+            "HHI": 37.310405612958924,
+            "ENPP": 2.7363033441560374,
             "Voter Turnout (parliamentary)": 76.565
         },
         "1970": {
@@ -6904,8 +7344,8 @@
             "Participatory Democracy Index": 0.5675999999999999,
             "Deliberative Democracy Index": 0.6722,
             "Egalitarian Democracy Index": 0.6505000000000001,
-            "HHI": 66.3746391615063,
-            "ENPP": 2.026751200647542,
+            "HHI": 53.04394960847934,
+            "ENPP": 2.614627876699803,
             "Voter Turnout (parliamentary)": 74.11500000000001
         },
         "1990": {
@@ -6966,8 +7406,8 @@
             "Participatory Democracy Index": 0.4592,
             "Deliberative Democracy Index": 0.5988,
             "Egalitarian Democracy Index": 0.41819999999999996,
-            "HHI": 50.51531429379036,
-            "ENPP": 1.9795977001828253,
+            "HHI": 45.31788626041282,
+            "ENPP": 2.2360458325425596,
             "Voter Turnout (parliamentary)": 89.66
         },
         "1970": {
@@ -7234,8 +7674,8 @@
             "Participatory Democracy Index": 0.3388,
             "Deliberative Democracy Index": 0.2534,
             "Egalitarian Democracy Index": 0.3382,
-            "HHI": 49.42857142857141,
-            "ENPP": 2.0231213872832376,
+            "HHI": 66.9045143184286,
+            "ENPP": 1.6041149609950107,
             "Voter Turnout (parliamentary)": 40.655
         },
         "2010": {
