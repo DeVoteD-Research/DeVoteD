@@ -884,19 +884,11 @@
 
     selectElement.forEach((item) => {
       item.addEventListener('change', (event) => {
-        var radios = document.getElementsByName('graph_type');
-
-        for (var i = 0, length = radios.length; i < length; i++) {
-          if (radios[i].checked) {
-            graph = radios[i].value;
-            break;
-          }
-        }
 
         var nation = document.getElementById('nation').value
         var predicate_1 = document.getElementById('predicate_1').value
         var predicate_2 = document.getElementById('predicate_2').value
-        updateChart(graph, nation, predicate_1, predicate_2)
+        updateChart('bar', nation, predicate_1, predicate_2)
       });
     });
     
