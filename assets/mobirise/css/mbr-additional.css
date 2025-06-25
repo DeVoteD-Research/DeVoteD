@@ -622,11 +622,20 @@ a.text-black:focus {
   cursor: pointer;
 }
 a {
-  color: #ffb300;
+  color: #ffffff;
 }
+
+.home-link {
+  color: #003399; 
+}
+
+.home-link:hover {
+  color: #000000; 
+}
+
 .mbr-plan-header.bg-primary .mbr-plan-subtitle,
 .mbr-plan-header.bg-primary .mbr-plan-price-desc {
-  color: #fff5cc;
+  color: C;
 }
 .mbr-plan-header.bg-success .mbr-plan-subtitle,
 .mbr-plan-header.bg-success .mbr-plan-price-desc {
