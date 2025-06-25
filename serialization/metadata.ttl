@@ -30,16 +30,6 @@
     cc:requires cc:Attribution,
         cc:Notice .
 
-<https://dataverse.harvard.edu/dataverse/partyfacts> a dcat3:Catalog ;
-    dct:description "Party Facts links datasets on political parties and provides an online platform about parties and their history as recorded in social science datasets." ;
-    dct:issued "2019"^^xsd:gYear ;
-    dct:language <http://lexvo.org/id/iso639-1/en> ;
-    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
-    dct:modified "2023"^^xsd:gYear ;
-    dct:publisher <http://viaf.org/viaf/261806653> ;
-    dct:title "Sage Publicatins, Inc." ;
-    dcat3:dataset <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ> .
-
 <https://github.com/DeVoteD-Research/DeVoteD/19002024> a dct:PeriodOfTime ;
     dcat3:endDate "2024"^^xsd:gYear ;
     dcat3:startDate "1900"^^xsd:gYear .
@@ -57,8 +47,8 @@
     dct:title "DeVoteD - Datasets Catalog"@en ;
     adms:identifier "DeVoteD-Catalog"^^xsd:string ;
     prov:wasAttributedTo <https://github.com/DeVoteD-Research/DeVoteD> ;
-    dcat3:catalog <https://dataverse.harvard.edu/dataverse/partyfacts>,
-        <https://manifesto-project.wzb.eu/information/documents/information>,
+    dcat3:catalog <https://manifesto-project.wzb.eu/information/documents/information>,
+        <https://partyfacts.herokuapp.com/documentation/>,
         <https://v-dem.net/about/v-dem-project/>,
         <https://www.idea.int/data-tools> ;
     dcat3:distribution <https://github.com/DeVoteD-Research/DeVoteD/tree/main/data> ;
@@ -80,6 +70,16 @@
     dct:title "Wissenschaftszentrum Berlin für Sozialforschung" ;
     dcat3:dataset <https://manifesto-project.wzb.eu/datasets/MPDS2024a> .
 
+<https://partyfacts.herokuapp.com/documentation/> a dcat3:Catalog ;
+    dct:description "Party Facts links datasets on political parties and provides an online platform about parties and their history as recorded in social science datasets." ;
+    dct:issued "2019"^^xsd:gYear ;
+    dct:language <http://lexvo.org/id/iso639-1/en> ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dct:modified "2025"^^xsd:gYear ;
+    dct:publisher <http://viaf.org/viaf/261806653> ;
+    dct:title "Sage Publicatins, Inc." ;
+    dcat3:dataset <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ> .
+
 <https://v-dem.net/about/v-dem-project/> a dcat3:Catalog ;
     dct:description "Varieties of Democracy (V-Dem) is a unique approach to conceptualizing and measuring democracy. We provide a multidimensional and disaggregated dataset that reflects the complexity of the concept of democracy as a system of rule that goes beyond the simple presence of elections. The V-Dem project distinguishes between five high-level principles of democracy: electoral, liberal, participatory, deliberative, and egalitarian, and collects data to measure these principles." ;
     dct:issued "2014"^^xsd:gYear ;
@@ -91,6 +91,7 @@
 
 <https://www.idea.int/data-tools> a dcat3:Catalog ;
     dct:description "The International Institute for Democracy and Electoral Assistance (International IDEA) is an intergovernmental organization that supports democracy worldwide." ;
+    dct:issued "1999"^^xsd:gYear ;
     dct:language <http://lexvo.org/id/iso639-1/en> ;
     dct:publisher <http://viaf.org/viaf/129505852> ;
     dct:title "International Institute for Democracy and Electoral Assistance" ;
@@ -114,7 +115,7 @@
 <http://viaf.org/viaf/261806653> a vcard:Group,
         foaf:Organization ;
     skos:prefLabel "Sage Publicatins, Inc." ;
-    vcard:hasEmail <mailto:doering@uni-bremen.de> .
+    vcard:hasEmail <mailto:paul.bederke@uni-konstanz.de> .
 
 <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ> a dcat3:Dataset,
         dcat3:Distribution ;

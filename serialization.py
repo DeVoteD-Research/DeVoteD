@@ -66,7 +66,7 @@ datasets = [
         "distribution": "https://www.idea.int/data-tools/data/voter-turnout-database",
         "description": "The most comprehensive global collection of voter turnout statistics from presidential and parliamentary elections since 1945.",
         "theme": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
-        "issued": "",
+        "issued": "1999",
         "modified": "",
         "license": "",
         "language": "http://lexvo.org/id/iso639-1/en",
@@ -78,7 +78,7 @@ datasets = [
     },
     {
         "catalog": {
-            "url": "https://dataverse.harvard.edu/dataverse/partyfacts", 
+            "url": "https://partyfacts.herokuapp.com/documentation/", 
             "description": "Party Facts links datasets on political parties and provides an online platform about parties and their history as recorded in social science datasets."
         },
         "id": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TJINLQ",
@@ -87,14 +87,14 @@ datasets = [
         "description": "Party Facts links datasets on political parties.",
         "theme": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
         "issued": "2019",
-        "modified": "2023",
+        "modified": "2025",
         "license": "https://creativecommons.org/publicdomain/zero/1.0/",
         "language": "http://lexvo.org/id/iso639-1/en",
         "keywords": "democracy, parties, social sciences, politics, global, international",
         "version": "1.1",
         "publisher": {"url": "http://viaf.org/viaf/261806653", "label": "Sage Publicatins, Inc."},
         "temporal coverage": {"label": "19452024", "start": "1945", "end": "2024"},
-        "contact": "mailto:doering@uni-bremen.de"
+        "contact": "mailto:paul.bederke@uni-konstanz.de"
     },
     {
         "catalog": {
