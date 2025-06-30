@@ -309,6 +309,14 @@
                         <span id="minValue">0</span>
                         <span id="maxValue">0.9</span>
                       </div>
+                        <br><br>
+                      <h6><b>Legend</b></h6>
+                      <br>
+                      <p><strong>V-dem Democracy Indices</strong>: intended to measure how democratic a certain nation is according to different aspects (liberal status, egalitarian policies etc.), aggregating lower-level indices. See the documentation for more details or visit the <a href="https://www.v-dem.net/data/reference-documents/" style="color:burlywood">V-dem project website</a>.</p>
+                      <p><strong>HHI</strong>: the Herfindahl-Hirschman Index is a widely used concentration index, both in political studies and economics. In this case, it is a percentage value measuring how concentrated the votes were over all relevant registered parties for an election event.</p>
+                      <p><strong>ENPP</strong>: the Effective Number of Political Parties is simply the inverse of the HHI (1/HHI). It provides a quick estimate of how many relevant parties partecipated in an election event</p>
+                      <p><strong>Voter Turnout</strong>: percentage of registered voters that partecipated in the election event.</p>
+                      
                     </div>
                   </div>
 
@@ -326,15 +334,14 @@
 
         <div class="container">
           <div class="row">
-            <div class="col-9">
+            <div class="col-8">
               <canvas id="chart"></canvas>
             </div>
-            <div class="col-3">
-              <h3>Bar Chart Visualisation</h3>
+            <div class="col-4 controls">
 
               <p>
                 <label for="nation"><b>Nation:</b></label><br />
-                <select class="graph_data" id="nation" name="nation">
+                <select class="graph_data" id="nation" name="nation" style="width:100%; padding:10px; border:2px solid #e1e8ed; border-radius:8px; background:white; font-size:14px; cursor:pointer;">
                   <!-- Filtered options based on the provided list -->
                   <option value="Albania">Albania</option>
                   <option value="Angola">Angola</option>
@@ -429,7 +436,7 @@
 
               <p>
                 <label for="predicate_1"><b>First Variable:</b></label><br />
-                <select class="graph_data" id="predicate_1" name="predicate_1">
+                <select class="graph_data" id="predicate_1" name="predicate_1" style="width:100%; padding:10px; border:2px solid #e1e8ed; border-radius:8px; background:white; font-size:14px; cursor:pointer;">
                   <option value="Liberal Democracy Index" selected>Mean Liberal Democracy Index</option>
                   <option value="Polyarchy Index">Mean Polyarchy Index</option>
                   <option value="Participatory Democracy Index">Mean Participatory Democracy Index</option>
@@ -443,7 +450,7 @@
 
               <p>
                 <label for="predicate_2"><b>Second Variable:</b></label><br />
-                <select class="graph_data" id="predicate_2" name="predicate_2">
+                <select class="graph_data" id="predicate_2" name="predicate_2" style="width:100%; padding:10px; border:2px solid #e1e8ed; border-radius:8px; background:white; font-size:14px; cursor:pointer;">
                   <option value="Liberal Democracy Index">Mean Liberal Democracy Index</option>
                   <option value="Polyarchy Index">Mean Polyarchy Index</option>
                   <option value="Participatory Democracy Index">Mean Participatory Democracy Index</option>
@@ -454,7 +461,15 @@
                   <option value="Voter Turnout (parliamentary)">Mean Voter Turnout (parliamentary)</option>
                 </select>
               </p>
+                <br><br>
               <div>
+                  <h6><b>Legend</b></h6>
+                      <br>
+                      <p><strong>V-dem Democracy Indices</strong>: intended to measure how democratic a certain nation is according to different aspects (liberal status, egalitarian policies etc.), aggregating lower-level indices. See the documentation for more details or visit the <a href="https://www.v-dem.net/data/reference-documents/" style="color:burlywood">V-dem project website</a>.</p>
+                      <p><strong>HHI</strong>: the Herfindahl-Hirschman Index is a widely used concentration index, both in political studies and economics. In this case, it is a percentage value measuring how concentrated the votes were over all relevant registered parties for an election event.</p>
+                      <p><strong>ENPP</strong>: the Effective Number of Political Parties is simply the inverse of the HHI (1/HHI). It provides a quick estimate of how many relevant parties partecipated in an election event</p>
+                      <p><strong>Voter Turnout</strong>: percentage of registered voters that partecipated in the election event.</p>
+
               </div>
             </div>
           </div>
