@@ -473,21 +473,17 @@ enhanced data on vote shares of different parties across countries. The resultin
               measures include <strong>Duplicate Row Filter</strong> and <strong>Column Filter</strong> nodes to eliminate redundancy, useless data and ensure clean
               output datasets for analysis. <br> <br>
 
-              The workflow performs <strong>correlation analysis</strong> through dedicated <strong>Linear Correlation nodes</strong> (#82, #92) to
+              The workflow performs <strong>correlation analysis</strong> through dedicated <strong>Linear Correlation nodes</strong> to
               identify relationships between voter turnout and vote concentration metrics across different countries and
               time periods. Data transformation includes <strong>Math Formula nodes</strong> for statistical calculations, <strong>GroupBy
               operations</strong> for data aggregation, and <strong>Date_Time Part Extractor</strong> for temporal analysis of historical voting
               patterns. <br> <br>
 
-              Multiple <strong>Joiner nodes</strong> (#83, #84, #93, #94) orchestrate the merging of processed datasets, while a
-              <strong>Concatenate node</strong> (#121) handles vertical dataset combination operations. The workflow supports multiple
+              Multiple <strong>Joiner nodes</strong> orchestrate the merging of processed datasets, while a
+              <strong>Concatenate node</strong> handles vertical dataset combination operations. The workflow supports multiple
               output formats including <strong>JSON export</strong> through <strong>Table to JSON</strong> and <strong>JSON Row Combiner and Writer nodes</strong>, and <strong>CSV
-              export</strong> through <strong>CSV Writer</strong> (#95) for tabular data output. The final results are <strong>linear correlation
+              export</strong> through <strong>CSV Writer</strong> for tabular data output, as in the case of the correlation matrix. The final results are <strong>linear correlation
               estimates</strong> representing the primary analytical output of the DeVoteD project. <br><br>
-
-              The workflow includes <strong>comprehensive metadata documentation</strong> (workflow.knime, workflow-metadata.xml,
-              workflow.svg) with creation timestamps, modification history, and visual representations of the node graph
-              structure for documentation and maintenance purposes. <br><br>
             </p>
           </div>
           <div id="metadata" class="anchor">
